@@ -1,0 +1,140 @@
+[gd_scene load_steps=15 format=3 uid="uid://6dsagn6g274f"]
+
+[ext_resource type="Texture2D" uid="uid://dakj0a3074s3i" path="res://sprites/icon.svg" id="1_4af28"]
+[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/background.png" id="1_41o5l"]
+[ext_resource type="Script" path="res://scripts/Label.gd" id="2_x25kr"]
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="2_yau0q"]
+[ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="3_leo3c"]
+[ext_resource type="Script" path="res://scripts/AIController2D.gd" id="3_owfjh"]
+[ext_resource type="Script" path="res://scripts/Target.gd" id="4_11300"]
+[ext_resource type="Texture2D" uid="uid://bxg7m74nd1sks" path="res://sprites/enemy1.png" id="4_dcx13"]
+[ext_resource type="Script" path="res://addons/godot_rl_agents/sync.gd" id="5_j1nqc"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="6_q6nmx"]
+[ext_resource type="Texture2D" uid="uid://chby54871saqc" path="res://sprites/apple1.png" id="7_vmkjv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd4wx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elfmk"]
+size = Vector2(20, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6ipn"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1.48925, 25.625)
+scale = Vector2(0.293019, 0.236561)
+texture = ExtResource("1_41o5l")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, 70)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Label" type="Label" parent="Camera2D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -98.0
+offset_top = -81.0
+offset_right = 3846.0
+offset_bottom = 937.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 900
+text = "000000"
+horizontal_alignment = 1
+script = ExtResource("2_x25kr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 0.337255)
+position = Vector2(0, 20)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_4af28")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(300, 0)
+texture = ExtResource("1_4af28")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(600, 0)
+texture = ExtResource("1_4af28")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-300, 0)
+texture = ExtResource("1_4af28")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-600, 0)
+texture = ExtResource("1_4af28")
+
+[node name="Target" type="Area2D" parent="."]
+position = Vector2(0, 20)
+script = ExtResource("4_11300")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+shape = SubResource("RectangleShape2D_qd4wx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Target"]
+position = Vector2(-7.38026e-07, -1.11759e-07)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_vmkjv")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(0, 20)
+script = ExtResource("2_yau0q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+position = Vector2(0, 1.09973e-06)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("4_dcx13")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("RectangleShape2D_elfmk")
+
+[node name="AIController2D" type="Node2D" parent="Enemy"]
+script = ExtResource("3_owfjh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 170)
+scale = Vector2(18, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, 48)
+build_mode = 1
+polygon = PackedVector2Array(17, -9, 16.8333, -97, 22.5, 9, -23.0556, 15, -16.8333, -93, -16.7778, -8)
+
+[node name="Sync" type="Node" parent="."]
+script = ExtResource("5_j1nqc")
+onnx_model_path = "modelfinal.onnx"
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(0, 179.99)
+scale = Vector2(2, 2)
+script = ExtResource("6_q6nmx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_4af28")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 5.56499)
+shape = SubResource("RectangleShape2D_elfmk")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+shape = SubResource("RectangleShape2D_m6ipn")
+
+[connection signal="body_entered" from="Target" to="Enemy" method="_on_target_body_entered"]
+[connection signal="body_exited" from="Target" to="Enemy" method="_on_target_body_exited"]

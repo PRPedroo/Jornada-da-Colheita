@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="ProjetoEX"
-run/main_scene="res://Scene1.tscn"
+run/main_scene="res://scenes/Scene1.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://sprites/icon.svg"
 
 [display]
 
