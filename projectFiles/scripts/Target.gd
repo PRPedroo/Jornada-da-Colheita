@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var character = $"../Enemy"
+@onready var anim = $AnimationPlayer
 
 var rng = RandomNumberGenerator.new()
 
@@ -14,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	anim.play("target")
 
 func randomizePosX():
 	lastPos = position

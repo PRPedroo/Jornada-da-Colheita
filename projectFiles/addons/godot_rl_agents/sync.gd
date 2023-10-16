@@ -1,8 +1,9 @@
 extends Node
+
 # --fixed-fps 2000 --disable-render-loop
 @export_range(1, 10, 1, "or_greater") var action_repeat := 8
 @export_range(1, 10, 1, "or_greater") var speed_up = 1
-@export var onnx_model_path := ""
+@export var onnx_model_path = ""
 
 @onready var start_time = Time.get_ticks_msec()
 
@@ -25,17 +26,22 @@ var n_action_steps = 0
 var _action_space : Dictionary
 var _obs_space : Dictionary
 
+@onready var loading_screen = $"../LoadingScreen"
+
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	await get_tree().root.ready
 	get_tree().set_pause(true) 
+	await get_tree().create_timer(1.0).timeout
 	_initialize()
 	await get_tree().create_timer(1.0).timeout
 	get_tree().set_pause(false) 
+	loading_screen.visible = false
 	
 func _initialize():
+	print(agents)
 	_get_agents()
+	print(agents)
 	_obs_space = agents[0].get_obs_space()
 	_action_space = agents[0].get_action_space()
 	args = _get_args()
@@ -62,7 +68,7 @@ func _initialize():
 	_set_action_repeat()
 	initialized = true  
 
-func _physics_process(delta): 
+func _physics_process(delta):
 	# two modes, human control, agent control
 	# pause tree, send obs, get actions, set actions, unpause tree
 	if n_action_steps % action_repeat != 0:

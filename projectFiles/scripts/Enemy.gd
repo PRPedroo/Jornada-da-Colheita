@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var passo = 90
 var moving = false
-var vel = 60 # 50 ~ 70
+var vel = 50 # 50 ~ 70
 
 var apple = preload("res://objects/apple.tscn")
 var time = 0
@@ -11,6 +11,7 @@ var rng = RandomNumberGenerator.new()
 
 @onready var target = $"../Target"
 @onready var ai_controller = $AIController2D
+@onready var anim = $AnimationPlayer
 
 
 func _process(delta):
@@ -22,13 +23,16 @@ func _process(delta):
 
 
 func _ready():
+	print("cm")
 	randomizePosX()
 
 func _physics_process(delta):
 	animeVerif2()
 	playerStop()
+	anim.play("enemy")
 	
-	#Input.is_action_just_pressed("ui_left")
+	#@onready var sprite_2d = $Sprite2D
+
 	
 	if ai_controller.move < 0:
 		moveL()

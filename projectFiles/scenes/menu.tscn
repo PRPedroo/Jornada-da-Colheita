@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsu7ffngm01r"]
 
-[ext_resource type="Script" path="res://scenes/menu.gd" id="1_d5x6y"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_drfeb"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/background.png" id="1_yx6mt"]
 [ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="2_kjrcq"]
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_d5x6y")
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_drfeb")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(-34, 311)
@@ -42,14 +42,82 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = 80.0
-offset_right = 56.0
-offset_bottom = 143.0
+offset_left = -240.0
+offset_top = 70.0
+offset_right = -160.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_kjrcq")
 theme_override_font_sizes/font_size = 25
 text = "Fase 1"
 
+[node name="Button2" type="Button" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = 70.0
+offset_right = -60.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 25
+text = "Fase 2"
+
+[node name="Button3" type="Button" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 70.0
+offset_right = 40.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(40, 40)
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 25
+text = "Fase 3"
+
+[node name="Button4" type="Button" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 70.0
+offset_right = 140.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(40, 40)
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 25
+text = "Fase 4"
+
+[node name="Button5" type="Button" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = 70.0
+offset_right = 240.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(40, 40)
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 25
+text = "Fase 5"
+
 [connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Camera2D/Button2" to="." method="_on_button_2_pressed"]
