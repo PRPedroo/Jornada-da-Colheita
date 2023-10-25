@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsu7ffngm01r"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_drfeb"]
-[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/background.png" id="1_yx6mt"]
+[ext_resource type="Script" path="res://scripts/menu/menu.gd" id="1_gfudd"]
 [ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="2_kjrcq"]
+[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_med0r"]
 
 [node name="Menu" type="Node2D"]
-script = ExtResource("1_drfeb")
+script = ExtResource("1_gfudd")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(-34, 311)
-scale = Vector2(0.469798, 0.469798)
-texture = ExtResource("1_yx6mt")
+position = Vector2(9, 265)
+scale = Vector2(0.531431, 0.531431)
+texture = ExtResource("2_med0r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, 70)
@@ -27,7 +27,7 @@ offset_right = 11213.0
 offset_bottom = 958.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
-size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
@@ -120,4 +120,3 @@ theme_override_font_sizes/font_size = 25
 text = "Fase 5"
 
 [connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Camera2D/Button2" to="." method="_on_button_2_pressed"]
