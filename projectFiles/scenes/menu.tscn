@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsu7ffngm01r"]
+[gd_scene load_steps=5 format=3 uid="uid://dsu7ffngm01r"]
 
 [ext_resource type="Script" path="res://scripts/menu/menu.gd" id="1_gfudd"]
 [ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="2_kjrcq"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_med0r"]
+[ext_resource type="Texture2D" uid="uid://ppknd2s6jlml" path="res://sprites/scene1/icon.png" id="4_atmt3"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_gfudd")
@@ -17,7 +18,7 @@ offset = Vector2(0, 70)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
-[node name="Label" type="Label" parent="Camera2D"]
+[node name="Title" type="Label" parent="Camera2D"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -36,87 +37,268 @@ theme_override_font_sizes/font_size = 900
 text = "Projeto EX"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="Camera2D"]
+[node name="Instructions" type="Label" parent="Camera2D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -277.0
+offset_top = 209.0
+offset_right = 11223.0
+offset_bottom = 647.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 255
+text = "F  -  Tela  cheia   |   ESC  -  Pausar   jogo"
+vertical_alignment = 1
+
+[node name="ButtonF1" type="Button" parent="Camera2D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -240.0
-offset_top = 70.0
-offset_right = -160.0
-offset_bottom = 150.0
+offset_left = -190.0
+offset_top = 36.0
+offset_right = -110.0
+offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_kjrcq")
 theme_override_font_sizes/font_size = 25
-text = "Fase 1"
 
-[node name="Button2" type="Button" parent="Camera2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -140.0
-offset_top = 70.0
-offset_right = -60.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_kjrcq")
-theme_override_font_sizes/font_size = 25
-text = "Fase 2"
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonF1"]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 97.0
+offset_bottom = 97.0
+texture = ExtResource("4_atmt3")
+expand_mode = 1
 
-[node name="Button3" type="Button" parent="Camera2D"]
+[node name="ButtonH1" type="Button" parent="Camera2D/ButtonF1"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -40.0
-offset_top = 70.0
+offset_top = 47.0
 offset_right = 40.0
-offset_bottom = 150.0
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(40, 40)
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 25
+
+[node name="Title" type="Label" parent="Camera2D/ButtonF1/ButtonH1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.0
+offset_top = -9.0
+offset_right = 2984.0
+offset_bottom = 1009.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 255
+text = "Como  jogar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonF2" type="Button" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 36.0
+offset_right = -10.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 25
+text = "Fase 2"
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonF2"]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 97.0
+offset_bottom = 97.0
+expand_mode = 1
+
+[node name="ButtonF2" type="Button" parent="Camera2D/ButtonF2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 47.0
+offset_right = 40.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 25
+
+[node name="Title" type="Label" parent="Camera2D/ButtonF2/ButtonF2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.0
+offset_top = -9.0
+offset_right = 2984.0
+offset_bottom = 1009.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 255
+text = "Como  jogar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonF3" type="Button" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = 36.0
+offset_right = 90.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_kjrcq")
 theme_override_font_sizes/font_size = 25
 text = "Fase 3"
 
-[node name="Button4" type="Button" parent="Camera2D"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonF3"]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 97.0
+offset_bottom = 97.0
+expand_mode = 1
+
+[node name="ButtonF2" type="Button" parent="Camera2D/ButtonF3"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 60.0
-offset_top = 70.0
-offset_right = 140.0
-offset_bottom = 150.0
+offset_left = -40.0
+offset_top = 47.0
+offset_right = 40.0
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(40, 40)
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 25
+
+[node name="Title" type="Label" parent="Camera2D/ButtonF3/ButtonF2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.0
+offset_top = -9.0
+offset_right = 2984.0
+offset_bottom = 1009.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 255
+text = "Como  jogar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonF4" type="Button" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 110.0
+offset_top = 36.0
+offset_right = 190.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_kjrcq")
 theme_override_font_sizes/font_size = 25
 text = "Fase 4"
 
-[node name="Button5" type="Button" parent="Camera2D"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonF4"]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 97.0
+offset_bottom = 97.0
+expand_mode = 1
+
+[node name="ButtonF2" type="Button" parent="Camera2D/ButtonF4"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 160.0
-offset_top = 70.0
-offset_right = 240.0
-offset_bottom = 150.0
+offset_left = -40.0
+offset_top = 47.0
+offset_right = 40.0
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(40, 40)
 theme_override_fonts/font = ExtResource("2_kjrcq")
 theme_override_font_sizes/font_size = 25
-text = "Fase 5"
 
-[connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
+[node name="Title" type="Label" parent="Camera2D/ButtonF4/ButtonF2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.0
+offset_top = -9.0
+offset_right = 2984.0
+offset_bottom = 1009.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 255
+text = "Como  jogar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Camera2D/ButtonF1" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Camera2D/ButtonF1/ButtonH1" to="." method="_on_button_h_1_pressed"]

@@ -8,9 +8,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	get_parent().position.y += 0.5
-	if get_parent().position.y >= 230:
-		get_parent().queue_free()
+	if !get_parent().get_parent().get_parent().pause:
+		get_parent().position.y += 0.5 # 0.5 ~ 1.5
+		if get_parent().position.y >= 230:
+			get_parent().queue_free()
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):

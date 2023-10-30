@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 var passo = 90
 var moving = false
-var vel = 50 # 50 ~ 70
+var vel = 55 # 50 ~ 65
 
-var apple = preload("res://objects/apple.tscn")
+var apple = preload("res://objects/scene1/apple.tscn")
 var time = 0
 
 var rng = RandomNumberGenerator.new()
@@ -17,7 +17,7 @@ var rng = RandomNumberGenerator.new()
 
 
 func _process(delta):
-	if !fase_1.end:
+	if !fase_1.pause:
 		time += delta
 		if time >= 10:
 			ai_controller.reward -= 2
@@ -31,7 +31,7 @@ func _ready():
 	anim.play("enemy")
 
 func _physics_process(delta):
-	if !fase_1.end:
+	if !fase_1.pause:
 		animeVerif()
 		playerStop()
 		

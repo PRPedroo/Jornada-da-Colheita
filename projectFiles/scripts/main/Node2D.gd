@@ -2,6 +2,7 @@ extends Node2D
 
 var telaMenu = preload("res://scenes/menu.tscn")
 var telaFase1 = preload("res://scenes/Scene1.tscn")
+var telaFase1Ajuda = preload("res://scenes/Scene1Help.tscn")
 
 var instance
 
@@ -36,5 +37,10 @@ func switchScenes(scene):
 		for _i in self.get_children():
 			_i.queue_free()
 		instance = telaFase1.instantiate()
+		self.add_child(instance)
+	if scene == 11:
+		for _i in self.get_children():
+			_i.queue_free()
+		instance = telaFase1Ajuda.instantiate()
 		self.add_child(instance)
 	

@@ -1,0 +1,217 @@
+[gd_scene load_steps=11 format=3 uid="uid://1jwgtrbmuqs6"]
+
+[ext_resource type="Script" path="res://scenes/Scene1Help.gd" id="1_bapmn"]
+[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_7atkl"]
+[ext_resource type="Texture2D" uid="uid://c6d5iqmrwofme" path="res://sprites/scene1/playerSpriteSheet.png" id="4_33uph"]
+[ext_resource type="Script" path="res://scenes/PlayerHelp.gd" id="5_00bsx"]
+[ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="13_r4fpb"]
+[ext_resource type="Texture2D" uid="uid://chby54871saqc" path="res://sprites/scene1/apple1.png" id="14_sceps"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohdw3"]
+size = Vector2(41, 16)
+
+[sub_resource type="Animation" id="Animation_yao5d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_via51"]
+resource_name = "player"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_olwu4"]
+_data = {
+"RESET": SubResource("Animation_yao5d"),
+"player": SubResource("Animation_via51")
+}
+
+[node name="Scene1Help" type="Node2D"]
+script = ExtResource("1_bapmn")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1.48925, 27.625)
+scale = Vector2(0.293019, 0.236561)
+texture = ExtResource("2_7atkl")
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(0, 160)
+script = ExtResource("5_00bsx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("4_33uph")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1.5, 14)
+shape = SubResource("RectangleShape2D_ohdw3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_olwu4")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, 70)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="PauseLabel" type="Label" parent="Camera2D"]
+layout_direction = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -207.0
+offset_top = -56.0
+offset_right = 8133.0
+offset_bottom = 562.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("13_r4fpb")
+theme_override_font_sizes/font_size = 545
+text = "Mova o mouse
+e pegue as       "
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Pause" type="Control" parent="Camera2D"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -290.0
+offset_top = -92.0
+offset_right = 288.0
+offset_bottom = 232.0
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -7.0
+offset_right = 594.0
+offset_bottom = 333.0
+color = Color(0.0235294, 0, 0.0392157, 0.345098)
+
+[node name="ColorRect2" type="ColorRect" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 33.0
+offset_right = 458.0
+offset_bottom = 286.0
+color = Color(1, 1, 1, 0.219608)
+
+[node name="PauseLabel" type="Label" parent="Camera2D/Pause"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.0
+offset_top = 108.0
+offset_right = 6925.0
+offset_bottom = 726.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("13_r4fpb")
+theme_override_font_sizes/font_size = 545
+text = "Jogo pausado!"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 208.0
+offset_right = 259.0
+offset_bottom = 268.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="MenuLabel" type="Label" parent="Camera2D/Pause/Resume"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_top = 16.0
+offset_right = 2515.0
+offset_bottom = 634.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("13_r4fpb")
+theme_override_font_sizes/font_size = 425
+text = "Continuar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 208.0
+offset_right = 434.0
+offset_bottom = 268.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="MenuLabel" type="Label" parent="Camera2D/Pause/Menu"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 16.0
+offset_right = 1735.0
+offset_bottom = 634.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("13_r4fpb")
+theme_override_font_sizes/font_size = 545
+text = "Sair"
+horizontal_alignment = 1
+
+[node name="Apple1" type="Sprite2D" parent="Camera2D"]
+position = Vector2(69, -11)
+scale = Vector2(0.0533708, 0.0533708)
+texture = ExtResource("14_sceps")
+
+[connection signal="pressed" from="Camera2D/Pause/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Camera2D/Pause/Menu" to="." method="_on_menu_pressed"]

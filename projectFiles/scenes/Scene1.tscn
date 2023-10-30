@@ -268,10 +268,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -282.5
-offset_top = 19.0
-offset_right = 3661.5
-offset_bottom = 1037.0
+offset_left = -248.5
+offset_top = 13.0
+offset_right = 2271.5
+offset_bottom = 1031.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
 size_flags_vertical = 0
@@ -281,7 +281,6 @@ theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("3_leo3c")
 theme_override_font_sizes/font_size = 900
 text = "00"
-horizontal_alignment = 1
 
 [node name="TempoLabel" type="Label" parent="Camera2D/HUD"]
 layout_direction = 1
@@ -327,10 +326,10 @@ horizontal_alignment = 1
 
 [node name="AppleTexture" type="TextureRect" parent="Camera2D/HUD"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 9.0
-offset_right = 75.0
-offset_bottom = 68.0
+offset_left = 12.0
+offset_top = 25.0
+offset_right = 38.0
+offset_bottom = 53.0
 texture = ExtResource("14_o52w7")
 expand_mode = 1
 
@@ -489,7 +488,114 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("3_leo3c")
 theme_override_font_sizes/font_size = 545
-text = "Menu"
+text = "Sair"
+horizontal_alignment = 1
+
+[node name="Pause" type="Control" parent="Camera2D"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -290.0
+offset_top = -92.0
+offset_right = 288.0
+offset_bottom = 232.0
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -7.0
+offset_right = 594.0
+offset_bottom = 333.0
+color = Color(0.0235294, 0, 0.0392157, 0.345098)
+
+[node name="ColorRect2" type="ColorRect" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 33.0
+offset_right = 458.0
+offset_bottom = 286.0
+color = Color(1, 1, 1, 0.219608)
+
+[node name="PauseLabel" type="Label" parent="Camera2D/Pause"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.0
+offset_top = 108.0
+offset_right = 6925.0
+offset_bottom = 726.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 545
+text = "Jogo pausado!"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 208.0
+offset_right = 259.0
+offset_bottom = 268.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="MenuLabel" type="Label" parent="Camera2D/Pause/Resume"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_top = 16.0
+offset_right = 2515.0
+offset_bottom = 634.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 425
+text = "Continuar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 208.0
+offset_right = 434.0
+offset_bottom = 268.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="MenuLabel" type="Label" parent="Camera2D/Pause/Menu"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 16.0
+offset_right = 1735.0
+offset_bottom = 634.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 545
+text = "Sair"
 horizontal_alignment = 1
 
 [node name="LoadingScreen" type="Sprite2D" parent="."]
@@ -522,3 +628,5 @@ horizontal_alignment = 1
 [connection signal="body_exited" from="Target" to="Enemy" method="_on_target_body_exited"]
 [connection signal="pressed" from="Camera2D/Final/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Camera2D/Final/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Camera2D/Pause/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Camera2D/Pause/Menu" to="." method="_on_menu_pressed"]
