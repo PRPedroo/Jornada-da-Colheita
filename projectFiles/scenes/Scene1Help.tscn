@@ -1,11 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://1jwgtrbmuqs6"]
 
 [ext_resource type="Script" path="res://scenes/Scene1Help.gd" id="1_bapmn"]
-[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_7atkl"]
-[ext_resource type="Texture2D" uid="uid://c6d5iqmrwofme" path="res://sprites/scene1/playerSpriteSheet.png" id="4_33uph"]
+[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_cl4lc"]
 [ext_resource type="Script" path="res://scenes/PlayerHelp.gd" id="5_00bsx"]
+[ext_resource type="Texture2D" uid="uid://chby54871saqc" path="res://sprites/scene1/apple1.png" id="5_cdfyt"]
 [ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="13_r4fpb"]
-[ext_resource type="Texture2D" uid="uid://chby54871saqc" path="res://sprites/scene1/apple1.png" id="14_sceps"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gatjt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohdw3"]
 size = Vector2(41, 16)
@@ -54,7 +55,7 @@ script = ExtResource("1_bapmn")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1.48925, 27.625)
 scale = Vector2(0.293019, 0.236561)
-texture = ExtResource("2_7atkl")
+texture = ExtResource("2_cl4lc")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 position = Vector2(0, 160)
@@ -62,7 +63,7 @@ script = ExtResource("5_00bsx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 scale = Vector2(0.07, 0.07)
-texture = ExtResource("4_33uph")
+texture = SubResource("CompressedTexture2D_gatjt")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -211,7 +212,7 @@ horizontal_alignment = 1
 [node name="Apple1" type="Sprite2D" parent="Camera2D"]
 position = Vector2(69, -11)
 scale = Vector2(0.0533708, 0.0533708)
-texture = ExtResource("14_sceps")
+texture = ExtResource("5_cdfyt")
 
 [connection signal="pressed" from="Camera2D/Pause/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Camera2D/Pause/Menu" to="." method="_on_menu_pressed"]

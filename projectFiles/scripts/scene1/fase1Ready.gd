@@ -9,14 +9,14 @@ extends Node2D
 
 @onready var player = $Player
 
-var timer = 51
+var timer = 61
 
 var pause = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	# TEM QUE TROCAR ESSA PARTE PARA EXPORTAR O PROJETO
 	get_node("Sync").onnx_model_path = "/home/pedro/Documentos/Projeto de Extensão/ProjetoEX/projectFiles/modelfinal.onnx"
-	#get_node("Apples").queue_free()
+	#get_node("Sync").onnx_model_path = "modelfinal.onnx"
 	pass
 
 func _process(delta):

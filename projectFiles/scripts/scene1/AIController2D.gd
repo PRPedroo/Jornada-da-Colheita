@@ -26,15 +26,7 @@ func get_action_space() -> Dictionary:
 	
 func set_action(action) -> void:
 	move = action["move"][0]
-	print(move)
-	#print(move)
-	#if(count < sizeMove):
-	#	move.append(action["move"])
-	#	count = count + 1
-	#else:
-	#	character.calcVec()
-	#	move.clear()
-	
+	#print(move) # DECISÃO DO AGENTE (INTERESSANTE DE MOSTRAR)
 # -----------------------------------------------------------------------------#
 
 #-- Methods that can be overridden if needed --#

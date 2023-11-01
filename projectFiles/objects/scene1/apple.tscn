@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://csxcyarwg52q8"]
 
-[ext_resource type="Texture2D" uid="uid://cd3llser74fln" path="res://sprites/scene1/appleSpriteSheet.png" id="1_rid5p"]
+[ext_resource type="Texture2D" uid="uid://cd3llser74fln" path="res://sprites/scene1/appleSpriteSheet.png" id="1_8y57f"]
 [ext_resource type="Script" path="res://scripts/scene1/Apple.gd" id="2_gicec"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3j60"]
@@ -46,7 +46,7 @@ _data = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_rid5p")
+texture = ExtResource("1_8y57f")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

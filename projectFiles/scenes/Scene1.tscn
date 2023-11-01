@@ -1,19 +1,17 @@
 [gd_scene load_steps=27 format=3 uid="uid://6dsagn6g274f"]
 
 [ext_resource type="Script" path="res://scripts/scene1/fase1Ready.gd" id="1_2bwvr"]
-[ext_resource type="Texture2D" uid="uid://dakj0a3074s3i" path="res://sprites/icon.svg" id="1_4af28"]
-[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_7fxbr"]
+[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_c7epr"]
 [ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="3_leo3c"]
 [ext_resource type="Script" path="res://scripts/scene1/Player.gd" id="3_n8j0e"]
-[ext_resource type="Texture2D" uid="uid://c6d5iqmrwofme" path="res://sprites/scene1/playerSpriteSheet.png" id="4_00w78"]
+[ext_resource type="Texture2D" uid="uid://c6d5iqmrwofme" path="res://sprites/scene1/playerSpriteSheet.png" id="4_1g5ie"]
 [ext_resource type="Script" path="res://addons/godot_rl_agents/sync.gd" id="5_j1nqc"]
 [ext_resource type="Script" path="res://scripts/scene1/Target.gd" id="6_hejf2"]
-[ext_resource type="Texture2D" uid="uid://cd3llser74fln" path="res://sprites/scene1/appleSpriteSheet.png" id="7_5a266"]
+[ext_resource type="Texture2D" uid="uid://cd3llser74fln" path="res://sprites/scene1/appleSpriteSheet.png" id="6_imxdr"]
 [ext_resource type="Script" path="res://scripts/scene1/Enemy.gd" id="8_h43iy"]
-[ext_resource type="Texture2D" uid="uid://8fkf6p8jcw2b" path="res://sprites/scene1/enemySpriteSheet.png" id="9_bm5cn"]
+[ext_resource type="Texture2D" uid="uid://8fkf6p8jcw2b" path="res://sprites/scene1/enemySpriteSheet.png" id="8_we42d"]
 [ext_resource type="Script" path="res://scripts/scene1/AIController2D.gd" id="10_rhku4"]
-[ext_resource type="Texture2D" uid="uid://bp30m1y2mg5p0" path="res://sprites/scene1/frontground.png" id="12_n3tk6"]
-[ext_resource type="Texture2D" uid="uid://chby54871saqc" path="res://sprites/scene1/apple1.png" id="14_o52w7"]
+[ext_resource type="Texture2D" uid="uid://chby54871saqc" path="res://sprites/scene1/apple1.png" id="12_2i7sn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elfmk"]
 size = Vector2(41, 16)
@@ -58,6 +56,8 @@ _data = {
 "RESET": SubResource("Animation_yao5d"),
 "player": SubResource("Animation_via51")
 }
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yix7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd4wx"]
 
@@ -136,13 +136,15 @@ _data = {
 "enemy": SubResource("Animation_368j1")
 }
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qrb7e"]
+
 [node name="Fase1" type="Node2D"]
 script = ExtResource("1_2bwvr")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1.48925, 27.625)
 scale = Vector2(0.293019, 0.236561)
-texture = ExtResource("2_7fxbr")
+texture = ExtResource("2_c7epr")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 position = Vector2(0, 160)
@@ -150,7 +152,7 @@ script = ExtResource("3_n8j0e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 scale = Vector2(0.07, 0.07)
-texture = ExtResource("4_00w78")
+texture = ExtResource("4_1g5ie")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -175,27 +177,27 @@ visible = false
 modulate = Color(0, 0, 0, 0.337255)
 position = Vector2(0, 20)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_4af28")
+texture = SubResource("CompressedTexture2D_yix7u")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(300, 0)
-texture = ExtResource("1_4af28")
+texture = SubResource("CompressedTexture2D_yix7u")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(600, 0)
-texture = ExtResource("1_4af28")
+texture = SubResource("CompressedTexture2D_yix7u")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-300, 0)
-texture = ExtResource("1_4af28")
+texture = SubResource("CompressedTexture2D_yix7u")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-600, 0)
-texture = ExtResource("1_4af28")
+texture = SubResource("CompressedTexture2D_yix7u")
 
 [node name="Target" type="Area2D" parent="."]
 position = Vector2(0, -1)
@@ -207,7 +209,7 @@ shape = SubResource("RectangleShape2D_qd4wx")
 [node name="Sprite2D" type="Sprite2D" parent="Target"]
 position = Vector2(-7.38026e-07, -1.11759e-07)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_5a266")
+texture = ExtResource("6_imxdr")
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Target"]
@@ -221,7 +223,7 @@ script = ExtResource("8_h43iy")
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
 position = Vector2(0, 1.09973e-06)
 scale = Vector2(0.06, 0.06)
-texture = ExtResource("9_bm5cn")
+texture = ExtResource("8_we42d")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
@@ -241,7 +243,7 @@ script = ExtResource("5_j1nqc")
 [node name="front" type="Sprite2D" parent="."]
 position = Vector2(1.4895, 27.625)
 scale = Vector2(0.293019, 0.236561)
-texture = ExtResource("12_n3tk6")
+texture = SubResource("CompressedTexture2D_qrb7e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, 70)
@@ -330,7 +332,7 @@ offset_left = 12.0
 offset_top = 25.0
 offset_right = 38.0
 offset_bottom = 53.0
-texture = ExtResource("14_o52w7")
+texture = ExtResource("12_2i7sn")
 expand_mode = 1
 
 [node name="Final" type="Control" parent="Camera2D"]
@@ -427,7 +429,7 @@ offset_left = 350.0
 offset_top = 128.0
 offset_right = 404.0
 offset_bottom = 187.0
-texture = ExtResource("14_o52w7")
+texture = ExtResource("12_2i7sn")
 expand_mode = 1
 
 [node name="Button2" type="Button" parent="Camera2D/Final"]
@@ -602,7 +604,7 @@ horizontal_alignment = 1
 visible = false
 position = Vector2(789, 863)
 scale = Vector2(1.46532, 1.46532)
-texture = ExtResource("2_7fxbr")
+texture = ExtResource("2_c7epr")
 
 [node name="Label2" type="Label" parent="LoadingScreen"]
 anchors_preset = 5

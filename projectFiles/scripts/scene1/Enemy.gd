@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 var passo = 90
 var moving = false
-var vel = 55 # 50 ~ 65
+var BASEVEL = 50 # 50 ~ 65
+
+var vel = 50
 
 var apple = preload("res://objects/scene1/apple.tscn")
 var time = 0
@@ -32,6 +34,7 @@ func _ready():
 
 func _physics_process(delta):
 	if !fase_1.pause:
+		vel = BASEVEL + fase_1.get_parent().dificulty * 3
 		animeVerif()
 		playerStop()
 		

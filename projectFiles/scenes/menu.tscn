@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsu7ffngm01r"]
 
 [ext_resource type="Script" path="res://scripts/menu/menu.gd" id="1_gfudd"]
+[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_2naj2"]
 [ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="2_kjrcq"]
-[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_med0r"]
-[ext_resource type="Texture2D" uid="uid://ppknd2s6jlml" path="res://sprites/scene1/icon.png" id="4_atmt3"]
+[ext_resource type="Texture2D" uid="uid://ppknd2s6jlml" path="res://sprites/scene1/icon.png" id="4_17haa"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_gfudd")
@@ -11,7 +11,7 @@ script = ExtResource("1_gfudd")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(9, 265)
 scale = Vector2(0.531431, 0.531431)
-texture = ExtResource("2_med0r")
+texture = ExtResource("2_2naj2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, 70)
@@ -77,7 +77,7 @@ offset_left = -17.0
 offset_top = -17.0
 offset_right = 97.0
 offset_bottom = 97.0
-texture = ExtResource("4_atmt3")
+texture = ExtResource("4_17haa")
 expand_mode = 1
 
 [node name="ButtonH1" type="Button" parent="Camera2D/ButtonF1"]
