@@ -73,10 +73,10 @@ theme_override_font_sizes/font_size = 25
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonF1"]
 layout_mode = 0
-offset_left = -17.0
-offset_top = -17.0
-offset_right = 97.0
-offset_bottom = 97.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 77.0
+offset_bottom = 77.0
 texture = ExtResource("4_17haa")
 expand_mode = 1
 
@@ -302,3 +302,4 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="Camera2D/ButtonF1" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Camera2D/ButtonF1/ButtonH1" to="." method="_on_button_h_1_pressed"]
+[connection signal="pressed" from="Camera2D/ButtonF2" to="." method="_on_button_f_2_pressed"]

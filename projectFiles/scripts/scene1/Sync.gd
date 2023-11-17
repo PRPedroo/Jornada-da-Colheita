@@ -26,29 +26,27 @@ var n_action_steps = 0
 var _action_space : Dictionary
 var _obs_space : Dictionary
 
-var loading_screen = $"../LoadingScreen"
+@onready var loading_screen = $"../LoadingScreen"
 
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
 	loading_screen.visible = true
-	get_tree().set_pause(true) 
-	await get_tree().create_timer(1.0).timeout
+	get_tree().set_pause(true)
+	await get_tree().create_timer(0.5).timeout
 	_initialize()
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	get_tree().set_pause(false) 
 	loading_screen.visible = false
 	
 func _initialize():
-	print(agents)
 	_get_agents()
-	print(agents)
 	_obs_space = agents[0].get_obs_space()
 	_action_space = agents[0].get_action_space()
 	args = _get_args()
 	Engine.physics_ticks_per_second = _get_speedup() * 60 # Replace with function body.
 	Engine.time_scale = _get_speedup() * 1.0
-	prints("physics ticks", Engine.physics_ticks_per_second, Engine.time_scale, _get_speedup(), speed_up)
+	#prints("physics ticks", Engine.physics_ticks_per_second, Engine.time_scale, _get_speedup(), speed_up)
 	
 	# Run inference if onnx model path is set, otherwise wait for server connection
 	var run_onnx_model_inference : bool = onnx_model_path != ""
@@ -69,6 +67,7 @@ func _initialize():
 	_set_action_repeat()
 	initialized = true  
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta):
 	# two modes, human control, agent control
 	# pause tree, send obs, get actions, set actions, unpause tree
@@ -110,6 +109,7 @@ func _physics_process(delta):
 			}
 			_send_dict_as_json_message(reply)
 		
+		@warning_ignore("unused_variable")
 		var handled = handle_message()
 	
 	elif onnx_model != null:
@@ -206,6 +206,7 @@ func connect_to_server():
 	# "localhost" was not working on windows VM, had to use the IP
 	var ip = "127.0.0.1"
 	var port = _get_port()
+	@warning_ignore("unused_variable", "shadowed_variable_base_class")
 	var connect = stream.connect_to_host(ip, port)
 	stream.set_no_delay(true) # TODO check if this improves performance or not
 	stream.poll()
@@ -338,6 +339,7 @@ func _set_agent_actions(actions):
 	for i in range(len(actions)):
 		agents[i].set_action(actions[i])
 	
+@warning_ignore("shadowed_global_identifier")
 func clamp_array(arr : Array, min:float, max:float):
 	var output : Array = []
 	for a in arr:

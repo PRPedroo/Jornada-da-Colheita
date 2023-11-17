@@ -1,12 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://1jwgtrbmuqs6"]
 
-[ext_resource type="Script" path="res://scenes/Scene1Help.gd" id="1_bapmn"]
+[ext_resource type="Script" path="res://scripts/scene1help/Scene1Help.gd" id="1_ach03"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_cl4lc"]
-[ext_resource type="Script" path="res://scenes/PlayerHelp.gd" id="5_00bsx"]
+[ext_resource type="Script" path="res://scripts/scene1help/PlayerHelp.gd" id="3_l1jpo"]
+[ext_resource type="Texture2D" uid="uid://c6d5iqmrwofme" path="res://sprites/scene1/playerSpriteSheet.png" id="4_lbf4d"]
 [ext_resource type="Texture2D" uid="uid://chby54871saqc" path="res://sprites/scene1/apple1.png" id="5_cdfyt"]
 [ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="13_r4fpb"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gatjt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohdw3"]
 size = Vector2(41, 16)
@@ -50,7 +49,7 @@ _data = {
 }
 
 [node name="Scene1Help" type="Node2D"]
-script = ExtResource("1_bapmn")
+script = ExtResource("1_ach03")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1.48925, 27.625)
@@ -59,11 +58,11 @@ texture = ExtResource("2_cl4lc")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 position = Vector2(0, 160)
-script = ExtResource("5_00bsx")
+script = ExtResource("3_l1jpo")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 scale = Vector2(0.07, 0.07)
-texture = SubResource("CompressedTexture2D_gatjt")
+texture = ExtResource("4_lbf4d")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]

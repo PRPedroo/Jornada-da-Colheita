@@ -1,16 +1,17 @@
-[gd_scene load_steps=27 format=3 uid="uid://6dsagn6g274f"]
+[gd_scene load_steps=28 format=3 uid="uid://6dsagn6g274f"]
 
-[ext_resource type="Script" path="res://scripts/scene1/fase1Ready.gd" id="1_2bwvr"]
+[ext_resource type="Script" path="res://scripts/scene1/Fase1.gd" id="1_scl5s"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_c7epr"]
 [ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="3_leo3c"]
 [ext_resource type="Script" path="res://scripts/scene1/Player.gd" id="3_n8j0e"]
 [ext_resource type="Texture2D" uid="uid://c6d5iqmrwofme" path="res://sprites/scene1/playerSpriteSheet.png" id="4_1g5ie"]
-[ext_resource type="Script" path="res://addons/godot_rl_agents/sync.gd" id="5_j1nqc"]
 [ext_resource type="Script" path="res://scripts/scene1/Target.gd" id="6_hejf2"]
 [ext_resource type="Texture2D" uid="uid://cd3llser74fln" path="res://sprites/scene1/appleSpriteSheet.png" id="6_imxdr"]
 [ext_resource type="Script" path="res://scripts/scene1/Enemy.gd" id="8_h43iy"]
 [ext_resource type="Texture2D" uid="uid://8fkf6p8jcw2b" path="res://sprites/scene1/enemySpriteSheet.png" id="8_we42d"]
+[ext_resource type="Script" path="res://scripts/scene1/Sync.gd" id="10_oxdhj"]
 [ext_resource type="Script" path="res://scripts/scene1/AIController2D.gd" id="10_rhku4"]
+[ext_resource type="Texture2D" uid="uid://bp30m1y2mg5p0" path="res://sprites/scene1/frontground.png" id="11_kma5x"]
 [ext_resource type="Texture2D" uid="uid://chby54871saqc" path="res://sprites/scene1/apple1.png" id="12_2i7sn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elfmk"]
@@ -113,10 +114,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_368j1"]
 resource_name = "enemy"
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -124,22 +136,49 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5, 0.7),
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, 5), Vector2(0, -10), Vector2(0, 0), Vector2(0, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_g6swd"]
+resource_name = "enemy_idle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dptbr"]
 _data = {
 "RESET": SubResource("Animation_rcvrd"),
-"enemy": SubResource("Animation_368j1")
+"enemy": SubResource("Animation_368j1"),
+"enemy_idle": SubResource("Animation_g6swd")
 }
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qrb7e"]
-
 [node name="Fase1" type="Node2D"]
-script = ExtResource("1_2bwvr")
+script = ExtResource("1_scl5s")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1.48925, 27.625)
@@ -147,7 +186,7 @@ scale = Vector2(0.293019, 0.236561)
 texture = ExtResource("2_c7epr")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(0, 160)
+position = Vector2(0, 165)
 script = ExtResource("3_n8j0e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
@@ -221,7 +260,6 @@ libraries = {
 script = ExtResource("8_h43iy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-position = Vector2(0, 1.09973e-06)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("8_we42d")
 hframes = 4
@@ -238,12 +276,12 @@ libraries = {
 }
 
 [node name="Sync" type="Node" parent="."]
-script = ExtResource("5_j1nqc")
+script = ExtResource("10_oxdhj")
 
 [node name="front" type="Sprite2D" parent="."]
 position = Vector2(1.4895, 27.625)
 scale = Vector2(0.293019, 0.236561)
-texture = SubResource("CompressedTexture2D_qrb7e")
+texture = ExtResource("11_kma5x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, 70)
@@ -627,7 +665,6 @@ text = "Carregando...
 horizontal_alignment = 1
 
 [connection signal="body_entered" from="Target" to="Enemy" method="_on_target_body_entered"]
-[connection signal="body_exited" from="Target" to="Enemy" method="_on_target_body_exited"]
 [connection signal="pressed" from="Camera2D/Final/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Camera2D/Final/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Camera2D/Pause/Resume" to="." method="_on_resume_pressed"]

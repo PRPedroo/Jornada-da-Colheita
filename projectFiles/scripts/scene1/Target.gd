@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var character = $"../Enemy"
+@onready var enemy = $"../Enemy"
 @onready var anim = $AnimationPlayer
 
 var rng = RandomNumberGenerator.new()
@@ -9,16 +9,12 @@ var lastPos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	lastPos = position
-	randomizePosX()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
 	anim.play("target")
+	randomizePosX()
 
 func randomizePosX():
 	lastPos = position
 	while (lastPos == position):	
 		rng.randomize()
-		position.x = rng.randi_range(-2.0, 2.0) * character.passo
+		@warning_ignore("narrowing_conversion")
+		position.x = float(rng.randi_range(-2.0, 2.0) * enemy.passo)

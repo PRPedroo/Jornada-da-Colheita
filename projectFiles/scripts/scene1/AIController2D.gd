@@ -27,16 +27,3 @@ func get_action_space() -> Dictionary:
 func set_action(action) -> void:
 	move = action["move"][0]
 	#print(move) # DECISÃO DO AGENTE (INTERESSANTE DE MOSTRAR)
-# -----------------------------------------------------------------------------#
-
-#-- Methods that can be overridden if needed --#
-
-#func get_obs_space() -> Dictionary:
-# May need overriding if the obs space is complex
-#	var obs = get_obs()
-#	return {
-#		"obs": {
-#			"size": [len(obs["obs"])],
-#			"space": "box"
-#		},
-#	}

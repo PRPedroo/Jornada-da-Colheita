@@ -6,3 +6,7 @@ func _on_button_pressed():
 	
 func _on_button_h_1_pressed():
 	get_parent().switchScenes(11)
+
+
+func _on_button_f_2_pressed():
+	get_parent().switchScenes(2)
