@@ -1,0 +1,10 @@
+CollisionShape2D
+Area2D
+Sprite2D
+AnimationPlayer
+Node2D
+Sync
+AIController2D
+StaticBody2D
+CharacterBody2D
+RigidBody2D

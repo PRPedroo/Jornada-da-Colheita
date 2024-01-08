@@ -1,0 +1,14 @@
+res://addons/godot_rl_agents/sensors/sensors_2d/ExampleRaycastSensor2D.tscn::4a649f4ee03353fd41c8b2326af068e1::1698783834::res://.godot/exported/133200997/export-5127fc3fc2907f1e87ac8e869558593d-ExampleRaycastSensor2D.scn
+res://addons/godot_rl_agents/sensors/sensors_2d/RaycastSensor2D.tscn::5706ef859d8416e150e326b319953fcf::1698783834::res://.godot/exported/133200997/export-7454c66d21916090bf5dc7766fa8629a-RaycastSensor2D.scn
+res://addons/godot_rl_agents/sensors/sensors_3d/ExampleRaycastSensor3D.tscn::5132e3ace4e34f1809af5ab3b83b467f::1698783834::res://.godot/exported/133200997/export-1222b1ceeacbc57c3f8fe0e4235d9be0-ExampleRaycastSensor3D.scn
+res://addons/godot_rl_agents/sensors/sensors_3d/RaycastSensor3D.tscn::23516e20be48227cb983b1aa448afeab::1698783834::res://.godot/exported/133200997/export-1cc1ad7ce1f98ed0c4cee4b060bc26fd-RaycastSensor3D.scn
+res://addons/godot_rl_agents/sensors/sensors_3d/RGBCameraSensor3D.tscn::00bc7933716a6fae1ba344bbd9a386a2::1698783834::res://.godot/exported/133200997/export-d1d9cc1906d18d9a32f853b74a4d90f4-RGBCameraSensor3D.scn
+res://objects/scene1/apple.tscn::ac6c340563778cd9d3bec72af7d94b53::1698785931::res://.godot/exported/133200997/export-4589634c9c7c87b181e777a3cc96a4f5-apple.scn
+res://objects/apple.tscn::bdc882f176fd450c1ac498f9dff6b2cf::1698783834::res://.godot/exported/133200997/export-8d9892afb9536845a10d4b2778447d20-apple.scn
+res://scenes/main.tscn::6061afaee3982887457e6cd4d4a04d1f::1698785931::res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
+res://scenes/menu.tscn::ca0d7372fb25f2290259edd9ab46de8e::1698785931::res://.godot/exported/133200997/export-1ce5c86e8ca186dcaaeaa8726f1268db-menu.scn
+res://scenes/Scene1.tscn::1c90a016bc5f1defa125588351e4ea5c::1698786289::res://.godot/exported/133200997/export-d46495422f3df1511fd1107ec4b8cdde-Scene1.scn
+res://scenes/Scene1Help.tscn::606a489cf87128ba2fbf3e4508f9d6a4::1698785931::res://.godot/exported/133200997/export-cb10c02fd3f6afc7a521b3f49a94f8df-Scene1Help.scn
+res://scenes/Scene2.tscn::84753e6b8c67daeec310782adc62b28b::1698785931::res://.godot/exported/133200997/export-29fa85bc77aeb3581877754bcca0a4fe-Scene2.scn
+res://apple.tscn::b0ed8432d964069929a5c9c402c7a6fa::1698783834::res://.godot/exported/133200997/export-7cadf0ec706f5a89c767029c0fc20706-apple.scn
+res://Scene1.tscn::76a4aad487c8b2f284dd2f272d72164d::1698783834::res://.godot/exported/133200997/export-4a7a3537023a85616f7f20382cbce649-Scene1.scn

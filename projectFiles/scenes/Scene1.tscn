@@ -1,0 +1,685 @@
+[gd_scene load_steps=32 format=3 uid="uid://6dsagn6g274f"]
+
+[ext_resource type="Script" path="res://scripts/scene1/Fase1.gd" id="1_scl5s"]
+[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_c7epr"]
+[ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="3_leo3c"]
+[ext_resource type="Script" path="res://scripts/scene1/Player.gd" id="3_n8j0e"]
+[ext_resource type="Texture2D" uid="uid://c6d5iqmrwofme" path="res://sprites/scene1/playerSpriteSheet.png" id="4_1g5ie"]
+[ext_resource type="Script" path="res://scenes/ControlSprites.gd" id="5_u3lnc"]
+[ext_resource type="Script" path="res://scripts/scene1/Target.gd" id="6_hejf2"]
+[ext_resource type="Texture2D" uid="uid://cd3llser74fln" path="res://sprites/scene1/appleSpriteSheet.png" id="6_imxdr"]
+[ext_resource type="Script" path="res://scripts/scene1/Enemy.gd" id="8_h43iy"]
+[ext_resource type="Texture2D" uid="uid://8fkf6p8jcw2b" path="res://sprites/scene1/enemySpriteSheet.png" id="8_we42d"]
+[ext_resource type="Script" path="res://scripts/scene1/Sync.gd" id="10_oxdhj"]
+[ext_resource type="Script" path="res://scripts/scene1/AIController2D.gd" id="10_rhku4"]
+[ext_resource type="Texture2D" uid="uid://bp30m1y2mg5p0" path="res://sprites/scene1/frontground.png" id="11_kma5x"]
+[ext_resource type="Texture2D" uid="uid://chby54871saqc" path="res://sprites/scene1/apple1.png" id="12_2i7sn"]
+[ext_resource type="Texture2D" uid="uid://dn0nju75j4xvd" path="res://sprites/scene2/bananaSpriteSheet.png" id="13_8oo3n"]
+[ext_resource type="Texture2D" uid="uid://6s7jcyaw5doo" path="res://sprites/scene2/grapesSpriteSheet.png" id="14_w2qal"]
+[ext_resource type="Texture2D" uid="uid://bsj5p18njgwgk" path="res://sprites/scene2/appleSpriteSheet.png" id="15_vscmg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elfmk"]
+size = Vector2(41, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6ipn"]
+size = Vector2(41, 20)
+
+[sub_resource type="Animation" id="Animation_yao5d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_via51"]
+resource_name = "player"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_olwu4"]
+_data = {
+"RESET": SubResource("Animation_yao5d"),
+"player": SubResource("Animation_via51")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yix7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd4wx"]
+
+[sub_resource type="Animation" id="Animation_43a6q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vamn4"]
+resource_name = "target"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qbgpq"]
+_data = {
+"RESET": SubResource("Animation_43a6q"),
+"target": SubResource("Animation_vamn4")
+}
+
+[sub_resource type="Animation" id="Animation_rcvrd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_368j1"]
+resource_name = "enemy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, 5), Vector2(0, -10), Vector2(0, 0), Vector2(0, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_g6swd"]
+resource_name = "enemy_idle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dptbr"]
+_data = {
+"RESET": SubResource("Animation_rcvrd"),
+"enemy": SubResource("Animation_368j1"),
+"enemy_idle": SubResource("Animation_g6swd")
+}
+
+[node name="Fase1" type="Node2D"]
+script = ExtResource("1_scl5s")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1.48925, 27.625)
+scale = Vector2(0.293019, 0.236561)
+texture = ExtResource("2_c7epr")
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(0, 165)
+script = ExtResource("3_n8j0e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("4_1g5ie")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1.5, 14)
+shape = SubResource("RectangleShape2D_elfmk")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_m6ipn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_olwu4")
+}
+
+[node name="Apples" type="Node2D" parent="."]
+script = ExtResource("5_u3lnc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 0.337255)
+position = Vector2(0, 20)
+scale = Vector2(0.3, 0.3)
+texture = SubResource("CompressedTexture2D_yix7u")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(300, 0)
+texture = SubResource("CompressedTexture2D_yix7u")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(600, 0)
+texture = SubResource("CompressedTexture2D_yix7u")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-300, 0)
+texture = SubResource("CompressedTexture2D_yix7u")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-600, 0)
+texture = SubResource("CompressedTexture2D_yix7u")
+
+[node name="Target" type="Area2D" parent="."]
+position = Vector2(0, -1)
+script = ExtResource("6_hejf2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+shape = SubResource("RectangleShape2D_qd4wx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Target"]
+position = Vector2(-7.38026e-07, -1.11759e-07)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_imxdr")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Target"]
+libraries = {
+"": SubResource("AnimationLibrary_qbgpq")
+}
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+script = ExtResource("8_h43iy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("8_we42d")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("RectangleShape2D_elfmk")
+
+[node name="AIController2D" type="Node2D" parent="Enemy" groups=["AGENT"]]
+script = ExtResource("10_rhku4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy"]
+libraries = {
+"": SubResource("AnimationLibrary_dptbr")
+}
+
+[node name="Sync" type="Node" parent="."]
+script = ExtResource("10_oxdhj")
+
+[node name="front" type="Sprite2D" parent="."]
+position = Vector2(1.4895, 27.625)
+scale = Vector2(0.293019, 0.236561)
+texture = ExtResource("11_kma5x")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, 70)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="HUD" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -92.0
+offset_right = 287.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PointsLabel" type="Label" parent="Camera2D/HUD"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -248.5
+offset_top = 13.0
+offset_right = 2271.5
+offset_bottom = 1031.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 900
+text = "00"
+
+[node name="TempoLabel" type="Label" parent="Camera2D/HUD"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 107.5
+offset_top = 280.0
+offset_right = 2367.5
+offset_bottom = 898.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 545
+text = "Tempo :"
+horizontal_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="Camera2D/HUD"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 144.5
+offset_top = 274.0
+offset_right = 4088.5
+offset_bottom = 1292.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 900
+text = "00"
+horizontal_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Camera2D/HUD"]
+position = Vector2(17.25, 35.25)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("13_8oo3n")
+hframes = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="Camera2D/HUD"]
+position = Vector2(26.25, 28.25)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("14_w2qal")
+hframes = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/HUD"]
+position = Vector2(27.75, 41.75)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("15_vscmg")
+hframes = 2
+
+[node name="Final" type="Control" parent="Camera2D"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -290.0
+offset_top = -92.0
+offset_right = 288.0
+offset_bottom = 232.0
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/Final"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -7.0
+offset_right = 594.0
+offset_bottom = 333.0
+color = Color(0.0235294, 0, 0.0392157, 0.345098)
+
+[node name="ColorRect2" type="ColorRect" parent="Camera2D/Final"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 33.0
+offset_right = 458.0
+offset_bottom = 286.0
+color = Color(1, 1, 1, 0.219608)
+
+[node name="FinishLabel" type="Label" parent="Camera2D/Final"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -177.0
+offset_top = 82.0
+offset_right = 6923.0
+offset_bottom = 700.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 545
+text = "Acabou o tempo!"
+horizontal_alignment = 1
+
+[node name="PointsLabel" type="Label" parent="Camera2D/Final"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_top = 139.0
+offset_right = 3879.0
+offset_bottom = 1157.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 900
+text = "00"
+horizontal_alignment = 1
+
+[node name="PontosLabel" type="Label" parent="Camera2D/Final"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -232.0
+offset_top = 145.0
+offset_right = 6868.0
+offset_bottom = 763.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 545
+text = "Pontos :"
+horizontal_alignment = 1
+
+[node name="AppleTexture" type="TextureRect" parent="Camera2D/Final"]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 128.0
+offset_right = 404.0
+offset_bottom = 187.0
+texture = ExtResource("12_2i7sn")
+expand_mode = 1
+
+[node name="Button2" type="Button" parent="Camera2D/Final"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 208.0
+offset_right = 259.0
+offset_bottom = 268.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="AgainLabel" type="Label" parent="Camera2D/Final/Button2"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.0
+offset_top = 12.0
+offset_right = 1737.0
+offset_bottom = 852.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 315
+text = "Jogar
+novamente"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Camera2D/Final"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 208.0
+offset_right = 434.0
+offset_bottom = 268.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="MenuLabel" type="Label" parent="Camera2D/Final/Button"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 16.0
+offset_right = 1735.0
+offset_bottom = 634.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 545
+text = "Sair"
+horizontal_alignment = 1
+
+[node name="Pause" type="Control" parent="Camera2D"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -290.0
+offset_top = -92.0
+offset_right = 288.0
+offset_bottom = 232.0
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -7.0
+offset_right = 594.0
+offset_bottom = 333.0
+color = Color(0.0235294, 0, 0.0392157, 0.345098)
+
+[node name="ColorRect2" type="ColorRect" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 33.0
+offset_right = 458.0
+offset_bottom = 286.0
+color = Color(1, 1, 1, 0.219608)
+
+[node name="PauseLabel" type="Label" parent="Camera2D/Pause"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.0
+offset_top = 108.0
+offset_right = 6925.0
+offset_bottom = 726.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 545
+text = "Jogo pausado!"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 208.0
+offset_right = 259.0
+offset_bottom = 268.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="MenuLabel" type="Label" parent="Camera2D/Pause/Resume"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_top = 16.0
+offset_right = 2515.0
+offset_bottom = 634.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 425
+text = "Continuar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 208.0
+offset_right = 434.0
+offset_bottom = 268.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="MenuLabel" type="Label" parent="Camera2D/Pause/Menu"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 16.0
+offset_right = 1735.0
+offset_bottom = 634.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 545
+text = "Sair"
+horizontal_alignment = 1
+
+[node name="LoadingScreen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(789, 863)
+scale = Vector2(1.46532, 1.46532)
+texture = ExtResource("2_c7epr")
+
+[node name="Label2" type="Label" parent="LoadingScreen"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1667.43
+offset_top = -588.269
+offset_right = 3574.57
+offset_bottom = 605.731
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_leo3c")
+theme_override_font_sizes/font_size = 900
+text = "Carregando...
+"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Target" to="Enemy" method="_on_target_body_entered"]
+[connection signal="pressed" from="Camera2D/Final/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Camera2D/Final/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Camera2D/Pause/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Camera2D/Pause/Menu" to="." method="_on_menu_pressed"]
