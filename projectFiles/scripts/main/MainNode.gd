@@ -6,7 +6,7 @@ var arrowClick = load("res://sprites/cursorClick.png")
 var telaMenu = preload("res://scenes/menu.tscn")
 
 var telaFase1 = preload("res://scenes/Scene1.tscn")
-var telaFase1Ajuda = preload("res://scenes/Scene1Help.tscn")
+var telaFase1CutScene = preload("res://scenes/CutScene1.tscn")
 
 var telaFase2 = preload("res://scenes/Scene2.tscn")
 
@@ -25,6 +25,7 @@ var difficultyFase1 = 2
 var difficultyFase2 = 2
 
 var fullscreen = false
+var storyMode = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -52,6 +53,7 @@ func _process(delta):
 
 func switchScenes(scene):
 	if scene == 0:
+		storyMode = false
 		resetVec()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		for _i in self.get_children():
@@ -67,9 +69,10 @@ func switchScenes(scene):
 		instance = telaFase1.instantiate()
 		self.add_child(instance)
 	if scene == 11:
+		storyMode = true
 		for _i in self.get_children():
 			_i.queue_free()
-		instance = telaFase1Ajuda.instantiate()
+		instance = telaFase1CutScene.instantiate()
 		self.add_child(instance)
 
 	if scene == 2:

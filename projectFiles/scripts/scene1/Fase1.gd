@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var hud = $Camera2D/HUD
 @onready var final = $Camera2D/Final
+@onready var finalContinue = $Camera2D/FinalContinue
 @onready var pausehud = $Camera2D/Pause
 
 @onready var timer_label = $Camera2D/HUD/TimerLabel
@@ -22,25 +23,29 @@ func _process(delta):
 	checkPause()
 	runTimer(delta)
 
-func _on_button_2_pressed():
-	get_parent().switchScenes(1) # BOTÃO PARA VOLTAR PARA REJOGAR A FASE (TELA FINAL)
-
-
-func _on_button_pressed():
-	get_parent().switchScenes(0) # BOTÃO DE VOLTAR PARA O MENU (TELA FINAL)
 
 func endGame():
 	pause = true
 	hud.visible = false
-	final.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-func _on_menu_pressed():
+	if get_parent().storyMode == false:
+		final.visible = true
+	else:
+		finalContinue.visible = true
+	
+func _on_menu_button_up():
 	get_parent().switchScenes(0) # BOTÃO PARA VOLTAR AO MENU (TELA PAUSE)
+
+func _on_play_again_button_up():
+	get_parent().switchScenes(1) # BOTÃO PARA VOLTAR PARA REJOGAR A FASE (TELA FINAL)
+
+func _on_continue_story_button_button_up():
+	get_parent().switchScenes(2) # IR PRA FASE 22 (CUTSCENE DA FASE 2)
 
 func _on_resume_pressed():
 	pause = false # BOTÃO PARA VOLTAR PARA REJOGAR A FASE (TELA PAUSE)
 	pausehud.visible = !pausehud.visible
+
 
 func checkFullscreen():
 	if get_parent().fullscreen and !pause:
@@ -65,3 +70,5 @@ func runTimer(delta):
 		timer_label.set("theme_override_colors/font_color",Color(255, 255, 0, 255))
 	if floor(timer) <= 5:
 		timer_label.set("theme_override_colors/font_color",Color(255, 0, 0, 255))
+
+

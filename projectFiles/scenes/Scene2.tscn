@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://pmc8g0a87134"]
+[gd_scene load_steps=21 format=3 uid="uid://pmc8g0a87134"]
 
 [ext_resource type="Script" path="res://scripts/scene2/Fase2.gd" id="1_vthq7"]
 [ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="2_ecvrk"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bi34xgrmp87ap" path="res://sprites/scene2/packagesSpriteSheet.png" id="10_cyy28"]
 [ext_resource type="Texture2D" uid="uid://dn0nju75j4xvd" path="res://sprites/scene2/bananaSpriteSheet.png" id="11_4jdx6"]
 [ext_resource type="Texture2D" uid="uid://6s7jcyaw5doo" path="res://sprites/scene2/grapesSpriteSheet.png" id="12_fnmnx"]
+[ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="13_mvupj"]
 [ext_resource type="Texture2D" uid="uid://c6fx2e8gkcg4u" path="res://sprites/scene2/frontground2.png" id="14_n06tk"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="15_wg7w2"]
 
@@ -242,7 +243,7 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("2_ecvrk")
+theme_override_fonts/font = ExtResource("13_mvupj")
 theme_override_font_sizes/font_size = 545
 text = "Jogo pausado!"
 horizontal_alignment = 1
@@ -263,17 +264,17 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -65.0
-offset_top = 16.0
+offset_top = 15.0
 offset_right = 2515.0
-offset_bottom = 634.0
+offset_bottom = 633.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("2_ecvrk")
-theme_override_font_sizes/font_size = 425
+theme_override_fonts/font = ExtResource("13_mvupj")
+theme_override_font_sizes/font_size = 400
 text = "Continuar"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -294,16 +295,16 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -45.0
-offset_top = 16.0
+offset_top = 13.0
 offset_right = 1735.0
-offset_bottom = 634.0
+offset_bottom = 697.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("2_ecvrk")
+theme_override_fonts/font = ExtResource("13_mvupj")
 theme_override_font_sizes/font_size = 545
 text = "Sair"
 horizontal_alignment = 1
@@ -349,12 +350,12 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("2_ecvrk")
-theme_override_font_sizes/font_size = 545
+theme_override_fonts/font = ExtResource("13_mvupj")
+theme_override_font_sizes/font_size = 530
 text = "Os pacotes ficaram prontos!"
 horizontal_alignment = 1
 
-[node name="PlayAgainButton" type="Button" parent="Camera2D/Final"]
+[node name="PlayAgain" type="Button" parent="Camera2D/Final"]
 layout_mode = 0
 offset_left = 110.0
 offset_top = 216.0
@@ -363,29 +364,29 @@ offset_bottom = 276.0
 icon_alignment = 1
 expand_icon = true
 
-[node name="AgainLabel" type="Label" parent="Camera2D/Final/PlayAgainButton"]
+[node name="AgainLabel" type="Label" parent="Camera2D/Final/PlayAgain"]
 layout_direction = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -43.0
-offset_top = 12.0
+offset_top = 10.0
 offset_right = 1737.0
-offset_bottom = 852.0
+offset_bottom = 850.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("2_ecvrk")
+theme_override_fonts/font = ExtResource("13_mvupj")
 theme_override_font_sizes/font_size = 315
 text = "Jogar
 novamente"
 horizontal_alignment = 1
 
-[node name="MenuButton" type="Button" parent="Camera2D/Final"]
+[node name="Menu" type="Button" parent="Camera2D/Final"]
 layout_mode = 0
 offset_left = 366.0
 offset_top = 216.0
@@ -394,23 +395,23 @@ offset_bottom = 276.0
 icon_alignment = 1
 expand_icon = true
 
-[node name="MenuLabel" type="Label" parent="Camera2D/Final/MenuButton"]
+[node name="MenuLabel" type="Label" parent="Camera2D/Final/Menu"]
 layout_direction = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -45.0
-offset_top = 16.0
+offset_top = 13.0
 offset_right = 1735.0
-offset_bottom = 634.0
+offset_bottom = 697.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("2_ecvrk")
+theme_override_fonts/font = ExtResource("13_mvupj")
 theme_override_font_sizes/font_size = 545
 text = "Sair"
 horizontal_alignment = 1
@@ -488,7 +489,7 @@ text = "Carregando...
 horizontal_alignment = 1
 
 [connection signal="body_entered" from="OriginalPos" to="Farmer" method="_on_original_pos_body_entered"]
-[connection signal="pressed" from="Camera2D/Pause/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Camera2D/Pause/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="Camera2D/Final/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
-[connection signal="pressed" from="Camera2D/Final/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="button_up" from="Camera2D/Pause/Resume" to="." method="_on_resume_button_up"]
+[connection signal="button_up" from="Camera2D/Pause/Menu" to="." method="_on_menu_button_up"]
+[connection signal="button_up" from="Camera2D/Final/PlayAgain" to="." method="_on_play_again_button_up"]
+[connection signal="button_up" from="Camera2D/Final/Menu" to="." method="_on_menu_button_up"]

@@ -31,6 +31,7 @@ var _obs_space : Dictionary
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
+	Input.set_custom_mouse_cursor(get_parent().get_parent().arrow)
 	loading_screen.visible = true
 	get_tree().set_pause(true)
 	await get_tree().create_timer(0.5).timeout

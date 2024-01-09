@@ -116,15 +116,13 @@ func clearStacks():
 	while(positionStack.size() > 1):
 		removeFruitStack()
 
-func _on_play_again_button_pressed():
+func _on_play_again_button_up():
 	get_parent().switchScenes(2) # BOTÃO PARA JOGAR NOVAMENTE (TELA FINAL)
 
-func _on_menu_button_pressed():
-	get_parent().switchScenes(0) # BOTÃO PARA VOLTAR AO MENU (TELA FINAL)
-
-func _on_menu_pressed():
+func _on_menu_button_up():
 	get_parent().switchScenes(0) # BOTÃO PARA VOLTAR AO MENU (TELA PAUSE)
 
-func _on_resume_pressed():
+func _on_resume_button_up():
 	pause = false # BOTÃO PARA VOLTAR PARA REJOGAR A FASE (TELA PAUSE)
 	pausehud.visible = !pausehud.visible
+
