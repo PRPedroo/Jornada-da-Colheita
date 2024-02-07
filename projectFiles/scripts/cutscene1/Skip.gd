@@ -1,19 +1,17 @@
 extends Node2D
 
-@onready var first = $Camera2D/first
-@onready var second = $Camera2D/second
-
-var indexScreen = 0
+@onready var vecScreen = [$Camera2D/first, $Camera2D/second, $Camera2D/third, $Camera2D/fourth]
+var indexScreen = 1
 
 func _on_button_button_up():
-	if indexScreen < 1:
+	if indexScreen < vecScreen.size():
 		changeScreen()
 	else:
 		get_parent().switchScenes(1)
-	indexScreen += 1
 
 func changeScreen():
-		first.visible = false
-		second.visible = true
+	vecScreen[indexScreen-1].visible = false
+	vecScreen[indexScreen].visible = true
+	indexScreen += 1
 
 

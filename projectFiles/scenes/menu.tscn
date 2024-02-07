@@ -161,6 +161,7 @@ theme_override_fonts/font = ExtResource("2_kjrcq")
 theme_override_font_sizes/font_size = 25
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonF3"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 46.0
@@ -184,6 +185,7 @@ theme_override_fonts/font = ExtResource("2_kjrcq")
 theme_override_font_sizes/font_size = 25
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonF4"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 46.0

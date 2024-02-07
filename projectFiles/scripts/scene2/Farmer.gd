@@ -66,6 +66,7 @@ func refreshFruit():
 	print(positionTarget)
 	if typeTarget != fruit and typeTarget != "nothing":
 		fase_2.removeFruitStack()
+		gotWrong()
 	else:
 		runNN()
 

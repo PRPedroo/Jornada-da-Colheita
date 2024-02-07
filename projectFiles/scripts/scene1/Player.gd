@@ -6,6 +6,7 @@ var points = 0
 @onready var labelHUD = $"../Camera2D/HUD/PointsLabel"
 @onready var fase_1 = $".."
 @onready var labelFinal = $"../Camera2D/Final/PointsLabel"
+@onready var labelFinalContinue = $"../Camera2D/FinalContinue/PointsLabel"
 
 func _ready():
 	anim.play("player")
@@ -14,6 +15,7 @@ func _process(_delta):
 	if !fase_1.pause:
 		labelHUD.text = str(points)
 	else:
+		labelFinalContinue.text = str(points) 
 		labelFinal.text = str(points)
 	
 func _input(event):

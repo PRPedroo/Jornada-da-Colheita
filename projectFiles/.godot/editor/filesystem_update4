@@ -1,14 +1,7 @@
 res://scenes/Scene1.tscn
 res://scenes/CutScene1.tscn
-res://scenes/Blur.cs
 res://scenes/menu.tscn
-res://addons/godot_rl_agents/onnx/csharp/ONNXInference.cs
-res://scripts/scene1/Fase1.gd
-res://scripts/cutscene1/CutScene1.gdshader
 res://scenes/Scene2.tscn
-res://scripts/cutscene1/Skip.gd
 res://scenes/main.tscn
-res://scripts/main/MainNode.gd
-res://scripts/menu/menu.gd
-res://scripts/scene2/Fase2.gd
-res://scripts/scene1/Sync.gd
+res://scenes/Scene3.tscn
+res://addons/godot_rl_agents/onnx/csharp/ONNXInference.cs

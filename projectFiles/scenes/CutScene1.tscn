@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://duqe4vtb7mtna"]
+[gd_scene load_steps=7 format=3 uid="uid://duqe4vtb7mtna"]
 
 [ext_resource type="Script" path="res://scripts/cutscene1/Skip.gd" id="1_pus0d"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="1_vq36w"]
-[ext_resource type="Texture2D" uid="uid://dakj0a3074s3i" path="res://sprites/icon.svg" id="2_4uadq"]
+[ext_resource type="Texture2D" uid="uid://cthuf2cua426d" path="res://sprites/scene1/balaoFala.png" id="3_1nela"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="3_626de"]
+[ext_resource type="Texture2D" uid="uid://bl0tradc87rnw" path="res://sprites/scene1/nomeFala.png" id="5_awx0v"]
+[ext_resource type="Texture2D" uid="uid://gm60qyic0dc8" path="res://sprites/scene1/carlosSpriteSheet.png" id="6_rmpv8"]
 
 [node name="CutScene1" type="Node2D"]
 script = ExtResource("1_pus0d")
@@ -27,9 +29,9 @@ offset_right = 287.0
 offset_bottom = 230.0
 
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/first"]
-position = Vector2(209.5, 346.5)
-scale = Vector2(3.03906, 0.742188)
-texture = ExtResource("2_4uadq")
+position = Vector2(222, 349)
+scale = Vector2(0.4, 0.21)
+texture = ExtResource("3_1nela")
 
 [node name="Message" type="Label" parent="Camera2D/first"]
 layout_mode = 1
@@ -38,7 +40,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -250.5
 offset_top = 328.0
-offset_right = 7149.5
+offset_right = 5949.5
 offset_bottom = 1346.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
@@ -48,23 +50,23 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("3_626de")
 theme_override_font_sizes/font_size = 330
-text = "\"O primeiro passo é recolher as frutas que caem das árvores.\""
+text = "OI! MEU NOME É CARLOS, PRAZER EM TE CONHECER."
 autowrap_mode = 2
 
 [node name="NameBackgorund" type="Sprite2D" parent="Camera2D/first"]
-position = Vector2(83, 302.5)
-scale = Vector2(0.90625, 0.273437)
-texture = ExtResource("2_4uadq")
+position = Vector2(222, 349)
+scale = Vector2(0.4, 0.21)
+texture = ExtResource("5_awx0v")
 
 [node name="Name" type="Label" parent="Camera2D/first"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -231.5
-offset_top = 292.0
-offset_right = 1468.5
-offset_bottom = 707.0
+offset_left = -190.5
+offset_top = 291.0
+offset_right = 1509.5
+offset_bottom = 706.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
 size_flags_vertical = 0
@@ -73,13 +75,15 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("3_626de")
 theme_override_font_sizes/font_size = 330
-text = "Carlos"
+text = "CARLOS"
 autowrap_mode = 2
 
 [node name="Character" type="Sprite2D" parent="Camera2D/first"]
-position = Vector2(482, 262)
-scale = Vector2(1.40625, 2.16406)
-texture = ExtResource("2_4uadq")
+position = Vector2(468, 241)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_rmpv8")
+hframes = 2
+frame = 1
 
 [node name="Click" type="Label" parent="Camera2D/first"]
 layout_mode = 1
@@ -98,7 +102,7 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("3_626de")
 theme_override_font_sizes/font_size = 330
-text = "Clique na tela para continuar"
+text = "CLIQUE NA TELA PARA CONTINUAR..."
 autowrap_mode = 2
 
 [node name="second" type="Control" parent="Camera2D"]
@@ -111,9 +115,9 @@ offset_right = 287.0
 offset_bottom = 230.0
 
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/second"]
-position = Vector2(209.5, 346.5)
-scale = Vector2(3.03906, 0.742188)
-texture = ExtResource("2_4uadq")
+position = Vector2(222, 349)
+scale = Vector2(0.4, 0.21)
+texture = ExtResource("3_1nela")
 
 [node name="Message" type="Label" parent="Camera2D/second"]
 layout_mode = 1
@@ -122,7 +126,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -250.5
 offset_top = 328.0
-offset_right = 7149.5
+offset_right = 6529.5
 offset_bottom = 1346.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
@@ -132,23 +136,23 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("3_626de")
 theme_override_font_sizes/font_size = 330
-text = "\"Mova o mouse para pegar as frutas que caírem das arvores.\""
+text = "O PRIMEIRO PASSO PARA O CICLO DA PRODUÇÃO DOS ALIMENTOS É A COLETA."
 autowrap_mode = 2
 
 [node name="NameBackgorund" type="Sprite2D" parent="Camera2D/second"]
-position = Vector2(83, 302.5)
-scale = Vector2(0.90625, 0.273437)
-texture = ExtResource("2_4uadq")
+position = Vector2(222, 349)
+scale = Vector2(0.4, 0.21)
+texture = ExtResource("5_awx0v")
 
 [node name="Name" type="Label" parent="Camera2D/second"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -231.5
-offset_top = 292.0
-offset_right = 1468.5
-offset_bottom = 707.0
+offset_left = -190.5
+offset_top = 291.0
+offset_right = 1509.5
+offset_bottom = 706.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
 size_flags_vertical = 0
@@ -157,13 +161,14 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("3_626de")
 theme_override_font_sizes/font_size = 330
-text = "Carlos"
+text = "CARLOS"
 autowrap_mode = 2
 
 [node name="Character" type="Sprite2D" parent="Camera2D/second"]
-position = Vector2(482, 262)
-scale = Vector2(1.40625, 2.16406)
-texture = ExtResource("2_4uadq")
+position = Vector2(468, 241)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_rmpv8")
+hframes = 2
 
 [node name="Click" type="Label" parent="Camera2D/second"]
 layout_mode = 1
@@ -182,7 +187,178 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("3_626de")
 theme_override_font_sizes/font_size = 330
-text = "Clique na tela para continuar"
+text = "CLIQUE NA TELA PARA CONTINUAR..."
+autowrap_mode = 2
+
+[node name="third" type="Control" parent="Camera2D"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -290.0
+offset_top = -174.0
+offset_right = 287.0
+offset_bottom = 230.0
+
+[node name="MessageBackground" type="Sprite2D" parent="Camera2D/third"]
+position = Vector2(222, 349)
+scale = Vector2(0.4, 0.21)
+texture = ExtResource("3_1nela")
+
+[node name="Message" type="Label" parent="Camera2D/third"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.5
+offset_top = 328.0
+offset_right = 6529.5
+offset_bottom = 1346.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_626de")
+theme_override_font_sizes/font_size = 330
+text = "E VOCÊ VAI ME AJUDAR A PEGAR AS FRUTAS, CERTO?"
+autowrap_mode = 2
+
+[node name="NameBackgorund" type="Sprite2D" parent="Camera2D/third"]
+position = Vector2(222, 349)
+scale = Vector2(0.4, 0.21)
+texture = ExtResource("5_awx0v")
+
+[node name="Name" type="Label" parent="Camera2D/third"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -190.5
+offset_top = 291.0
+offset_right = 1509.5
+offset_bottom = 706.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_626de")
+theme_override_font_sizes/font_size = 330
+text = "CARLOS"
+autowrap_mode = 2
+
+[node name="Character" type="Sprite2D" parent="Camera2D/third"]
+position = Vector2(468, 241)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_rmpv8")
+hframes = 2
+frame = 1
+
+[node name="Click" type="Label" parent="Camera2D/third"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -271.5
+offset_top = 95.0
+offset_right = 7128.5
+offset_bottom = 1113.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_626de")
+theme_override_font_sizes/font_size = 330
+text = "CLIQUE NA TELA PARA CONTINUAR...."
+autowrap_mode = 2
+
+[node name="fourth" type="Control" parent="Camera2D"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -290.0
+offset_top = -174.0
+offset_right = 287.0
+offset_bottom = 230.0
+
+[node name="MessageBackground" type="Sprite2D" parent="Camera2D/fourth"]
+position = Vector2(222, 349)
+scale = Vector2(0.4, 0.21)
+texture = ExtResource("3_1nela")
+
+[node name="Message" type="Label" parent="Camera2D/fourth"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.5
+offset_top = 328.0
+offset_right = 6529.5
+offset_bottom = 1346.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_626de")
+theme_override_font_sizes/font_size = 330
+text = "VAMOS LÁ ENTÃO! UMA DICA, PARA PEGAR AS FRUTAS MEXA O MOUSE."
+autowrap_mode = 2
+
+[node name="NameBackgorund" type="Sprite2D" parent="Camera2D/fourth"]
+position = Vector2(222, 349)
+scale = Vector2(0.4, 0.21)
+texture = ExtResource("5_awx0v")
+
+[node name="Name" type="Label" parent="Camera2D/fourth"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -190.5
+offset_top = 291.0
+offset_right = 1509.5
+offset_bottom = 706.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_626de")
+theme_override_font_sizes/font_size = 330
+text = "CARLOS"
+autowrap_mode = 2
+
+[node name="Character" type="Sprite2D" parent="Camera2D/fourth"]
+position = Vector2(468, 241)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_rmpv8")
+hframes = 2
+
+[node name="Click" type="Label" parent="Camera2D/fourth"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -271.5
+offset_top = 95.0
+offset_right = 7128.5
+offset_bottom = 1113.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_626de")
+theme_override_font_sizes/font_size = 330
+text = "CLIQUE NA TELA PARA CONTINUAR..."
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="."]
