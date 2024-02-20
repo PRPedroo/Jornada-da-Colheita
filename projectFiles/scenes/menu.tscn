@@ -196,3 +196,4 @@ expand_mode = 1
 [connection signal="button_up" from="Camera2D/ButtonPLAY" to="." method="_on_button_play_button_up"]
 [connection signal="button_up" from="Camera2D/ButtonF1" to="." method="_on_button_f_1_button_up"]
 [connection signal="button_up" from="Camera2D/ButtonF2" to="." method="_on_button_f_2_button_up"]
+[connection signal="button_up" from="Camera2D/ButtonF3" to="." method="_on_button_f_3_button_up"]

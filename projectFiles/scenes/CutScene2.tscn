@@ -1,19 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://duqe4vtb7mtna"]
+[gd_scene load_steps=7 format=3 uid="uid://dsmqt3orm7tfr"]
 
-[ext_resource type="Script" path="res://scripts/cutscenes/Skip1.gd" id="1_e15fm"]
-[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="1_vq36w"]
-[ext_resource type="Texture2D" uid="uid://cthuf2cua426d" path="res://sprites/scene1/balaoFala.png" id="3_1nela"]
-[ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="3_626de"]
-[ext_resource type="Texture2D" uid="uid://bl0tradc87rnw" path="res://sprites/scene1/nomeFala.png" id="5_awx0v"]
-[ext_resource type="Texture2D" uid="uid://gm60qyic0dc8" path="res://sprites/scene1/carlosSpriteSheet.png" id="6_rmpv8"]
+[ext_resource type="Script" path="res://scripts/cutscenes/Skip2.gd" id="1_8da1s"]
+[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_0t2kj"]
+[ext_resource type="Texture2D" uid="uid://cthuf2cua426d" path="res://sprites/scene1/balaoFala.png" id="3_7sk5o"]
+[ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="4_vmlv8"]
+[ext_resource type="Texture2D" uid="uid://bl0tradc87rnw" path="res://sprites/scene1/nomeFala.png" id="5_u3pi7"]
+[ext_resource type="Texture2D" uid="uid://gm60qyic0dc8" path="res://sprites/scene1/carlosSpriteSheet.png" id="6_f72b2"]
 
-[node name="CutScene1" type="Node2D"]
-script = ExtResource("1_e15fm")
+[node name="CutScene2" type="Node2D"]
+script = ExtResource("1_8da1s")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1.48925, 27.625)
 scale = Vector2(0.293019, 0.236561)
-texture = ExtResource("1_vq36w")
+texture = ExtResource("2_0t2kj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, 70)
@@ -31,7 +31,7 @@ offset_bottom = 230.0
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/first"]
 position = Vector2(222, 349)
 scale = Vector2(0.4, 0.21)
-texture = ExtResource("3_1nela")
+texture = ExtResource("3_7sk5o")
 
 [node name="Message" type="Label" parent="Camera2D/first"]
 layout_mode = 1
@@ -48,24 +48,24 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("3_626de")
+theme_override_fonts/font = ExtResource("4_vmlv8")
 theme_override_font_sizes/font_size = 330
-text = "OI! MEU NOME É CARLOS, PRAZER EM TE CONHECER."
+text = "OLÁ! AGORA QUE AS FRUTAS FORAM COLHIDAS, PRECISAMOS EMPACOTÁ-LAS."
 autowrap_mode = 2
 
 [node name="NameBackgorund" type="Sprite2D" parent="Camera2D/first"]
 position = Vector2(222, 349)
 scale = Vector2(0.4, 0.21)
-texture = ExtResource("5_awx0v")
+texture = ExtResource("5_u3pi7")
 
 [node name="Name" type="Label" parent="Camera2D/first"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -190.5
+offset_left = -223.5
 offset_top = 291.0
-offset_right = 1509.5
+offset_right = 2136.5
 offset_bottom = 706.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
@@ -73,15 +73,16 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("3_626de")
+theme_override_fonts/font = ExtResource("4_vmlv8")
 theme_override_font_sizes/font_size = 330
-text = "CARLOS"
+text = "BOB"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Character" type="Sprite2D" parent="Camera2D/first"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_rmpv8")
+texture = ExtResource("6_f72b2")
 hframes = 2
 frame = 1
 
@@ -100,7 +101,7 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("3_626de")
+theme_override_fonts/font = ExtResource("4_vmlv8")
 theme_override_font_sizes/font_size = 330
 text = "CLIQUE NA TELA PARA CONTINUAR..."
 autowrap_mode = 2
@@ -117,7 +118,7 @@ offset_bottom = 230.0
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/second"]
 position = Vector2(222, 349)
 scale = Vector2(0.4, 0.21)
-texture = ExtResource("3_1nela")
+texture = ExtResource("3_7sk5o")
 
 [node name="Message" type="Label" parent="Camera2D/second"]
 layout_mode = 1
@@ -126,7 +127,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -250.5
 offset_top = 328.0
-offset_right = 6529.5
+offset_right = 5949.5
 offset_bottom = 1346.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
@@ -134,24 +135,24 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("3_626de")
+theme_override_fonts/font = ExtResource("4_vmlv8")
 theme_override_font_sizes/font_size = 330
-text = "O PRIMEIRO PASSO PARA O CICLO DA PRODUÇÃO DOS ALIMENTOS É A COLETA."
+text = "ME AJUDE A GUARDAR AS FRUTAS EM SUAS RESPECTIVAS CAIXAS."
 autowrap_mode = 2
 
 [node name="NameBackgorund" type="Sprite2D" parent="Camera2D/second"]
 position = Vector2(222, 349)
 scale = Vector2(0.4, 0.21)
-texture = ExtResource("5_awx0v")
+texture = ExtResource("5_u3pi7")
 
 [node name="Name" type="Label" parent="Camera2D/second"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -190.5
+offset_left = -223.5
 offset_top = 291.0
-offset_right = 1509.5
+offset_right = 2136.5
 offset_bottom = 706.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
@@ -159,16 +160,18 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("3_626de")
+theme_override_fonts/font = ExtResource("4_vmlv8")
 theme_override_font_sizes/font_size = 330
-text = "CARLOS"
+text = "BOB"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Character" type="Sprite2D" parent="Camera2D/second"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_rmpv8")
+texture = ExtResource("6_f72b2")
 hframes = 2
+frame = 1
 
 [node name="Click" type="Label" parent="Camera2D/second"]
 layout_mode = 1
@@ -185,7 +188,7 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("3_626de")
+theme_override_fonts/font = ExtResource("4_vmlv8")
 theme_override_font_sizes/font_size = 330
 text = "CLIQUE NA TELA PARA CONTINUAR..."
 autowrap_mode = 2
@@ -202,7 +205,7 @@ offset_bottom = 230.0
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/third"]
 position = Vector2(222, 349)
 scale = Vector2(0.4, 0.21)
-texture = ExtResource("3_1nela")
+texture = ExtResource("3_7sk5o")
 
 [node name="Message" type="Label" parent="Camera2D/third"]
 layout_mode = 1
@@ -211,7 +214,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -250.5
 offset_top = 328.0
-offset_right = 6529.5
+offset_right = 5949.5
 offset_bottom = 1346.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
@@ -219,24 +222,24 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("3_626de")
+theme_override_fonts/font = ExtResource("4_vmlv8")
 theme_override_font_sizes/font_size = 330
-text = "E VOCÊ VAI ME AJUDAR A PEGAR AS FRUTAS, CERTO?"
+text = "CLIQUE E ARRASTE AS FRUTAS PARA MIM. EU CUIDO DE SEPARAR ELAS."
 autowrap_mode = 2
 
 [node name="NameBackgorund" type="Sprite2D" parent="Camera2D/third"]
 position = Vector2(222, 349)
 scale = Vector2(0.4, 0.21)
-texture = ExtResource("5_awx0v")
+texture = ExtResource("5_u3pi7")
 
 [node name="Name" type="Label" parent="Camera2D/third"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -190.5
+offset_left = -223.5
 offset_top = 291.0
-offset_right = 1509.5
+offset_right = 2136.5
 offset_bottom = 706.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
@@ -244,15 +247,16 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("3_626de")
+theme_override_fonts/font = ExtResource("4_vmlv8")
 theme_override_font_sizes/font_size = 330
-text = "CARLOS"
+text = "BOB"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Character" type="Sprite2D" parent="Camera2D/third"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_rmpv8")
+texture = ExtResource("6_f72b2")
 hframes = 2
 frame = 1
 
@@ -271,9 +275,9 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("3_626de")
+theme_override_fonts/font = ExtResource("4_vmlv8")
 theme_override_font_sizes/font_size = 330
-text = "CLIQUE NA TELA PARA CONTINUAR...."
+text = "CLIQUE NA TELA PARA CONTINUAR..."
 autowrap_mode = 2
 
 [node name="fourth" type="Control" parent="Camera2D"]
@@ -288,7 +292,7 @@ offset_bottom = 230.0
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/fourth"]
 position = Vector2(222, 349)
 scale = Vector2(0.4, 0.21)
-texture = ExtResource("3_1nela")
+texture = ExtResource("3_7sk5o")
 
 [node name="Message" type="Label" parent="Camera2D/fourth"]
 layout_mode = 1
@@ -297,7 +301,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -250.5
 offset_top = 328.0
-offset_right = 6529.5
+offset_right = 5949.5
 offset_bottom = 1346.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
@@ -305,24 +309,24 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("3_626de")
+theme_override_fonts/font = ExtResource("4_vmlv8")
 theme_override_font_sizes/font_size = 330
-text = "VAMOS LÁ ENTÃO! UMA DICA, PARA PEGAR AS FRUTAS MEXA O MOUSE."
+text = "AS FRUTAS QUE EU PEDIR VÃO APARECER NO TOPO DA TELA."
 autowrap_mode = 2
 
 [node name="NameBackgorund" type="Sprite2D" parent="Camera2D/fourth"]
 position = Vector2(222, 349)
 scale = Vector2(0.4, 0.21)
-texture = ExtResource("5_awx0v")
+texture = ExtResource("5_u3pi7")
 
 [node name="Name" type="Label" parent="Camera2D/fourth"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -190.5
+offset_left = -223.5
 offset_top = 291.0
-offset_right = 1509.5
+offset_right = 2136.5
 offset_bottom = 706.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
@@ -330,16 +334,19 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("3_626de")
+theme_override_fonts/font = ExtResource("4_vmlv8")
 theme_override_font_sizes/font_size = 330
-text = "CARLOS"
+text = "BOB
+"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Character" type="Sprite2D" parent="Camera2D/fourth"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_rmpv8")
+texture = ExtResource("6_f72b2")
 hframes = 2
+frame = 1
 
 [node name="Click" type="Label" parent="Camera2D/fourth"]
 layout_mode = 1
@@ -356,7 +363,7 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
 theme_override_constants/outline_size = 100
-theme_override_fonts/font = ExtResource("3_626de")
+theme_override_fonts/font = ExtResource("4_vmlv8")
 theme_override_font_sizes/font_size = 330
 text = "CLIQUE NA TELA PARA CONTINUAR..."
 autowrap_mode = 2

@@ -8,7 +8,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.y += 2
-	
-	if position.y >= 438:
-		position.y = -297
+	if(!get_parent().pause):
+		position.y += 2
+		
+		if position.y >= 438:
+			position.y = -297

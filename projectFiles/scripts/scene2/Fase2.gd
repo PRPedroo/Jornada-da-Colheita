@@ -3,6 +3,7 @@ extends Node2D
 @onready var hud = $Camera2D/HUD
 @onready var final = $Camera2D/Final
 @onready var pausehud = $Camera2D/Pause
+@onready var finalContinue = $Camera2D/FinalContinue
 
 @onready var objective_label = $Camera2D/HUD/ObjectiveLabel
 #@onready var points_label = $Camera2D/Final/PointsLabel
@@ -87,7 +88,10 @@ func endGame():
 	numFruits = -1
 	pause = true
 	hud.visible = false
-	final.visible = true
+	if get_parent().storyMode == true:
+		finalContinue.visible = true
+	else:
+		final.visible = true
 
 func showPackage(index):
 	if index == 0:
@@ -117,12 +121,17 @@ func clearStacks():
 		removeFruitStack()
 
 func _on_play_again_button_up():
-	get_parent().switchScenes(2) # BOTÃO PARA JOGAR NOVAMENTE (TELA FINAL)
+	get_parent().switchScenes(2) # BOTÃO PARA JOGAR NOVAMENTE
 
 func _on_menu_button_up():
-	get_parent().switchScenes(0) # BOTÃO PARA VOLTAR AO MENU (TELA PAUSE)
+	get_parent().switchScenes(0) # BOTÃO PARA VOLTAR AO MENU
+
+func _on_continue_story_button_button_up():
+	get_parent().switchScenes(33) # IR PARA CUTSCENE DA FASE 3 
 
 func _on_resume_button_up():
-	pause = false # BOTÃO PARA VOLTAR PARA REJOGAR A FASE (TELA PAUSE)
+	pause = false # BOTÃO PARA DESPAUSAR
 	pausehud.visible = !pausehud.visible
+
+
 

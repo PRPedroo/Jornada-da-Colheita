@@ -40,7 +40,7 @@ func _on_play_again_button_up():
 	get_parent().switchScenes(1) # BOTÃO PARA VOLTAR PARA REJOGAR A FASE (TELA FINAL)
 
 func _on_continue_story_button_button_up():
-	get_parent().switchScenes(2) # IR PRA FASE 22 (CUTSCENE DA FASE 2)
+	get_parent().switchScenes(22) # IR PRA FASE 22 (CUTSCENE DA FASE 2)
 
 func _on_resume_pressed():
 	pause = false # BOTÃO PARA VOLTAR PARA REJOGAR A FASE (TELA PAUSE)

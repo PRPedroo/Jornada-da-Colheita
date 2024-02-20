@@ -9,6 +9,10 @@ var telaFase1 = preload("res://scenes/Scene1.tscn")
 var telaFase1CutScene = preload("res://scenes/CutScene1.tscn")
 
 var telaFase2 = preload("res://scenes/Scene2.tscn")
+var telaFase2CutScene = preload("res://scenes/CutScene2.tscn")
+
+var telaFase3 = preload("res://scenes/Scene3.tscn")
+var telaFase3CutScene = preload("res://scenes/CutScene3.tscn")
 
 var instance
 
@@ -52,7 +56,7 @@ func _process(delta):
 		verifyTime()
 
 func switchScenes(scene):
-	if scene == 0:
+	if scene == 0: # MENU
 		storyMode = false
 		resetVec()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -61,26 +65,43 @@ func switchScenes(scene):
 		instance = telaMenu.instantiate()
 		self.add_child(instance)
 
-	if scene == 1:
+	if scene == 1: # FASE 1
 		resetVec()
 		time = tick
 		for _i in self.get_children():
 			_i.queue_free()
 		instance = telaFase1.instantiate()
 		self.add_child(instance)
-	if scene == 11:
+	if scene == 11: # CUTSCENE 1
 		storyMode = true
 		for _i in self.get_children():
 			_i.queue_free()
 		instance = telaFase1CutScene.instantiate()
 		self.add_child(instance)
-
-	if scene == 2:
+	
+	if scene == 2: # FASE 2
 		resetVec()
 		#time = tick
 		for _i in self.get_children():
 			_i.queue_free()
 		instance = telaFase2.instantiate()
+		self.add_child(instance)
+	if scene == 22: # CUTSCENE 2
+		resetVec()
+		for _i in self.get_children():
+			_i.queue_free()
+		instance = telaFase2CutScene.instantiate()
+		self.add_child(instance)
+	
+	if scene == 3: # FASE 3
+		for _i in self.get_children():
+			_i.queue_free()
+		instance = telaFase3.instantiate()
+		self.add_child(instance)
+	if scene == 33: # CUTSCENE 3
+		for _i in self.get_children():
+			_i.queue_free()
+		instance = telaFase3CutScene.instantiate()
 		self.add_child(instance)
 
 #--------------------FASE 1-------------------------

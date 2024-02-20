@@ -457,6 +457,154 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("12_fnmnx")
 hframes = 2
 
+[node name="FinalContinue" type="Control" parent="Camera2D"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -290.0
+offset_top = -92.0
+offset_right = 288.0
+offset_bottom = 232.0
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/FinalContinue"]
+layout_mode = 0
+offset_left = -101.0
+offset_top = -63.0
+offset_right = 676.0
+offset_bottom = 389.0
+color = Color(0.0235294, 0, 0.0392157, 0.345098)
+
+[node name="ColorRect2" type="ColorRect" parent="Camera2D/FinalContinue"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 33.0
+offset_right = 492.0
+offset_bottom = 286.0
+color = Color(1, 1, 1, 0.219608)
+
+[node name="FinishLabel" type="Label" parent="Camera2D/FinalContinue"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.0
+offset_top = 55.0
+offset_right = 8171.0
+offset_bottom = 1535.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("13_mvupj")
+theme_override_font_sizes/font_size = 530
+text = "Os pacotes ficaram prontos!"
+horizontal_alignment = 1
+
+[node name="ContinueStoryButton" type="Button" parent="Camera2D/FinalContinue"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 208.0
+offset_right = 259.0
+offset_bottom = 268.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="AgainLabel" type="Label" parent="Camera2D/FinalContinue/ContinueStoryButton"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.0
+offset_top = 11.0
+offset_right = 1737.0
+offset_bottom = 851.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("13_mvupj")
+theme_override_font_sizes/font_size = 315
+text = "Continuar história"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Menu" type="Button" parent="Camera2D/FinalContinue"]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 216.0
+offset_right = 474.0
+offset_bottom = 276.0
+icon_alignment = 1
+expand_icon = true
+
+[node name="MenuLabel" type="Label" parent="Camera2D/FinalContinue/Menu"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 13.0
+offset_right = 1735.0
+offset_bottom = 697.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("13_mvupj")
+theme_override_font_sizes/font_size = 545
+text = "Sair"
+horizontal_alignment = 1
+
+[node name="ApplePackage" type="Sprite2D" parent="Camera2D/FinalContinue"]
+position = Vector2(251.835, 172.165)
+rotation = 3.14159
+scale = Vector2(0.0890792, -0.0890792)
+texture = ExtResource("10_cyy28")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/FinalContinue/ApplePackage"]
+position = Vector2(84.7466, 67.7964)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_twcfl")
+hframes = 2
+
+[node name="BananaPackage" type="Sprite2D" parent="Camera2D/FinalContinue"]
+position = Vector2(316, 173)
+scale = Vector2(0.0864865, 0.0864865)
+texture = ExtResource("10_cyy28")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/FinalContinue/BananaPackage"]
+position = Vector2(84.7466, 67.7964)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_4jdx6")
+hframes = 2
+
+[node name="GrapesPackage" type="Sprite2D" parent="Camera2D/FinalContinue"]
+position = Vector2(286.205, 121.795)
+rotation = 3.14159
+scale = Vector2(0.086809, -0.086809)
+texture = ExtResource("10_cyy28")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/FinalContinue/GrapesPackage"]
+position = Vector2(84.7466, 67.7964)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_fnmnx")
+hframes = 2
+
 [node name="Background2" type="Sprite2D" parent="."]
 position = Vector2(1, 72)
 scale = Vector2(0.496568, 0.496567)
@@ -493,3 +641,5 @@ horizontal_alignment = 1
 [connection signal="button_up" from="Camera2D/Pause/Menu" to="." method="_on_menu_button_up"]
 [connection signal="button_up" from="Camera2D/Final/PlayAgain" to="." method="_on_play_again_button_up"]
 [connection signal="button_up" from="Camera2D/Final/Menu" to="." method="_on_menu_button_up"]
+[connection signal="button_up" from="Camera2D/FinalContinue/ContinueStoryButton" to="." method="_on_continue_story_button_button_up"]
+[connection signal="button_up" from="Camera2D/FinalContinue/Menu" to="." method="_on_menu_button_up"]

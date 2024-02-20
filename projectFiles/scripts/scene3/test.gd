@@ -24,25 +24,26 @@ func _ready():
 	activation2 = Activation_Softmax.new()
 
 func _process(delta):
-	if rotation_degrees <= maxDegrees and rotation_degrees >= -maxDegrees:
-		#if Input.is_key_pressed(KEY_RIGHT):
-		if dir == 2:
-			rotation_degrees += 0.5
-		#if Input.is_key_pressed(KEY_LEFT):
-		if dir == 0:
-			rotation_degrees -= 0.5
-	else:
-		rotation_degrees = (rotation_degrees/(maxDegrees+1)) * maxDegrees
-	
-	#if !Input.is_key_pressed(KEY_LEFT) and !Input.is_key_pressed(KEY_RIGHT):
-	if dir == 1:
-		if floor(rotation_degrees) != 0:
-			rotation_degrees -= rotation_degrees*backForce
+	if !get_parent().pause:
+		if rotation_degrees <= maxDegrees and rotation_degrees >= -maxDegrees:
+			#if Input.is_key_pressed(KEY_RIGHT):
+			if dir == 2:
+				rotation_degrees += 0.5
+			#if Input.is_key_pressed(KEY_LEFT):
+			if dir == 0:
+				rotation_degrees -= 0.5
 		else:
-			rotation_degrees = 0
-	
-	velocity.x = rotation_degrees * SPEED
-	move_and_slide()
+			rotation_degrees = (rotation_degrees/(maxDegrees+1)) * maxDegrees
+		
+		#if !Input.is_key_pressed(KEY_LEFT) and !Input.is_key_pressed(KEY_RIGHT):
+		if dir == 1:
+			if floor(rotation_degrees) != 0:
+				rotation_degrees -= rotation_degrees*backForce
+			else:
+				rotation_degrees = 0
+		
+		velocity.x = rotation_degrees * SPEED
+		move_and_slide()
 
 func run_neural_network():
 	dense1.forward([[get_node("LeftSensor").left, get_node("RightSensor").right]])
@@ -60,6 +61,6 @@ func run_neural_network():
 			max_index = i
 	var vec = ["esquerda", "reto", "direita"]
 	dir = max_index
-	print(activation2.output)
-	print(vec[max_index])
+	#print(activation2.output)
+	#print(vec[max_index])
 	
