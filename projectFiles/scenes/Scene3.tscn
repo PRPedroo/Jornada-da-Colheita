@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbktrwily2q1k"]
+[gd_scene load_steps=17 format=3 uid="uid://cbktrwily2q1k"]
 
 [ext_resource type="Script" path="res://scripts/scene3/Fase3.gd" id="1_0bqeq"]
 [ext_resource type="Script" path="res://scripts/scene3/backgroundMovement.gd" id="2_ukt1l"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_wix82"]
+[ext_resource type="Texture2D" uid="uid://ek1r25asgg1t" path="res://sprites/roadsSpriteSheet.png" id="4_2sr1t"]
 [ext_resource type="Texture2D" uid="uid://dakj0a3074s3i" path="res://sprites/icon.svg" id="4_ft0li"]
 [ext_resource type="Script" path="res://scripts/scene3/test.gd" id="4_o5oq6"]
+[ext_resource type="PackedScene" uid="uid://b5fgdphtr2f75" path="res://objects/scene3/str_mid.tscn" id="4_tbf6q"]
 [ext_resource type="Script" path="res://scripts/scene3/Sensor.gd" id="6_dosai"]
 [ext_resource type="Script" path="res://scripts/scene3/player.gd" id="7_r6v3p"]
 [ext_resource type="Texture2D" uid="uid://bmgkcxfh66q5c" path="res://sprites/cursorClick.png" id="8_gu6q2"]
@@ -12,6 +14,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7foli"]
 size = Vector2(20, 330)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0ncp"]
+size = Vector2(95, 301.938)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p07s6"]
 size = Vector2(38, 56)
@@ -40,92 +45,51 @@ shape = SubResource("RectangleShape2D_7foli")
 position = Vector2(293, 70)
 shape = SubResource("RectangleShape2D_7foli")
 
-[node name="RoadL1" type="Node2D" parent="." groups=["road"]]
+[node name="Roads" type="Node2D" parent="."]
 script = ExtResource("2_ukt1l")
 
-[node name="Background" type="Sprite2D" parent="RoadL1"]
-modulate = Color(0.0392157, 0.0392157, 0.0392157, 1)
-position = Vector2(-146, 27)
-scale = Vector2(0.146509, 0.236561)
-texture = ExtResource("2_wix82")
+[node name="str mid" parent="Roads" instance=ExtResource("4_tbf6q")]
 
-[node name="Area2D" type="Area2D" parent="RoadL1"]
+[node name="str mid2" type="Node2D" parent="Roads" groups=["road"]]
+position = Vector2(294, -324)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoadL1/Area2D"]
-position = Vector2(-11, 0)
-polygon = PackedVector2Array(-230, 234, -230, 185, -230, 155, -228, 116, -228, 65, -228, 20, -217, -23, -193, -51, -152, -71, -132, -82, -124, -121, -124, -155, -125, -174, -297, -175, -292, 231)
+[node name="Background" type="Sprite2D" parent="Roads/str mid2"]
+position = Vector2(-150.25, 70)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_2sr1t")
+hframes = 5
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RoadL1/Area2D"]
-position = Vector2(-21, -169)
-polygon = PackedVector2Array(41, 7, 41, 400, -103, 403, -105, 320, -105, 284, -95, 229, -62, 179, -24, 153, -5, 117, -10, 58, -10, -6, 39, -9)
+[node name="Area2D" type="Area2D" parent="Roads/str mid2"]
 
-[node name="RoadL2" type="Node2D" parent="." groups=["road"]]
-position = Vector2(0, -409)
-script = ExtResource("2_ukt1l")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roads/str mid2/Area2D"]
+position = Vector2(-246.5, 68.9688)
+shape = SubResource("RectangleShape2D_e0ncp")
 
-[node name="Background2" type="Sprite2D" parent="RoadL2"]
-modulate = Color(0.0392157, 0.0392157, 0.0392157, 1)
-position = Vector2(-146, 27)
-scale = Vector2(0.145765, 0.236561)
-texture = ExtResource("2_wix82")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Roads/str mid2/Area2D"]
+position = Vector2(-53.5, 68.9688)
+shape = SubResource("RectangleShape2D_e0ncp")
 
-[node name="Area2D" type="Area2D" parent="RoadL2"]
+[node name="str mid3" parent="Roads" instance=ExtResource("4_tbf6q")]
+position = Vector2(7, 0)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoadL2/Area2D"]
-position = Vector2(-260, -11)
-rotation = 3.14159
-scale = Vector2(1, -1)
-polygon = PackedVector2Array(-230, 243, -224, 157, -226, 114, -225, 64, -228, 20, -217, -23, -193, -51, -162, -61, -139, -84, -131, -121, -132, -150, -130, -169, -273, -174, -280, 241)
+[node name="str mid4" type="Node2D" parent="Roads" groups=["road"]]
+position = Vector2(7, -324)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RoadL2/Area2D"]
-position = Vector2(-304, -11)
-rotation = 3.14159
-scale = Vector2(1, -1)
-polygon = PackedVector2Array(2, 1, 3, 78, 3, 137, 3, 222, 5, 238, -161, 240, -161, 133, -157, 99, -150, 57, -123, 35, -82, 25, -59, 1, -52, -48, -50, -114, -53, -155, -53, -169, 9, -171)
+[node name="Background" type="Sprite2D" parent="Roads/str mid4"]
+position = Vector2(-150.25, 70)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_2sr1t")
+hframes = 5
 
-[node name="RoadR3" type="Node2D" parent="." groups=["road"]]
-position = Vector2(294, 0)
-script = ExtResource("2_ukt1l")
+[node name="Area2D" type="Area2D" parent="Roads/str mid4"]
 
-[node name="Background" type="Sprite2D" parent="RoadR3"]
-modulate = Color(0.0392157, 0.0392157, 0.0392157, 1)
-position = Vector2(-146, 27)
-scale = Vector2(0.146509, 0.236561)
-texture = ExtResource("2_wix82")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roads/str mid4/Area2D"]
+position = Vector2(-246.5, 68.9688)
+shape = SubResource("RectangleShape2D_e0ncp")
 
-[node name="Area2D" type="Area2D" parent="RoadR3"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoadR3/Area2D"]
-position = Vector2(-11, 0)
-polygon = PackedVector2Array(-230, 234, -230, 185, -230, 155, -228, 116, -228, 65, -228, 20, -217, -23, -193, -51, -152, -71, -132, -82, -124, -121, -124, -155, -125, -174, -297, -175, -292, 231)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RoadR3/Area2D"]
-position = Vector2(-21, -169)
-polygon = PackedVector2Array(41, 7, 41, 400, -103, 403, -105, 320, -105, 284, -95, 229, -62, 179, -24, 153, -5, 117, -10, 58, -10, -6, 39, -9)
-
-[node name="RoadR4" type="Node2D" parent="." groups=["road"]]
-position = Vector2(294, -409)
-script = ExtResource("2_ukt1l")
-
-[node name="Background2" type="Sprite2D" parent="RoadR4"]
-modulate = Color(0.0392157, 0.0392157, 0.0392157, 1)
-position = Vector2(-146, 27)
-scale = Vector2(0.145765, 0.236561)
-texture = ExtResource("2_wix82")
-
-[node name="Area2D" type="Area2D" parent="RoadR4"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoadR4/Area2D"]
-position = Vector2(-260, -11)
-rotation = 3.14159
-scale = Vector2(1, -1)
-polygon = PackedVector2Array(-230, 243, -224, 157, -226, 114, -225, 64, -228, 20, -217, -23, -193, -51, -162, -61, -139, -84, -131, -121, -132, -150, -130, -169, -273, -174, -280, 241)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RoadR4/Area2D"]
-position = Vector2(-304, -11)
-rotation = 3.14159
-scale = Vector2(1, -1)
-polygon = PackedVector2Array(2, 1, 3, 78, 3, 137, 3, 222, 5, 238, -161, 240, -161, 133, -157, 99, -150, 57, -123, 35, -82, 25, -59, 1, -52, -48, -50, -114, -53, -155, -53, -169, 9, -171)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Roads/str mid4/Area2D"]
+position = Vector2(-53.5, 68.9688)
+shape = SubResource("RectangleShape2D_e0ncp")
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(-179, 90)
@@ -203,7 +167,8 @@ size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/HUD"]
-modulate = Color(0, 0, 0, 1)
+visible = false
+modulate = Color(0, 0, 0, 0.376471)
 position = Vector2(288, 162)
 scale = Vector2(0.359375, 2.4375)
 texture = ExtResource("4_ft0li")
@@ -599,6 +564,7 @@ text = "Sair"
 horizontal_alignment = 1
 
 [node name="loadingScreen" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-7, 82)
 texture = ExtResource("2_wix82")
 

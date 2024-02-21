@@ -9,8 +9,11 @@ extends Node2D
 @onready var player_slider = $Camera2D/HUD/VSlider2
 
 @onready var player = $Player
+@onready var enemy = $Enemy
 
 @onready var loading_screen = $loadingScreen
+
+@onready var market = preload("res://objects/scene3/market.tscn")
 
 var pause = false
 
@@ -34,11 +37,25 @@ func _process(_delta):
 		player_slider.value += 1 + remap(player.speed, 50, 150, +0.5, -0.5)
 
 	if enemy_slider.value == 2000 or player_slider.value == 2000:
-		if get_parent().storyMode == false:
-			final.visible = true
+		hud.visible = false
+		var instance = market.instantiate()
+		instance.position.y = -200
+		
+		if player_slider.value == 2000:
+			instance.position.x = 145
 		else:
-			finalContinue.visible = true
-		pause = true
+			instance.position.x = -150.25
+		
+		get_child(1).add_child(instance)
+		enemy_slider.value = 0
+		player_slider.value = 0
+
+func endGame():
+	if get_parent().storyMode == false:
+		final.visible = true
+	else:
+		finalContinue.visible = true
+	pause = true
 
 func _on_menu_button_up():
 	get_parent().switchScenes(0) # BOTÃO PARA VOLTAR AO MENU

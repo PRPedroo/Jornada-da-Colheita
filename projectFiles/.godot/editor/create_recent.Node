@@ -1,11 +1,11 @@
-NinePatchRect
+CollisionPolygon2D
+Node2D
 Sprite2D
 CollisionShape2D
+NinePatchRect
 StaticBody2D
 Area2D
 VSlider
-Node2D
-CollisionPolygon2D
 CharacterBody2D
 RigidBody2D
 Button

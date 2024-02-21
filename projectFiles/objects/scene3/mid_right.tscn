@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://clcwx431xncx1"]
+
+[ext_resource type="Texture2D" uid="uid://ek1r25asgg1t" path="res://sprites/roadsSpriteSheet.png" id="1_kq2y5"]
+
+[node name="mid right" type="Node2D" groups=["road"]]
+position = Vector2(294, 0)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-150.25, 70)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kq2y5")
+flip_h = true
+flip_v = true
+hframes = 5
+frame = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-150.25, 70)
+scale = Vector2(-1, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-96.2497, -1.39996)
+scale = Vector2(4.775, 15.275)
+polygon = PackedVector2Array(-10.0524, -8.64157, -8.79581, -6.28478, -6.70157, -4.12439, -3.35079, -1.57119, 0.209424, 0.654665, 4.39791, 3.14239, 7.32984, 5.43372, 9.21466, 8.05237, 9.84293, 9.81997, -10.0524, 9.81997)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-0.249725, -3.39994)
+scale = Vector2(-4.775, -15.275)
+polygon = PackedVector2Array(-10.0524, -9.9509, -8.16754, -6.54664, -6.49215, -4.77905, -3.97906, -2.88052, -0.41885, -0.523732, 4.18848, 2.55319, 7.32984, 5.43372, 9.21466, 8.05237, 9.84293, 9.81997, -29.9476, 9.81997, -30.1571, -9.88543)

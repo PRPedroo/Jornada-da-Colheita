@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://boaqd6t81v1rj"]
+
+[ext_resource type="Texture2D" uid="uid://ek1r25asgg1t" path="res://sprites/roadsSpriteSheet.png" id="1_8rpx4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0ncp"]
+size = Vector2(190, 301.938)
+
+[node name="str left" type="Node2D" groups=["road"]]
+position = Vector2(294, 0)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-150.25, 70)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8rpx4")
+flip_h = true
+hframes = 5
+frame = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-101, 65.9688)
+shape = SubResource("RectangleShape2D_e0ncp")
