@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://duqe4vtb7mtna"]
 
-[ext_resource type="Script" path="res://scripts/cutscenes/Skip1.gd" id="1_e15fm"]
+[ext_resource type="Script" path="res://scripts/cutscenes/Skip.gd" id="1_nt5gc"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="1_vq36w"]
 [ext_resource type="Texture2D" uid="uid://cthuf2cua426d" path="res://sprites/scene1/balaoFala.png" id="3_1nela"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="3_626de"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://gm60qyic0dc8" path="res://sprites/scene1/carlosSpriteSheet.png" id="6_rmpv8"]
 
 [node name="CutScene1" type="Node2D"]
-script = ExtResource("1_e15fm")
+script = ExtResource("1_nt5gc")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1.48925, 27.625)

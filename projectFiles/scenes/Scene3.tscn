@@ -1,21 +1,24 @@
-[gd_scene load_steps=17 format=3 uid="uid://cbktrwily2q1k"]
+[gd_scene load_steps=24 format=3 uid="uid://cbktrwily2q1k"]
 
 [ext_resource type="Script" path="res://scripts/scene3/Fase3.gd" id="1_0bqeq"]
 [ext_resource type="Script" path="res://scripts/scene3/backgroundMovement.gd" id="2_ukt1l"]
-[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_wix82"]
-[ext_resource type="Texture2D" uid="uid://ek1r25asgg1t" path="res://sprites/roadsSpriteSheet.png" id="4_2sr1t"]
-[ext_resource type="Texture2D" uid="uid://dakj0a3074s3i" path="res://sprites/icon.svg" id="4_ft0li"]
+[ext_resource type="Texture2D" uid="uid://qhwbr76qxi0o" path="res://sprites/scene3/roadsSpriteSheet.png" id="4_6c14u"]
 [ext_resource type="Script" path="res://scripts/scene3/test.gd" id="4_o5oq6"]
 [ext_resource type="PackedScene" uid="uid://b5fgdphtr2f75" path="res://objects/scene3/str_mid.tscn" id="4_tbf6q"]
+[ext_resource type="Texture2D" uid="uid://e70m51o8se42" path="res://sprites/scene3/truckEnemy.png" id="6_cmr6c"]
 [ext_resource type="Script" path="res://scripts/scene3/Sensor.gd" id="6_dosai"]
 [ext_resource type="Script" path="res://scripts/scene3/player.gd" id="7_r6v3p"]
-[ext_resource type="Texture2D" uid="uid://bmgkcxfh66q5c" path="res://sprites/cursorClick.png" id="8_gu6q2"]
+[ext_resource type="Texture2D" uid="uid://ccfo60s4n8qsx" path="res://sprites/scene3/truckPlayer.png" id="9_rr58y"]
+[ext_resource type="Texture2D" uid="uid://dakj0a3074s3i" path="res://sprites/icon.svg" id="10_xfmjn"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="14_g21pj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7foli"]
 size = Vector2(20, 330)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0ncp"]
+size = Vector2(95, 301.938)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucbej"]
 size = Vector2(95, 301.938)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p07s6"]
@@ -25,8 +28,84 @@ size = Vector2(38, 56)
 radius = 6.0
 height = 12.0
 
+[sub_resource type="Animation" id="Animation_fwylk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_l81qk"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pngy8"]
+_data = {
+"RESET": SubResource("Animation_fwylk"),
+"idle": SubResource("Animation_l81qk")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llx75"]
 size = Vector2(56, 14)
+
+[sub_resource type="Animation" id="Animation_d6s6b"]
+resource_name = "idle"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_dnm37"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hm7w3"]
+_data = {
+"RESET": SubResource("Animation_dnm37"),
+"idle": SubResource("Animation_d6s6b")
+}
 
 [node name="Fase3" type="Node2D"]
 script = ExtResource("1_0bqeq")
@@ -56,8 +135,8 @@ position = Vector2(294, -324)
 [node name="Background" type="Sprite2D" parent="Roads/str mid2"]
 position = Vector2(-150.25, 70)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_2sr1t")
-hframes = 5
+texture = ExtResource("4_6c14u")
+hframes = 8
 
 [node name="Area2D" type="Area2D" parent="Roads/str mid2"]
 
@@ -69,8 +148,25 @@ shape = SubResource("RectangleShape2D_e0ncp")
 position = Vector2(-53.5, 68.9688)
 shape = SubResource("RectangleShape2D_e0ncp")
 
-[node name="str mid3" parent="Roads" instance=ExtResource("4_tbf6q")]
+[node name="str mid3" type="Node2D" parent="Roads" groups=["road"]]
 position = Vector2(7, 0)
+
+[node name="Background" type="Sprite2D" parent="Roads/str mid3"]
+position = Vector2(-150.25, 70)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_6c14u")
+hframes = 8
+frame = 4
+
+[node name="Area2D" type="Area2D" parent="Roads/str mid3"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Roads/str mid3/Area2D"]
+position = Vector2(-246.5, 65.9688)
+shape = SubResource("RectangleShape2D_ucbej")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Roads/str mid3/Area2D"]
+position = Vector2(-53.5, 65.9688)
+shape = SubResource("RectangleShape2D_ucbej")
 
 [node name="str mid4" type="Node2D" parent="Roads" groups=["road"]]
 position = Vector2(7, -324)
@@ -78,8 +174,9 @@ position = Vector2(7, -324)
 [node name="Background" type="Sprite2D" parent="Roads/str mid4"]
 position = Vector2(-150.25, 70)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_2sr1t")
-hframes = 5
+texture = ExtResource("4_6c14u")
+hframes = 8
+frame = 4
 
 [node name="Area2D" type="Area2D" parent="Roads/str mid4"]
 
@@ -91,20 +188,22 @@ shape = SubResource("RectangleShape2D_e0ncp")
 position = Vector2(-53.5, 68.9688)
 shape = SubResource("RectangleShape2D_e0ncp")
 
+[node name="Market" type="Node2D" parent="."]
+
 [node name="Enemy" type="CharacterBody2D" parent="."]
-position = Vector2(-179, 90)
+position = Vector2(-143, 100)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("4_o5oq6")
-backForce = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 position = Vector2(0, -30)
 shape = SubResource("RectangleShape2D_p07s6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-position = Vector2(0, -30)
-scale = Vector2(0.4375, 0.4375)
-texture = ExtResource("4_ft0li")
+position = Vector2(0, -4)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("6_cmr6c")
+hframes = 2
 
 [node name="LeftSensor" type="Area2D" parent="Enemy" groups=["left"]]
 position = Vector2(-70, -110)
@@ -126,10 +225,16 @@ scale = Vector2(0.28125, 0.28125)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/RightSensor"]
 shape = SubResource("CapsuleShape2D_vvsjq")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy"]
+libraries = {
+"": SubResource("AnimationLibrary_pngy8")
+}
+
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(114, 90)
+position = Vector2(146, 90)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("7_r6v3p")
+backForce = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, -30)
@@ -137,14 +242,20 @@ shape = SubResource("RectangleShape2D_p07s6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(0, -30)
-scale = Vector2(0.4375, 0.4375)
-texture = ExtResource("4_ft0li")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_rr58y")
+hframes = 3
 
 [node name="Area2D" type="Area2D" parent="Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
 position = Vector2(0, -51)
 shape = SubResource("RectangleShape2D_llx75")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_hm7w3")
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, 70)
@@ -171,16 +282,18 @@ visible = false
 modulate = Color(0, 0, 0, 0.376471)
 position = Vector2(288, 162)
 scale = Vector2(0.359375, 2.4375)
-texture = ExtResource("4_ft0li")
+texture = ExtResource("10_xfmjn")
 
 [node name="VSlider" type="VSlider" parent="Camera2D/HUD"]
 texture_filter = 1
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.036
 offset_left = 270.0
 offset_top = 19.0
-offset_right = 286.0
-offset_bottom = 304.0
-theme_override_icons/grabber_disabled = ExtResource("8_gu6q2")
+offset_right = -289.0
+offset_bottom = -20.268
 max_value = 2000.0
 step = 0.1
 editable = false
@@ -188,11 +301,14 @@ scrollable = false
 metadata/_edit_use_anchors_ = true
 
 [node name="VSlider2" type="VSlider" parent="Camera2D/HUD"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.033
 offset_left = 291.0
 offset_top = 19.0
-offset_right = 307.0
-offset_bottom = 304.0
+offset_right = -268.0
+offset_bottom = -19.329
 max_value = 2000.0
 step = 0.1
 editable = false
@@ -566,17 +682,23 @@ horizontal_alignment = 1
 [node name="loadingScreen" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-7, 82)
-texture = ExtResource("2_wix82")
+
+[node name="ColorRect" type="ColorRect" parent="loadingScreen"]
+offset_left = -290.0
+offset_top = -180.0
+offset_right = 307.0
+offset_bottom = 159.0
+color = Color(0, 0, 0, 0.211765)
 
 [node name="PauseLabel" type="Label" parent="loadingScreen"]
 layout_direction = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -1152.0
-offset_top = -83.0
-offset_right = 5268.0
-offset_bottom = 7157.0
+offset_left = -280.5
+offset_top = -60.0
+offset_right = 6139.5
+offset_bottom = 2600.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
 size_flags_vertical = 0
@@ -589,6 +711,33 @@ text = "USE AS SETAS DO TECLADO
 PARA MOVIMENTAR O
 CAMINHÃO DA DIREITA!"
 horizontal_alignment = 1
+
+[node name="PauseLabel2" type="Label" parent="loadingScreen"]
+layout_direction = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -12.5
+offset_top = -49.0
+offset_right = 3267.5
+offset_bottom = 2031.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("14_g21pj")
+theme_override_font_sizes/font_size = 1200
+text = "->"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="loadingScreen"]
+position = Vector2(151.5, -6.5)
+scale = Vector2(0.0663637, 0.0663637)
+texture = ExtResource("9_rr58y")
+hframes = 3
+frame = 2
 
 [connection signal="area_entered" from="Enemy/LeftSensor" to="Enemy/LeftSensor" method="_on_area_entered"]
 [connection signal="area_exited" from="Enemy/LeftSensor" to="Enemy/LeftSensor" method="_on_area_exited"]

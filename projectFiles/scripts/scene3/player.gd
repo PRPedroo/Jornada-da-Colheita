@@ -11,7 +11,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	if(!get_parent().pause):
+	if !get_parent().pause and !get_parent().end:
 		if(!stunned):
 			if speed > 50:
 				speed -= 0.2
@@ -35,6 +35,13 @@ func _process(delta):
 		
 		position.y = speed
 		velocity.x = rotation_degrees * turning_speed
+		move_and_slide()
+		
+	elif get_parent().end and !get_parent().pause:
+		if position.y <= 185:
+			position.y += 2 * ((186-position.y)/186)
+		else:
+			position.y = 185
 		move_and_slide()
 
 func knockback(force):

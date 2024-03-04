@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://dsmqt3orm7tfr"]
 
-[ext_resource type="Script" path="res://scripts/cutscenes/Skip2.gd" id="1_8da1s"]
+[ext_resource type="Script" path="res://scripts/cutscenes/Skip.gd" id="1_yil20"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_0t2kj"]
 [ext_resource type="Texture2D" uid="uid://cthuf2cua426d" path="res://sprites/scene1/balaoFala.png" id="3_7sk5o"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="4_vmlv8"]
 [ext_resource type="Texture2D" uid="uid://bl0tradc87rnw" path="res://sprites/scene1/nomeFala.png" id="5_u3pi7"]
-[ext_resource type="Texture2D" uid="uid://gm60qyic0dc8" path="res://sprites/scene1/carlosSpriteSheet.png" id="6_f72b2"]
+[ext_resource type="Texture2D" uid="uid://d2gp7y3pbojco" path="res://sprites/scene2/bobSpriteSheet.png" id="6_5f7o8"]
 
 [node name="CutScene2" type="Node2D"]
-script = ExtResource("1_8da1s")
+script = ExtResource("1_yil20")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1.48925, 27.625)
@@ -21,6 +21,7 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="first" type="Control" parent="Camera2D"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -290.0
@@ -82,8 +83,8 @@ autowrap_mode = 2
 [node name="Character" type="Sprite2D" parent="Camera2D/first"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_f72b2")
-hframes = 2
+texture = ExtResource("6_5f7o8")
+hframes = 4
 frame = 1
 
 [node name="Click" type="Label" parent="Camera2D/first"]
@@ -169,9 +170,8 @@ autowrap_mode = 2
 [node name="Character" type="Sprite2D" parent="Camera2D/second"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_f72b2")
-hframes = 2
-frame = 1
+texture = ExtResource("6_5f7o8")
+hframes = 4
 
 [node name="Click" type="Label" parent="Camera2D/second"]
 layout_mode = 1
@@ -256,9 +256,9 @@ autowrap_mode = 2
 [node name="Character" type="Sprite2D" parent="Camera2D/third"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_f72b2")
-hframes = 2
-frame = 1
+texture = ExtResource("6_5f7o8")
+hframes = 4
+frame = 2
 
 [node name="Click" type="Label" parent="Camera2D/third"]
 layout_mode = 1
@@ -281,7 +281,6 @@ text = "CLIQUE NA TELA PARA CONTINUAR..."
 autowrap_mode = 2
 
 [node name="fourth" type="Control" parent="Camera2D"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -290.0
@@ -344,9 +343,9 @@ autowrap_mode = 2
 [node name="Character" type="Sprite2D" parent="Camera2D/fourth"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_f72b2")
-hframes = 2
-frame = 1
+texture = ExtResource("6_5f7o8")
+hframes = 4
+frame = 3
 
 [node name="Click" type="Label" parent="Camera2D/fourth"]
 layout_mode = 1

@@ -27,12 +27,13 @@ func _process(delta):
 					nextRoadDirt.pop_front()
 					nextRoadDirt.append(output) #TROCA OS PARAMETROS PARA SABER QUAL PISTA INSTANCIAR
 					load = load(roads[nextRoadDirt[0]][nextRoadDirt[1]])
+					instance = load.instantiate()
 				else: # PISTA DA ESQUERDA
 					nextRoadAsphalt.pop_front()
 					nextRoadAsphalt.append(output) #TROCA OS PARAMETROS PARA SABER QUAL PISTA INSTANCIAR
 					load = load(roads[nextRoadAsphalt[0]][nextRoadAsphalt[1]])
-				
-				instance = load.instantiate()
+					instance = load.instantiate()
+					instance.get_child(0).frame += 4
 				instance.position.x = i.position.x # INSTANCIA PISTA NOVA FORA DA CAMERA
 				instance.position.y = -324
 				self.add_child(instance)

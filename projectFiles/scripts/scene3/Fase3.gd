@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var animation_player = $Player/AnimationPlayer
+
 @onready var hud = $Camera2D/HUD
 @onready var final = $Camera2D/Final
 @onready var finalContinue = $Camera2D/FinalContinue
@@ -16,9 +18,12 @@ extends Node2D
 @onready var market = preload("res://objects/scene3/market.tscn")
 
 var pause = false
+var end = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	animation_player.play("idle")
+	Input.set_custom_mouse_cursor(get_parent().arrow)
 	loading_screen.visible = true
 	get_tree().set_pause(true)
 	await get_tree().create_timer(3).timeout
@@ -32,21 +37,27 @@ func _process(_delta):
 		pause = !pause
 		pausehud.visible = !pausehud.visible
 	
-	if !pause:
+	if !pause and !end:
 		enemy_slider.value += 1
 		player_slider.value += 1 + remap(player.speed, 50, 150, +0.5, -0.5)
 
 	if enemy_slider.value == 2000 or player_slider.value == 2000:
+		
 		hud.visible = false
 		var instance = market.instantiate()
-		instance.position.y = -200
+		end = true
+		instance.position.y = -350
 		
 		if player_slider.value == 2000:
-			instance.position.x = 145
+			#instance.position.x = 145 ??
+			player.velocity.x = 0
+			pass
 		else:
-			instance.position.x = -150.25
+			enemy.velocity.x = 0
+			instance.get_child(0).frame += 1
+			instance.get_child(0).position.x *= -1
 		
-		get_child(1).add_child(instance)
+		get_child(2).add_child(instance)
 		enemy_slider.value = 0
 		player_slider.value = 0
 

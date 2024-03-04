@@ -20,7 +20,7 @@ func _on_area_entered(area):
 		if get_groups()[0] == "right":
 			right = 1
 		
-		get_parent().run_neural_network()
+		get_parent().decide()
 
 
 func _on_area_exited(area):
@@ -30,4 +30,4 @@ func _on_area_exited(area):
 		if get_groups()[0] == "right":
 			right = 0
 		
-		get_parent().run_neural_network()
+		get_parent().decide()

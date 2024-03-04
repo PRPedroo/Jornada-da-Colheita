@@ -6,8 +6,8 @@
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="3_gx25c"]
 [ext_resource type="Texture2D" uid="uid://bxg7m74nd1sks" path="res://sprites/scene1/enemy1.png" id="4_fk1f4"]
 [ext_resource type="Texture2D" uid="uid://dtfvll0aicpv4" path="res://sprites/scene1/appl2.png" id="5_pq58j"]
-[ext_resource type="Texture2D" uid="uid://byqbosn2fraoh" path="res://sprites/cursorDefaultFull.png" id="6_npk1g"]
-[ext_resource type="Texture2D" uid="uid://dakj0a3074s3i" path="res://sprites/icon.svg" id="8_jt57l"]
+[ext_resource type="Texture2D" uid="uid://byqbosn2fraoh" path="res://sprites/cursorDefaultFull.png" id="7_n4uta"]
+[ext_resource type="Texture2D" uid="uid://dakj0a3074s3i" path="res://sprites/icon.svg" id="8_w4unx"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_gfudd")
@@ -142,7 +142,7 @@ offset_top = 20.0
 offset_right = 92.0
 offset_bottom = 93.0
 scale = Vector2(0.335, 0.335)
-texture = ExtResource("6_npk1g")
+texture = ExtResource("7_n4uta")
 expand_mode = 1
 
 [node name="ButtonF3" type="Button" parent="Camera2D"]
@@ -166,7 +166,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 46.0
 offset_bottom = 46.0
-texture = ExtResource("8_jt57l")
+texture = ExtResource("8_w4unx")
 expand_mode = 1
 
 [node name="ButtonF4" type="Button" parent="Camera2D"]
@@ -190,7 +190,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 46.0
 offset_bottom = 46.0
-texture = ExtResource("8_jt57l")
+texture = ExtResource("8_w4unx")
 expand_mode = 1
 
 [connection signal="button_up" from="Camera2D/ButtonPLAY" to="." method="_on_button_play_button_up"]

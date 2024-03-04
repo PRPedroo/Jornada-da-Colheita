@@ -1,5 +1,7 @@
-CollisionPolygon2D
 Node2D
+ColorRect
+AnimationPlayer
+CollisionPolygon2D
 Sprite2D
 CollisionShape2D
 NinePatchRect
@@ -11,6 +13,5 @@ RigidBody2D
 Button
 Control
 Label
-AnimationPlayer
 Sync
 AIController2D

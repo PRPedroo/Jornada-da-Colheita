@@ -1,10 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://cq8j8k0aafurw"]
 
 [ext_resource type="Script" path="res://scripts/scene3/market.gd" id="1_7cb7x"]
-[ext_resource type="Texture2D" uid="uid://dakj0a3074s3i" path="res://sprites/icon.svg" id="1_x35rd"]
+[ext_resource type="Texture2D" uid="uid://bllnctvb2bnph" path="res://sprites/scene3/mercado.png" id="2_pisqd"]
 
 [node name="market" type="Node2D"]
 script = ExtResource("1_7cb7x")
 
 [node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("1_x35rd")
+position = Vector2(145.5, 71)
+scale = Vector2(0.268182, 0.310909)
+texture = ExtResource("2_pisqd")
+hframes = 2

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cc1xgj55l4lcs"]
 
-[ext_resource type="Texture2D" uid="uid://ek1r25asgg1t" path="res://sprites/roadsSpriteSheet.png" id="1_pal6g"]
+[ext_resource type="Texture2D" uid="uid://qhwbr76qxi0o" path="res://sprites/scene3/roadsSpriteSheet.png" id="1_hntth"]
 
 [node name="left right" type="Node2D" groups=["road"]]
 position = Vector2(294, 0)
@@ -8,8 +8,8 @@ position = Vector2(294, 0)
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(-150.25, 70)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_pal6g")
-hframes = 5
+texture = ExtResource("1_hntth")
+hframes = 8
 frame = 3
 
 [node name="Area2D" type="Area2D" parent="."]

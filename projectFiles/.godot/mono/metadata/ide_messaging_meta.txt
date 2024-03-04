@@ -1,0 +1,2 @@
+﻿35697
+/home/pedro/Godot/Godot (mono)
