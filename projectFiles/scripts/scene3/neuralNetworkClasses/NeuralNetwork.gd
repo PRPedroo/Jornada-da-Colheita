@@ -12,17 +12,17 @@ func _init(inOut : Array, sizeLayers : Array, activationFunctions):
 		out.append(0)
 	output.append(out)
 	layers.append(Layer.new(inOut[0], sizeLayers[0]))
-	sizeLayers.pop_front()
-	if sizeLayers.size() > 1:
-		for i in sizeLayers:
-			layers.append(Layer.new(inOut[i], sizeLayers[i+1]))
-	else:
-		layers.append(Layer.new(sizeLayers[0], inOut[1]))
+	#sizeLayers.pop_front()
+	for i in range(len(sizeLayers)-1):
+			layers.append(Layer.new(sizeLayers[i], sizeLayers[i+1]))
+	
 	for i in activationFunctions:
 		if "ReLU" == i:
 			self.activations.append(Activation_ReLU.new())
 		elif "Softmax" == i:
 			self.activations.append(Activation_Softmax.new())
+		elif "Linear" == i:
+			self.activations.append(Activation_Linear.new())
 
 func setWeightsBiases(layer, weights, biases):
 	layers[layer-1].weights = weights

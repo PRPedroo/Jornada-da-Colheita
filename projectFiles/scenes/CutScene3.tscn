@@ -398,7 +398,7 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("4_0i3sx")
 theme_override_font_sizes/font_size = 330
-text = "USE AS SETAS PARA ME AJUDAR A DIRIGIR O CAMINHÃO"
+text = "USE AS SETAS PARA ME AJUDAR A DIRIGIR O CAMINHÃO."
 autowrap_mode = 2
 
 [node name="NameBackgorund" type="Sprite2D" parent="Camera2D/dialog5"]

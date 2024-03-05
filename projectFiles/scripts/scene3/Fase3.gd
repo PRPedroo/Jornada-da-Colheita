@@ -80,3 +80,7 @@ func _on_continue_story_button_button_up():
 func _on_resume_pressed():
 	pause = false # BOTÃO PARA DESPAUSAR
 	pausehud.visible = !pausehud.visible
+
+
+func _on_resume_button_up():
+	pass # Replace with function body.

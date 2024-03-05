@@ -14,7 +14,9 @@ func _ready():
 	animation_player.play("idle")
 	neural_network.setWeightsBiases(1, [[-8.953169308995498898e-01, 3.068421357380452186e+00], [-2.740990893498600922e+00, -5.064557105555514971e-01]], [2.190949460736625110e+00, -1.559169505695218449e-01])
 	neural_network.setWeightsBiases(2, [[-1.682435397909829211e+00, 2.754165550493389514e+00, -1.391125643397175260e+00], [-2.699270200510405227e-01, -9.641011783391013612e-01, 3.298179732881735937e+00]], [2.318335155313265616e+00, -4.203238170725078215e-01, -8.770413005531592088e-01])
-
+	for i in neural_network.layers:
+		print(i.weights, "\n\n")
+	
 func _process(delta):
 	if !get_parent().pause and !get_parent().end:
 		if rotation_degrees <= maxDegrees and rotation_degrees >= -maxDegrees:

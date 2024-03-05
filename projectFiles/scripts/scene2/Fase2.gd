@@ -35,7 +35,7 @@ var fruitIndex = 0
 
 var typeStack = ["nothing"]
 var positionStack = [Vector2(-118, 162)]
- 
+
 func _ready():
 	removeFruits()
 	spawnFruits(numFruits, get_parent().difficultyFase2)

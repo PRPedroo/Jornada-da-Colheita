@@ -1,8 +1,8 @@
-Node2D
 ColorRect
+Node2D
+Sprite2D
 AnimationPlayer
 CollisionPolygon2D
-Sprite2D
 CollisionShape2D
 NinePatchRect
 StaticBody2D

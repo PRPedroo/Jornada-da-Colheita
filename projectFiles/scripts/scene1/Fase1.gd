@@ -10,7 +10,7 @@ extends Node2D
 
 @onready var player = $Player
 
-var timer = 10
+var timer = 5
 var pause = false
 
 func _ready():
@@ -42,7 +42,7 @@ func _on_play_again_button_up():
 func _on_continue_story_button_button_up():
 	get_parent().switchScenes(22) # IR PRA FASE 22 (CUTSCENE DA FASE 2)
 
-func _on_resume_pressed():
+func _on_resume_button_up():
 	pause = false # BOTÃO PARA VOLTAR PARA REJOGAR A FASE (TELA PAUSE)
 	pausehud.visible = !pausehud.visible
 
@@ -70,5 +70,3 @@ func runTimer(delta):
 		timer_label.set("theme_override_colors/font_color",Color(255, 255, 0, 255))
 	if floor(timer) <= 5:
 		timer_label.set("theme_override_colors/font_color",Color(255, 0, 0, 255))
-
-

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsu7ffngm01r"]
+[gd_scene load_steps=11 format=3 uid="uid://dsu7ffngm01r"]
 
 [ext_resource type="Script" path="res://scripts/menu/menu.gd" id="1_gfudd"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_2naj2"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bxg7m74nd1sks" path="res://sprites/scene1/enemy1.png" id="4_fk1f4"]
 [ext_resource type="Texture2D" uid="uid://dtfvll0aicpv4" path="res://sprites/scene1/appl2.png" id="5_pq58j"]
 [ext_resource type="Texture2D" uid="uid://byqbosn2fraoh" path="res://sprites/cursorDefaultFull.png" id="7_n4uta"]
+[ext_resource type="Texture2D" uid="uid://ccfo60s4n8qsx" path="res://sprites/scene3/truckPlayer.png" id="8_55ol2"]
 [ext_resource type="Texture2D" uid="uid://dakj0a3074s3i" path="res://sprites/icon.svg" id="8_w4unx"]
+[ext_resource type="Texture2D" uid="uid://e70m51o8se42" path="res://sprites/scene3/truckEnemy.png" id="9_o52fi"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_gfudd")
@@ -38,7 +40,26 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("3_gx25c")
 theme_override_font_sizes/font_size = 900
-text = "Jornada da Colheita"
+text = "JORNADA DA COLHEITA"
+horizontal_alignment = 1
+
+[node name="Title2" type="Label" parent="Camera2D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -287.0
+offset_top = 107.0
+offset_right = 11213.0
+offset_bottom = 1233.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_gx25c")
+theme_override_font_sizes/font_size = 400
+text = "Fases"
 horizontal_alignment = 1
 
 [node name="Instructions" type="Label" parent="Camera2D"]
@@ -66,15 +87,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -89.0
-offset_top = 35.0
-offset_right = 89.0
-offset_bottom = 115.0
+offset_left = -122.0
+offset_top = 17.0
+offset_right = 122.0
+offset_bottom = 97.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("3_gx25c")
-theme_override_font_sizes/font_size = 50
-text = "JOGAR"
+theme_override_font_sizes/font_size = 30
+text = "JOGAR HISTÓRIA"
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonPLAY"]
 visible = false
@@ -85,6 +109,26 @@ offset_right = 77.0
 offset_bottom = 77.0
 texture = ExtResource("4_fk1f4")
 expand_mode = 1
+
+[node name="jogar" type="Label" parent="Camera2D/ButtonPLAY"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_top = 21.0
+offset_right = 11212.0
+offset_bottom = 1147.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_gx25c")
+theme_override_font_sizes/font_size = 600
+text = "JOGAR HISTÓRIA"
+horizontal_alignment = 1
 
 [node name="ButtonF1" type="Button" parent="Camera2D"]
 anchors_preset = 8
@@ -160,14 +204,19 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_kjrcq")
 theme_override_font_sizes/font_size = 25
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonF3"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 46.0
-offset_bottom = 46.0
-texture = ExtResource("8_w4unx")
-expand_mode = 1
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ButtonF3"]
+position = Vector2(35, 32)
+rotation = 0.610865
+scale = Vector2(0.0327273, 0.0327273)
+texture = ExtResource("8_55ol2")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Camera2D/ButtonF3"]
+position = Vector2(16.5999, 24.6785)
+rotation = 0.340339
+scale = Vector2(0.0488537, 0.0488537)
+texture = ExtResource("9_o52fi")
+hframes = 2
 
 [node name="ButtonF4" type="Button" parent="Camera2D"]
 anchors_preset = 8
