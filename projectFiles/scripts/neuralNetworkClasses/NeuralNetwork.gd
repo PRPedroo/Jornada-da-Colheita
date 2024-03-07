@@ -88,6 +88,7 @@ func train(X, y, epoch, learning_rate):
 		weight_updates = biasWeight[0]
 		biases_updates = biasWeight[1]
 		
+		
 		# Atualização dos pesos
 		for j in range(len(layers)):
 			#print(layers[j].weights, "\n\n")
@@ -106,3 +107,19 @@ func train(X, y, epoch, learning_rate):
 			
 			layers[j].biases = np.minusVec(layers[j].biases, np.timesFloatVec(learning_rate, biases_updates[j]))
 			#print(layers[j].weights, "\n\n")
+
+func accuracyTest(X, y):
+	var np = NumpyHandmade.new()
+	
+	var predictions = np.argmax(self.feedForward(X))  # Obtém o índice do valor máximo em cada linha das previsões
+	var true_labels = np.argmax(y)  # Obtém o índice do valor máximo em cada linha dos rótulos
+	var accuracy : float = 0.0
+	
+	print(predictions, "\n\n", true_labels)
+	for i in range(len(true_labels)):
+		if predictions[i] == true_labels[i]:
+			accuracy += 1
+	accuracy = accuracy / len(true_labels)  # Calcula a precisão
+	
+	#print("Accuracy: ", accuracy)
+	return accuracy

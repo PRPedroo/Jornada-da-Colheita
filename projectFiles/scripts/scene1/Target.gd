@@ -10,7 +10,6 @@ var lastPos
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim.play("target")
-	randomizePosX()
 
 func randomizePosX():
 	get_node("Sprite2D").texture = load(get_node("../Apples").vecSprites[get_node("../Apples").contTarget])

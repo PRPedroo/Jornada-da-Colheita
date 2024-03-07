@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://6dsagn6g274f"]
+[gd_scene load_steps=33 format=3 uid="uid://6dsagn6g274f"]
 
 [ext_resource type="Script" path="res://scripts/scene1/Fase1.gd" id="1_scl5s"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_c7epr"]
@@ -10,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cd3llser74fln" path="res://sprites/scene1/appleSpriteSheet.png" id="6_imxdr"]
 [ext_resource type="Script" path="res://scripts/scene1/Enemy.gd" id="8_h43iy"]
 [ext_resource type="Texture2D" uid="uid://8fkf6p8jcw2b" path="res://sprites/scene1/enemySpriteSheet.png" id="8_we42d"]
-[ext_resource type="Script" path="res://scripts/scene1/Sync.gd" id="10_oxdhj"]
-[ext_resource type="Script" path="res://scripts/scene1/AIController2D.gd" id="10_rhku4"]
 [ext_resource type="Texture2D" uid="uid://bp30m1y2mg5p0" path="res://sprites/scene1/frontground.png" id="11_kma5x"]
 [ext_resource type="Texture2D" uid="uid://dn0nju75j4xvd" path="res://sprites/scene2/bananaSpriteSheet.png" id="13_8oo3n"]
 [ext_resource type="FontFile" uid="uid://qjyfmqn3f27a" path="res://fonts/Next Sunday.ttf" id="13_i2dgr"]
@@ -287,16 +285,10 @@ hframes = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 shape = SubResource("RectangleShape2D_elfmk")
 
-[node name="AIController2D" type="Node2D" parent="Enemy" groups=["AGENT"]]
-script = ExtResource("10_rhku4")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy"]
 libraries = {
 "": SubResource("AnimationLibrary_dptbr")
 }
-
-[node name="Sync" type="Node" parent="."]
-script = ExtResource("10_oxdhj")
 
 [node name="front" type="Sprite2D" parent="."]
 position = Vector2(1.4895, 27.4999)
@@ -530,6 +522,7 @@ texture = ExtResource("15_vscmg")
 hframes = 2
 
 [node name="PlayAgain" type="Button" parent="Camera2D/Final"]
+layout_mode = 0
 offset_left = 220.0
 offset_top = 208.0
 offset_right = 360.0
@@ -725,6 +718,7 @@ texture = ExtResource("15_vscmg")
 hframes = 2
 
 [node name="ContinueStoryButton" type="Button" parent="Camera2D/FinalContinue"]
+layout_mode = 0
 offset_left = 220.0
 offset_top = 208.0
 offset_right = 360.0

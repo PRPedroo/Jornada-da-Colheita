@@ -340,6 +340,7 @@ size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D/HUD"]
+layout_mode = 0
 offset_left = 267.0
 offset_top = -23.0
 offset_right = 310.0
@@ -572,6 +573,7 @@ ENTREGUES AO DESTINO"
 horizontal_alignment = 1
 
 [node name="PlayAgain" type="Button" parent="Camera2D/Final"]
+layout_mode = 0
 offset_left = 220.0
 offset_top = 219.0
 offset_right = 360.0
@@ -708,6 +710,7 @@ ENTREGUES AO DESTINO"
 horizontal_alignment = 1
 
 [node name="ContinueStoryButton" type="Button" parent="Camera2D/FinalContinue"]
+layout_mode = 0
 offset_left = 220.0
 offset_top = 219.0
 offset_right = 360.0

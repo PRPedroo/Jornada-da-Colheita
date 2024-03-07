@@ -107,11 +107,13 @@ func minusVec(A, B):
 	return A
 
 func argmax(A):
-	var bigs = []
+	var indexes = []
 	for i in range(len(A)):
 		var big = A[i][0]
+		var index = 0
 		for j in range(len(A[0])):
 			if A[i][j] > A[i][big]:
-				big = j
-		bigs.append(big)
-	return bigs
+				big = A[i][j]
+				index = j
+		indexes.append(index)
+	return indexes

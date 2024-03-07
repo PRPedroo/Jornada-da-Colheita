@@ -10,13 +10,11 @@ extends Node2D
 
 @onready var player = $Player
 
-var timer = 5
+var timer = 60
 var pause = false
 
 func _ready():
-	# TEM QUE TROCAR ESSA PARTE PARA EXPORTAR O PROJETO
-	get_node("Sync").onnx_model_path = "/home/pedro/Documentos/Projeto de Extensão/Jornada-da-Colheita/projectFiles/modelfinal.onnx"
-	#get_node("Sync").onnx_model_path = "modelfinal.onnx"
+	pass
 
 func _process(delta):
 	checkFullscreen()
