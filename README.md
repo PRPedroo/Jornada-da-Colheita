@@ -1,4 +1,4 @@
-# ProjetoEX
+# Jornada da Colheita
 Trabalho de extensão orientado pela professora Helyane, UTFPR campus Ponta Grossa. O projeto consiste em um jogo educativo para a Assarte (Associação Artesanal do Excepcional de Ponta Grossa) envolvendo Inteligência Artificial.
 
 # Sobre
