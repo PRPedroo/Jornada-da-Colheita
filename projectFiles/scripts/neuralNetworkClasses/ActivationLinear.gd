@@ -6,7 +6,7 @@ func forward(inputs):
 	
 	var C : Array
 	
-	# Preenche o vetor C (output) com zeros
+	# ENCHE A MATRIZ C COM ZEROS, NO TAMANHO ADEQUADO
 	for i in range(in_rows):
 		var aux = []
 		for j in range(in_cols):
@@ -15,7 +15,7 @@ func forward(inputs):
 		
 	self.output = C
 	
-	# Preenche com os valores da função ReLU (0 se for menor que 0 e o valor respectivo se for maior que 0)
+	# PREENCHE COM OS VALORES DA FUNÇÃO LINEAR (F(X) = X)
 	for i in range(in_rows):
 		for j in range(in_cols):
 			self.output[i][j] = inputs[i][j]
@@ -28,13 +28,13 @@ func derivative(inputs):
 	var C = []
 	var aux = []
 	
-	# Preenche o vetor C (output) com zeros
+	# ENCHE A MATRIZ C COM ZEROS, NO TAMANHO ADEQUADO
 	for i in range(in_cols):
 		aux.append(0)
 	for i in range(in_rows):
 		C.append(aux)
 		
-	# Calcula a derivada da função ReLU
+	# LINEAR DERIVADA
 	for i in range(in_rows):
 		for j in range(in_cols):
 				C[i][j] = 1

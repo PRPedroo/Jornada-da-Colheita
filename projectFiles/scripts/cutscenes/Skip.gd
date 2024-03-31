@@ -1,10 +1,11 @@
 extends Node2D
 
-static var scene = 0
+static var scene
 @onready var vecScreen = []
 var indexScreen = 1
 
 func _ready():
+	scene = get_parent().cutscene
 	if scene >= 4:
 		scene = 0
 	
@@ -16,6 +17,7 @@ func _on_button_button_up():
 		changeScreen()
 	else:
 		scene += 1
+		get_parent().cutscene = scene
 		get_parent().switchScenes(scene)
 
 func changeScreen():

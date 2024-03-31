@@ -14,12 +14,11 @@ func dot(A, B):
 			aux.append(0)
 		C.append(aux)
 	
-	# Mostra um erro se nao for possível a multiplicação das matrizes
+	# ERRO CASO AS MATRIZES NAO POSSAM SER MULTIPLICADAS
 	if cols_A != rows_B:
 		print("erro")
 		return
 	
-	# Multiplica as matrizes de pesos e inputs
 	for i in range(rows_A):
 		for j in range(cols_B):
 			for k in range(cols_A):
@@ -117,3 +116,9 @@ func argmax(A):
 				index = j
 		indexes.append(index)
 	return indexes
+
+func abs(A):
+	if A < 0:
+		return -A
+	else:
+		return A

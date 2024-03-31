@@ -7,7 +7,7 @@ var backForce:float = 0.1
 var maxDegrees = 20 *2
 var dir
 
-var neural_network = NeuralNetwork.new([2, 3], [2, 3], ["ReLU", "Softmax"])
+var neural_network = NeuralNetwork.new([2, 3], ["ReLU", "Softmax"])
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

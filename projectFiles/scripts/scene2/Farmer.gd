@@ -23,7 +23,7 @@ var b = 0.5
 var X = []
 var y = []
 
-var neural_network = NeuralNetwork.new([4, 2], [4, 2], ["Linear", "Linear"])
+var neural_network = NeuralNetwork.new([4, 2], ["Linear", "Linear"])
 
 func _ready():
 	animation.play("farmer")

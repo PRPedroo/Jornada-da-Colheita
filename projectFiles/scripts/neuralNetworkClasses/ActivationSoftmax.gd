@@ -1,22 +1,23 @@
 class_name Activation_Softmax extends ActivationFunction
 
 func forward(inputs):
-	var maxInput = -INF  # Definindo o máximo como o menor número possível
+	var maxInput = -INF  # MAIOR NÚMERO POSSÍVEL
 
-	# Encontrando o máximo
+	# ENCONTRA O MAIOR VALOR
 	for val in inputs:
 		for i in val:
 			maxInput = max(maxInput, i)
+	
 	var expValues = []
 
-	# Calculando as exponenciais e subtraindo o máximo
+	# CALCULA O EXPONENCIAL SUBTRAINDO O MÁXIMO
 	for val in inputs:
 		var expVal = []
 		for x in val:
 			expVal.append(exp(x - maxInput))
 		expValues.append(expVal)
 
-	# Normalização das probabilidades
+	# NORMALIZAÇÃO DAS PROBABILIDADES
 	var probabilities : Array
 	for expVal in expValues:
 		var sumExpVal = 0
@@ -37,7 +38,7 @@ func derivative(inputs):
 	var softmax_z = []
 	var softmax_deriv = []
 	
-	# Calcula o softmax
+	# SOFTMAX
 	for val in inputs:
 		for i in range(len(val)):
 			val[i] = exp(val[i])
@@ -48,7 +49,7 @@ func derivative(inputs):
 			val[i] = val[i]/sum_exp_z
 		softmax_z.append(val)
 
-	# Calcula a derivada do softmax
+	# SOFTMAX DERIVADA
 	for i in range(inputs.size()):
 		softmax_deriv.append(np.timesVec(softmax_z[i], (np.invert(softmax_z[i]))))
 

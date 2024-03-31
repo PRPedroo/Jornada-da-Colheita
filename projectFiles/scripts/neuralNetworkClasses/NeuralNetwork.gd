@@ -6,13 +6,12 @@ var output : Array
 var layers : Array
 var activations : Array
 
-func _init(inOut : Array, sizeLayers : Array, activationFunctions):
-	var out = []
-	for i in range(inOut[1]):
-		out.append(0)
-	output.append(out)
-	layers.append(Layer.new(inOut[0], sizeLayers[0]))
-	#sizeLayers.pop_front()
+func _init(sizeLayers : Array, activationFunctions : Array):
+	var outputAux = []
+	for i in range(sizeLayers[(sizeLayers.size())-1]):
+		outputAux.append(0)
+	output.append(outputAux)
+	layers.append(Layer.new(sizeLayers[0], sizeLayers[0]))
 	for i in range(len(sizeLayers)-1):
 			layers.append(Layer.new(sizeLayers[i], sizeLayers[i+1]))
 	
@@ -42,26 +41,20 @@ func feedForward(inputs : Array):
 func backPropagation(inputs, outputs, targets):
 	var np = NumpyHandmade.new()
 	
-	var first = []
+	var dz0 = []
 	for i in range(len(outputs)):
 		var aux = []
 		for j in range(len(outputs[0])):
 			aux.append(0)
-		first.append(aux)
+		dz0.append(aux)
 	
-	for i in range(len(first)):
-		for j in range(len(first[0])):
-			first[i][j] = outputs[i][j] - targets[i][j]
+	for i in range(len(dz0)):
+		for j in range(len(dz0[0])):
+			dz0[i][j] = outputs[i][j] - targets[i][j]
 	
-	var dz = [first]
-	#print(outputs, "\n\n")
-	#print(targets, "\n\n")
-	#print(dz)
+	var dz = [dz0]
 	for i in range(len(layers) - 1, 0, -1):
 		dz.insert(0, np.star(np.dot(dz[0], np.T(layers[i].weights)), activations[i-1].derivative(layers[i-1].output)))
-		# TENHO QUASE CTZ Q É AQUI O ERRO !!!!!
-	#for i in range(2):
-		#print(dz[i], "\n\n\n")
 	var weight_updates = []
 	var biases_updates = []
 	var m : float
@@ -77,49 +70,47 @@ func train(X, y, epoch, learning_rate):
 	var weight_updates
 	var biases_updates
 	for i in range(epoch):
-		# Feedforward
+		
+		# FEEDFORWARD
 		var outputs = feedForward(X)
-		#print(outputs, "\n\n")
 		
-		# Backpropagation
-		
+		# BACKPROPAGATION
 		var biasWeight = backPropagation(X, outputs, y)
 		
 		weight_updates = biasWeight[0]
 		biases_updates = biasWeight[1]
 		
 		
-		# Atualização dos pesos
+		# ATUALIZA OS PESOS E VIESES
 		for j in range(len(layers)):
-			#print(layers[j].weights, "\n\n")
-			var first = []
+			var weightsUpdated = []
+			
+			# ENCHE A MATRIZ DE 0 NO TAMANHO ADEQUADO
 			for k in range(len(layers[j].weights)):
 				var aux = []
 				for l in range(len(layers[j].weights[0])):
 					aux.append(0)
-				first.append(aux)
+				weightsUpdated.append(aux)
 
-			for k in range(len(first)):
-				for l in range(len(first[0])):
-					first[k][l] = layers[j].weights[k][l] - np.times(learning_rate, np.T(weight_updates[j]))[k][l]
+			for k in range(len(weightsUpdated)):
+				for l in range(len(weightsUpdated[0])):
+					weightsUpdated[k][l] = layers[j].weights[k][l] - np.times(learning_rate, np.T(weight_updates[j]))[k][l]
 			
-			layers[j].weights = first
+			layers[j].weights = weightsUpdated
 			
 			layers[j].biases = np.minusVec(layers[j].biases, np.timesFloatVec(learning_rate, biases_updates[j]))
-			#print(layers[j].weights, "\n\n")
 
 func accuracyTest(X, y):
 	var np = NumpyHandmade.new()
 	
-	var predictions = np.argmax(self.feedForward(X))  # Obtém o índice do valor máximo em cada linha das previsões
-	var true_labels = np.argmax(y)  # Obtém o índice do valor máximo em cada linha dos rótulos
+	var predictions = np.argmax(self.feedForward(X)) # OBTÉM O ÍNDICE DO VALOR MÁXIMO
+	var true_labels = np.argmax(y) # OBTÉM O ÍNDICE DO VALOR MÁXIMO
 	var accuracy : float = 0.0
 	
 	print(predictions, "\n\n", true_labels)
 	for i in range(len(true_labels)):
 		if predictions[i] == true_labels[i]:
 			accuracy += 1
-	accuracy = accuracy / len(true_labels)  # Calcula a precisão
+	accuracy = accuracy / len(true_labels)  # CALCULA A PRECISÃO
 	
-	#print("Accuracy: ", accuracy)
 	return accuracy

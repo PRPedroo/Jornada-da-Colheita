@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready():
-	var neural_network = NeuralNetwork.new([2, 2], [2, 2], ["Linear", "Softmax"])
+	var neural_network = NeuralNetwork.new([2, 2], ["Linear", "Softmax"])
 	#neural_network.setWeightsBiases(1, [[rng.randf_range(0.1, 0.9) * rng.randf_range(-1, 1), rng.randf_range(0.1, 0.9) * rng.randf_range(-1, 1)], [rng.randf_range(0.1, 0.9) * rng.randf_range(-1, 1), rng.randf_range(0.1, 0.9) * rng.randf_range(-1, 1)]], [rng.randf_range(0.1, 0.9) * rng.randf_range(-1, 1), rng.randf_range(0.1, 0.9) * rng.randf_range(-1, 1)])
 	#neural_network.setWeightsBiases(2, [[rng.randf_range(0.1, 0.9) * rng.randf_range(-1, 1), rng.randf_range(0.1, 0.9) * rng.randf_range(-1, 1)], [rng.randf_range(0.1, 0.9) * rng.randf_range(-1, 1), rng.randf_range(0.1, 0.9) * rng.randf_range(-1, 1)]], [rng.randf_range(0.1, 0.9) * rng.randf_range(-1, 1), rng.randf_range(0.1, 0.9) * rng.randf_range(-1, 1)])
 

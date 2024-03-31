@@ -31,6 +31,8 @@ var difficultyFase2 = 2
 var fullscreen = false
 var storyMode = false
 
+var cutscene = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_custom_mouse_cursor(arrow)
@@ -57,6 +59,7 @@ func _process(delta):
 
 func switchScenes(scene):
 	if scene == 0: # MENU
+		cutscene = 0
 		storyMode = false
 		resetVec()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

@@ -1,11 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1709830952
+::res://::1711820533
 export_presets.cfg::TextFile::-1::1698786599::0::1::::<><>::
 ::res://fonts/::1704822800
 Next Sunday.otf::FontFile::6756834121918464126::1698783834::1704716880::1::::<><>::
 Next Sunday.ttf::FontFile::1143067690416354868::1698783834::1704716880::1::::<><>::
 Super Disco Personal Use.ttf::FontFile::6049605121648905532::1704822800::1704822800::1::::<><>::
-::res://objects/::1709670676
+::res://objects/::1710719003
 ::res://objects/scene1/::1702341726
 apple.tscn::PackedScene::6083885561523893629::1702341726::0::1::::<><>::uid://cd3llser74fln
 ::res://objects/scene2/::1704808298
@@ -23,37 +23,41 @@ right_mid.tscn::PackedScene::5649494572295135800::1709489947::0::1::::<><>::uid:
 str_left.tscn::PackedScene::3370042983001640667::1709489954::0::1::::<><>::uid://qhwbr76qxi0o
 str_mid.tscn::PackedScene::4502778340493626874::1709490245::0::1::::<><>::uid://qhwbr76qxi0o
 str_right.tscn::PackedScene::2029630794933167623::1709489970::0::1::::<><>::uid://qhwbr76qxi0o
-::res://scenes/::1709830929
+::res://objects/scene4/::1711823748
+player.tscn::PackedScene::2938025084096051512::1711823748::0::1::::<><>::res://scripts/scene4/CharacterBody2D.gd<>uid://dakj0a3074s3i::::res://sprites/icon.svg
+enemy.tscn::PackedScene::5713887208333925666::1711823248::0::1::::<><>::res://scripts/scene4/Enemy.gd<>uid://dakj0a3074s3i::::res://sprites/icon.svg
+::res://scenes/::1711823748
 CutScene1.tscn::PackedScene::8596364756329544262::1709812683::0::1::::<><>::res://scripts/cutscenes/Skip.gd<>uid://uycaxdn5qib5
 CutScene2.tscn::PackedScene::8448440664651843815::1709812683::0::1::::<><>::res://scripts/cutscenes/Skip.gd<>uid://uycaxdn5qib5
 CutScene3.tscn::PackedScene::2430817565913622182::1709812683::0::1::::<><>::res://scripts/cutscenes/Skip.gd<>uid://uycaxdn5qib5
-main.tscn::PackedScene::6011037863779003046::1709830810::0::1::::<><>::res://scripts/main/MainNode.gd
-menu.tscn::PackedScene::248997086687411849::1709830810::0::1::::<><>::res://scripts/menu/menu.gd<>uid://uycaxdn5qib5::::res://sprites/scene1/background.png<>uid://c3jccn32q7das::::res://fonts/Next Sunday.otf<>uid://csgqd3brms0ua::::res://fonts/Super Disco Personal Use.ttf<>uid://bxg7m74nd1sks::::res://sprites/scene1/enemy1.png<>uid://dtfvll0aicpv4::::res://sprites/scene1/appl2.png<>uid://byqbosn2fraoh::::res://sprites/cursorDefaultFull.png<>uid://ccfo60s4n8qsx::::res://sprites/scene3/truckPlayer.png<>uid://dakj0a3074s3i::::res://sprites/icon.svg<>uid://e70m51o8se42::::res://sprites/scene3/truckEnemy.png
-Scene1.tscn::PackedScene::2183140528551153207::1709830810::0::1::::<><>::res://scripts/scene1/Fase1.gd<>uid://uycaxdn5qib5::::res://sprites/scene1/background.png<>uid://c3jccn32q7das::::res://fonts/Next Sunday.otf<>res://scripts/scene1/Player.gd<>uid://c6d5iqmrwofme::::res://sprites/scene1/playerSpriteSheet.png<>res://scripts/scene1/ControlSprites.gd<>res://scripts/scene1/Target.gd<>uid://cd3llser74fln::::res://sprites/scene1/appleSpriteSheet.png<>res://scripts/scene1/Enemy.gd<>uid://8fkf6p8jcw2b::::res://sprites/scene1/enemySpriteSheet.png<>uid://bp30m1y2mg5p0::::res://sprites/scene1/frontground.png<>uid://dn0nju75j4xvd::::res://sprites/scene2/bananaSpriteSheet.png<>uid://qjyfmqn3f27a::::res://fonts/Next Sunday.ttf<>uid://csgqd3brms0ua::::res://fonts/Super Disco Personal Use.ttf<>uid://6s7jcyaw5doo::::res://sprites/scene2/grapesSpriteSheet.png<>uid://bsj5p18njgwgk::::res://sprites/scene2/appleSpriteSheet.png
-Scene1Training.gd::GDScript::-1::1709829971::0::1::::<>Node2D<>::
-Scene1Training.tscn::PackedScene::5383777405830333436::1709830929::0::1::::<><>::res://scenes/Scene1Training.gd
-Scene2.tscn::PackedScene::1077785906609196685::1709830810::0::1::::<><>::res://scripts/scene2/Fase2.gd<>uid://c3jccn32q7das::::res://fonts/Next Sunday.otf<>uid://bl5d52ul65q67::::res://sprites/scene2/background2.png<>uid://borjsgjeqe1kr::::res://objects/scene2/apple.tscn<>res://scripts/scene2/Farmer.gd<>uid://csuyse8oj4v4e::::res://sprites/scene2/farmerSpriteSheet.png<>uid://dciehptjiwe75::::res://objects/scene2/banana.tscn<>uid://3vnt6y28nk5x::::res://objects/scene2/grapes.tscn<>uid://bsj5p18njgwgk::::res://sprites/scene2/appleSpriteSheet.png<>uid://bi34xgrmp87ap::::res://sprites/scene2/packagesSpriteSheet.png<>uid://dn0nju75j4xvd::::res://sprites/scene2/bananaSpriteSheet.png<>uid://6s7jcyaw5doo::::res://sprites/scene2/grapesSpriteSheet.png<>uid://csgqd3brms0ua::::res://fonts/Super Disco Personal Use.ttf<>uid://c6fx2e8gkcg4u::::res://sprites/scene2/frontground2.png<>uid://uycaxdn5qib5::::res://sprites/scene1/background.png
-Scene3.tscn::PackedScene::4864859138328859126::1709830810::0::1::::<><>::res://scripts/scene3/Fase3.gd<>res://scripts/scene3/backgroundMovement.gd<>uid://qhwbr76qxi0o::::res://sprites/scene3/roadsSpriteSheet.png<>res://scripts/scene3/test.gd<>uid://b5fgdphtr2f75::::res://objects/scene3/str_mid.tscn<>uid://e70m51o8se42::::res://sprites/scene3/truckEnemy.png<>res://scripts/scene3/Sensor.gd<>res://scripts/scene3/player.gd<>uid://ccfo60s4n8qsx::::res://sprites/scene3/truckPlayer.png<>uid://cuo5h2qg8neqj::::res://sprites/slider_enemy_1.png<>uid://bjlf5f6p5c0nm::::res://sprites/slider_player_1.png<>uid://db0ept3c0ssrb::::res://sprites/market.png<>uid://csgqd3brms0ua::::res://fonts/Super Disco Personal Use.ttf
-::res://scripts/::1709830838
-::res://scripts/cutscenes/::1709670256
-Skip.gd::GDScript::-1::1709670256::0::1::::<>Node2D<>::
-::res://scripts/main/::1708457281
-MainNode.gd::GDScript::-1::1708457281::0::1::::<>Node2D<>::
+main.tscn::PackedScene::6011037863779003046::1711823748::0::1::::<><>::res://scripts/main/MainNode.gd
+menu.tscn::PackedScene::248997086687411849::1711823748::0::1::::<><>::res://scripts/menu/menu.gd<>uid://uycaxdn5qib5::::res://sprites/scene1/background.png<>uid://c3jccn32q7das::::res://fonts/Next Sunday.otf<>uid://csgqd3brms0ua::::res://fonts/Super Disco Personal Use.ttf<>uid://bxg7m74nd1sks::::res://sprites/scene1/enemy1.png<>uid://dtfvll0aicpv4::::res://sprites/scene1/appl2.png<>uid://byqbosn2fraoh::::res://sprites/cursorDefaultFull.png<>uid://ccfo60s4n8qsx::::res://sprites/scene3/truckPlayer.png<>uid://dakj0a3074s3i::::res://sprites/icon.svg<>uid://e70m51o8se42::::res://sprites/scene3/truckEnemy.png
+Scene1.tscn::PackedScene::2183140528551153207::1711823748::0::1::::<><>::res://scripts/scene1/Fase1.gd<>uid://uycaxdn5qib5::::res://sprites/scene1/background.png<>uid://c3jccn32q7das::::res://fonts/Next Sunday.otf<>res://scripts/scene1/Player.gd<>uid://c6d5iqmrwofme::::res://sprites/scene1/playerSpriteSheet.png<>res://scripts/scene1/ControlSprites.gd<>res://scripts/scene1/Target.gd<>uid://cd3llser74fln::::res://sprites/scene1/appleSpriteSheet.png<>res://scripts/scene1/Enemy.gd<>uid://8fkf6p8jcw2b::::res://sprites/scene1/enemySpriteSheet.png<>uid://bp30m1y2mg5p0::::res://sprites/scene1/frontground.png<>uid://dn0nju75j4xvd::::res://sprites/scene2/bananaSpriteSheet.png<>uid://qjyfmqn3f27a::::res://fonts/Next Sunday.ttf<>uid://csgqd3brms0ua::::res://fonts/Super Disco Personal Use.ttf<>uid://6s7jcyaw5doo::::res://sprites/scene2/grapesSpriteSheet.png<>uid://bsj5p18njgwgk::::res://sprites/scene2/appleSpriteSheet.png
+Scene1Training.gd::GDScript::-1::1710173841::0::1::::<>Node2D<>::
+Scene1Training.tscn::PackedScene::5383777405830333436::1711823748::0::1::::<><>::res://scenes/Scene1Training.gd
+Scene2.tscn::PackedScene::1077785906609196685::1711823748::0::1::::<><>::res://scripts/scene2/Fase2.gd<>uid://c3jccn32q7das::::res://fonts/Next Sunday.otf<>uid://bl5d52ul65q67::::res://sprites/scene2/background2.png<>uid://borjsgjeqe1kr::::res://objects/scene2/apple.tscn<>res://scripts/scene2/Farmer.gd<>uid://csuyse8oj4v4e::::res://sprites/scene2/farmerSpriteSheet.png<>uid://dciehptjiwe75::::res://objects/scene2/banana.tscn<>uid://3vnt6y28nk5x::::res://objects/scene2/grapes.tscn<>uid://bsj5p18njgwgk::::res://sprites/scene2/appleSpriteSheet.png<>uid://bi34xgrmp87ap::::res://sprites/scene2/packagesSpriteSheet.png<>uid://dn0nju75j4xvd::::res://sprites/scene2/bananaSpriteSheet.png<>uid://6s7jcyaw5doo::::res://sprites/scene2/grapesSpriteSheet.png<>uid://csgqd3brms0ua::::res://fonts/Super Disco Personal Use.ttf<>uid://c6fx2e8gkcg4u::::res://sprites/scene2/frontground2.png<>uid://uycaxdn5qib5::::res://sprites/scene1/background.png
+Scene3.tscn::PackedScene::4864859138328859126::1711823748::0::1::::<><>::res://scripts/scene3/Fase3.gd<>res://scripts/scene3/backgroundMovement.gd<>uid://qhwbr76qxi0o::::res://sprites/scene3/roadsSpriteSheet.png<>res://scripts/scene3/test.gd<>uid://b5fgdphtr2f75::::res://objects/scene3/str_mid.tscn<>uid://e70m51o8se42::::res://sprites/scene3/truckEnemy.png<>res://scripts/scene3/Sensor.gd<>res://scripts/scene3/player.gd<>uid://ccfo60s4n8qsx::::res://sprites/scene3/truckPlayer.png<>uid://cuo5h2qg8neqj::::res://sprites/slider_enemy_1.png<>uid://bjlf5f6p5c0nm::::res://sprites/slider_player_1.png<>uid://db0ept3c0ssrb::::res://sprites/market.png<>uid://csgqd3brms0ua::::res://fonts/Super Disco Personal Use.ttf
+Scene4.tscn::PackedScene::2387401771635622312::1711823748::0::1::::<><>::res://scripts/scene4/fase4.gd<>uid://csgqd3brms0ua::::res://fonts/Super Disco Personal Use.ttf
+::res://scripts/::1710718911
+::res://scripts/cutscenes/::1710159039
+Skip.gd::GDScript::-1::1710159039::0::1::::<>Node2D<>::
+::res://scripts/main/::1710159070
+MainNode.gd::GDScript::-1::1710159070::0::1::::<>Node2D<>::
 ::res://scripts/menu/::1708452397
 menu.gd::GDScript::-1::1708452397::0::1::::<>Node2D<>::
-::res://scripts/neuralNetworkClasses/::1709830924
+::res://scripts/neuralNetworkClasses/::1711821396
 ActivationFuntion.gd::GDScript::-1::1709492711::0::1::::ActivationFunction<>RefCounted<>::
-ActivationLinear.gd::GDScript::-1::1709678570::0::1::::Activation_Linear<>ActivationFunction<>::
-ActivationReLU.gd::GDScript::-1::1709678441::0::1::::Activation_ReLU<>ActivationFunction<>::
-ActivationSoftmax.gd::GDScript::-1::1709492711::0::1::::Activation_Softmax<>ActivationFunction<>::
-Layer.gd::GDScript::-1::1709818307::0::1::::Layer<>RefCounted<>::
-NeuralNetwork.gd::GDScript::-1::1709830924::0::1::::NeuralNetwork<>RefCounted<>::
-NumpyHandmade.gd::GDScript::-1::1709828501::0::1::::NumpyHandmade<>RefCounted<>::
-::res://scripts/scene1/::1709830773
+ActivationLinear.gd::GDScript::-1::1710161412::0::1::::Activation_Linear<>ActivationFunction<>::
+ActivationReLU.gd::GDScript::-1::1710161306::0::1::::Activation_ReLU<>ActivationFunction<>::
+ActivationSoftmax.gd::GDScript::-1::1710161007::0::1::::Activation_Softmax<>ActivationFunction<>::
+Layer.gd::GDScript::-1::1710161122::0::1::::Layer<>RefCounted<>::
+NeuralNetwork.gd::GDScript::-1::1710160884::0::1::::NeuralNetwork<>RefCounted<>::
+NumpyHandmade.gd::GDScript::-1::1711821396::0::1::::NumpyHandmade<>RefCounted<>::
+::res://scripts/scene1/::1710159991
 AIController2D.gd::GDScript::-1::1699364736::0::1::::<>AIController2D<>::
 Apple.gd::GDScript::-1::1702341658::0::1::::<>CollisionShape2D<>::
 ControlSprites.gd::GDScript::-1::1702341724::0::1::::<>Node2D<>::
-Enemy.gd::GDScript::-1::1709830089::0::1::::<>CharacterBody2D<>::
+Enemy.gd::GDScript::-1::1710159991::0::1::::<>CharacterBody2D<>::
 Fase1.gd::GDScript::-1::1709830773::0::1::::<>Node2D<>::
 Player.gd::GDScript::-1::1705528290::0::1::::<>CharacterBody2D<>::
 Sync.gd::GDScript::-1::1704831932::0::1::::<>Node<>::
@@ -61,17 +65,24 @@ Target.gd::GDScript::-1::1709828912::0::1::::<>Area2D<>::
 ::res://scripts/scene1help/::1702395884
 PlayerHelp.gd::GDScript::-1::1702395884::0::1::::<>CharacterBody2D<>::
 Scene1Help.gd::GDScript::-1::1699293900::0::1::::<>Node2D<>::
-::res://scripts/scene2/::1709680187
-Farmer.gd::GDScript::-1::1709680187::0::1::::<>CharacterBody2D<>::
+::res://scripts/scene2/::1710160003
+Farmer.gd::GDScript::-1::1710160003::0::1::::<>CharacterBody2D<>::
 Fase2.gd::GDScript::-1::1709676599::0::1::::<>Node2D<>::
 Fruits.gd::GDScript::-1::1704683161::0::1::::<>CollisionShape2D<>::
-::res://scripts/scene3/::1709830838
+::res://scripts/scene3/::1710173607
 backgroundMovement.gd::GDScript::-1::1709501373::0::1::::<>Node2D<>::
 Fase3.gd::GDScript::-1::1709673031::0::1::::<>Node2D<>::
 market.gd::GDScript::-1::1709501412::0::1::::<>Node2D<>::
 player.gd::GDScript::-1::1709589215::0::1::::<>CharacterBody2D<>::
 Sensor.gd::GDScript::-1::1709493839::0::1::::<>Area2D<>::
-test.gd::GDScript::-1::1709676571::0::1::::<>CharacterBody2D<>::
+test.gd::GDScript::-1::1710173607::0::1::::<>CharacterBody2D<>::
+::res://scripts/scene4/::1711823746
+CharacterBody2D.gd::GDScript::-1::1711823640::0::1::::<>CharacterBody2D<>::
+Enemy.gd::GDScript::-1::1711823555::0::1::::<>CharacterBody2D<>::
+fase4.gd::GDScript::-1::1711823746::0::1::::<>Node2D<>::
+Map.gd::GDScript::-1::1711823123::0::1::::Map<>RefCounted<>::
+NodeP.gd::GDScript::-1::1711822489::0::1::::NodeP<>RefCounted<>::
+Pathfinder.gd::GDScript::-1::1711823156::0::1::::Pathfinder<>RefCounted<>::
 ::res://sprites/::1709663974
 cursorClick.png::CompressedTexture2D::3241685031511110470::1700241821::1709490667::1::::<><>::
 cursorClickFull.png::CompressedTexture2D::103805077898421206::1701054539::1709490667::1::::<><>::
