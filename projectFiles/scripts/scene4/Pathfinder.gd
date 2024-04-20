@@ -33,7 +33,13 @@ func calculateCosts(node, index):
 	node.costF = node.costG + node.costH
 	
 func search():
+	# troca if pra while
 	while !goalReached:
+		
+		if currentNode.index == goalIndex:
+			goalReached = true
+			trackPath()
+			
 		var current = currentNode
 		
 		current.setChecked()
@@ -60,11 +66,12 @@ func search():
 				if openNodes[i].costG < openNodes[bestNodeIndex].costG:
 					bestNodeIndex = i
 		
-		currentNode = openNodes[bestNodeIndex]
-		
 		if currentNode.index == goalIndex:
 			goalReached = true
 			trackPath()
+		
+		currentNode = openNodes[bestNodeIndex]
+		
 	
 func openNode(node):
 	if !node.open and !node.checked and !node.wall:
@@ -74,6 +81,7 @@ func openNode(node):
 
 func trackPath():
 	var current = nodes[goalIndex.x][goalIndex.y]
+	current.setPath()
 	
 	while current != nodes[startIndex.x][startIndex.y]:
 		current = current.parent

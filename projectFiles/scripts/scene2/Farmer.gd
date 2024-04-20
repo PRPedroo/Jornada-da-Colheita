@@ -38,14 +38,13 @@ func _physics_process(delta):
 		
 		if objective:
 			#var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-			if len(y) > 100:
+			if len(y) > 50:
 				y.clear()
 				X.clear()
 			y.append([positionTarget.x/1150 - position.x/1150, positionTarget.y/650 - position.y/650])
 			X.append([position.x/1150, position.y/650, positionTarget.x/1150, positionTarget.y/650])
 			neural_network.train(X, y, 1, 0.02)
 			var move = neural_network.feedForward([[position.x/1150, position.y/650, positionTarget.x/1150, positionTarget.y/650]])
-			#print(move)
 			velocity = Vector2(move[0][0], move[0][1]).normalized() * SPEED
 		else:
 			velocity.x = 0

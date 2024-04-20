@@ -6,6 +6,9 @@ var speed = 90
 var maxDegrees = 20
 var stunned = false
 
+var timerDif = 0
+var timerDifValue = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -18,6 +21,21 @@ func _process(delta):
 		else:
 			if speed < 150:
 				speed += 0.8
+		
+		if speed <= 50:
+			timerDif -= delta
+			if timerDif <= 0:
+				get_parent().get_parent().decreaseDif()
+				timerDif = timerDifValue
+		elif stunned and speed >= 150:
+			timerDif -= delta
+			if timerDif <= 0:
+				get_parent().get_parent().increaseDif()
+				timerDif = timerDifValue
+		else:
+			timerDif = timerDifValue
+		
+		print(timerDif," ", get_parent().get_parent().difficultyFase3," ", speed)
 		
 		if rotation_degrees <= maxDegrees and rotation_degrees >= -maxDegrees:
 			if Input.is_key_pressed(KEY_RIGHT):

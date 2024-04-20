@@ -1,9 +1,10 @@
+AnimationPlayer
+Node2D
+MultiplayerSpawner
 Sprite2D
 CollisionShape2D
 CharacterBody2D
 ColorRect
-Node2D
-AnimationPlayer
 CollisionPolygon2D
 NinePatchRect
 StaticBody2D

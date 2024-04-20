@@ -29,7 +29,7 @@ var pause = false
 
 var grabbed = false
 
-var numFruits = 2
+var numFruits = 1
 var typeFruits = ["apple", "banana", "grapes"]
 var fruitIndex = 0
 
@@ -39,16 +39,12 @@ var positionStack = [Vector2(-118, 162)]
 func _ready():
 	removeFruits()
 	spawnFruits(numFruits, get_parent().difficultyFase2)
-	# TEM QUE TROCAR ESSA PARTE PARA EXPORTAR O PROJETO
-	#get_node("Sync").onnx_model_path = "/home/pedro/Documentos/Projeto de Extensão/ProjetoEX/projectFiles/modelfinal.onnx"
-	#get_node("Sync").onnx_model_path = "modelfinal.onnx"
-	pass
 
 func _process(_delta):
+	print(get_parent().difficultyFase2)
 	if Input.is_action_just_pressed("esc"):
 		pause = !pause
 		pausehud.visible = !pausehud.visible
-		# pause menu
 	objective_label.text = str(numFruits)
 	
 func changePackage():
@@ -106,15 +102,15 @@ func addFruitStack(type, position):
 	positionStack.append(position)
 	get_node("Farmer").refreshFruit()
 	
-	print(typeStack)
+	#print(typeStack)
 
 func removeFruitStack():
 	typeStack.pop_back()
 	positionStack.pop_back()
 	get_node("Farmer").refreshFruit()
 	
-	print(typeStack)
-	print("---------")
+	#print(typeStack)
+	#print("---------")
 
 func clearStacks():
 	while(positionStack.size() > 1):

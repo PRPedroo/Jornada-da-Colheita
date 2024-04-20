@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://4dww4nrmstx3"]
+
+[ext_resource type="Script" path="res://scripts/scene4/Item.gd" id="1_y2dyf"]
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_y2dyf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
+hframes = 2

@@ -7,6 +7,8 @@ var backForce:float = 0.1
 var maxDegrees = 20 *2
 var dir
 
+var dif = 50
+
 var neural_network = NeuralNetwork.new([2, 3], ["ReLU", "Softmax"])
 
 # Called when the node enters the scene tree for the first time.
@@ -14,11 +16,15 @@ func _ready():
 	animation_player.play("idle")
 	neural_network.setWeightsBiases(1, [[-8.953169308995498898e-01, 3.068421357380452186e+00], [-2.740990893498600922e+00, -5.064557105555514971e-01]], [2.190949460736625110e+00, -1.559169505695218449e-01])
 	neural_network.setWeightsBiases(2, [[-1.682435397909829211e+00, 2.754165550493389514e+00, -1.391125643397175260e+00], [-2.699270200510405227e-01, -9.641011783391013612e-01, 3.298179732881735937e+00]], [2.318335155313265616e+00, -4.203238170725078215e-01, -8.770413005531592088e-01])
-	for i in neural_network.layers:
-		print(i.weights, "\n\n")
 	
 func _process(delta):
 	if !get_parent().pause and !get_parent().end:
+		if dif > get_parent().get_parent().difficultyFase3 * 20 + 50: # x * 20 + 50
+			dif -= 0.2
+		if dif < get_parent().get_parent().difficultyFase3 * 20 + 50:
+			dif += 0.4
+				
+			
 		if rotation_degrees <= maxDegrees and rotation_degrees >= -maxDegrees:
 			#if Input.is_key_pressed(KEY_RIGHT):
 			if dir == 2:
@@ -36,6 +42,7 @@ func _process(delta):
 			else:
 				rotation_degrees = 0
 		
+		position.y = dif
 		velocity.x = rotation_degrees/2 * SPEED
 		move_and_slide()
 	

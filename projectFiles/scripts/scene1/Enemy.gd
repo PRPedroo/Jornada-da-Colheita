@@ -14,7 +14,7 @@ var time = 0
 @onready var target = $"../Target"
 @onready var anim = $AnimationPlayer
 
-var neural_network = NeuralNetwork.new([2, 2], ["Linear", "Softmax"])
+var neural_network = NeuralNetwork.new([2, 2], ["Linear", "Softmax"])# 2 entrada 2 escondidas 2
 var np = NumpyHandmade.new()
 var move
 '''

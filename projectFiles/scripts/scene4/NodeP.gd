@@ -12,7 +12,10 @@ var wall = false
 var checked = false
 var open = false
 var path = false
+
 var parent = null
+
+var item
 
 func _init(_position, _index, _size):
 	self.position = _position

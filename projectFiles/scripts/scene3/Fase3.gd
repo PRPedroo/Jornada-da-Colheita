@@ -38,7 +38,7 @@ func _process(_delta):
 		pausehud.visible = !pausehud.visible
 	
 	if !pause and !end:
-		enemy_slider.value += 1
+		enemy_slider.value += 1 + remap(get_parent().difficultyFase3, 0, 5, +0.5, -0.5)
 		player_slider.value += 1 + remap(player.speed, 50, 150, +0.5, -0.5)
 
 	if enemy_slider.value == 2000 or player_slider.value == 2000:

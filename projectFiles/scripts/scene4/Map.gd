@@ -40,23 +40,23 @@ func setWalls():
 	nodes[3][1].setWall()
 	nodes[3][2].setWall()
 	nodes[3][3].setWall()
-	
+
+	nodes[3][5].setWall()	
 	nodes[3][6].setWall()
 	nodes[3][7].setWall()
-	nodes[3][8].setWall()
 	
 	nodes[8][1].setWall()
 	nodes[8][2].setWall()
 	nodes[8][3].setWall()
 	
+	nodes[8][5].setWall()
 	nodes[8][6].setWall()
 	nodes[8][7].setWall()
-	nodes[8][8].setWall()
 
 	nodes[13][1].setWall()
 	nodes[13][2].setWall()
 	nodes[13][3].setWall()
 	
+	nodes[13][5].setWall()
 	nodes[13][6].setWall()
 	nodes[13][7].setWall()
-	nodes[13][8].setWall()

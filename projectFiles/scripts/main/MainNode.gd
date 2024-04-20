@@ -14,6 +14,9 @@ var telaFase2CutScene = preload("res://scenes/CutScene2.tscn")
 var telaFase3 = preload("res://scenes/Scene3.tscn")
 var telaFase3CutScene = preload("res://scenes/CutScene3.tscn")
 
+var telaFase4 = preload("res://scenes/Scene4.tscn")
+#var telaFase4CutScene = preload("res://scenes/CutScene4.tscn")
+
 var instance
 
 var done = false
@@ -26,14 +29,14 @@ var pauseTime = false
 var tick = 7 * 3
 
 var difficultyFase1 = 2
-var difficultyFase2 = 2
+var difficultyFase2 = 0
+var difficultyFase3 = 3
 
 var fullscreen = false
 var storyMode = false
 
 var cutscene = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_custom_mouse_cursor(arrow)
 	instance = telaMenu.instantiate()
@@ -106,7 +109,19 @@ func switchScenes(scene):
 			_i.queue_free()
 		instance = telaFase3CutScene.instantiate()
 		self.add_child(instance)
-
+	
+	if scene == 4: # FASE 4
+		for _i in self.get_children():
+			_i.queue_free()
+		instance = telaFase4.instantiate()
+		self.add_child(instance)
+	'''
+	if scene == 44: # CUTSCENE 4
+		for _i in self.get_children():
+			_i.queue_free()
+		instance = telaFase4CutScene.instantiate()
+		self.add_child(instance)
+	'''
 #--------------------FASE 1-------------------------
 
 func verifyTime():
@@ -147,13 +162,23 @@ func resetVec():
 #--------------------FASE 2-------------------------
 
 func verifyMistakes():
-	if mistakes >= difficultyFase2:
-		if difficultyFase1 != 0:
-			difficultyFase2 -= 1
-	elif mistakes == 0:
-		if difficultyFase1 != 5:
+	if mistakes == 0:
+		if difficultyFase2 < 5:
 			difficultyFase2 += 1
+	elif mistakes > 1:
+		if difficultyFase2 > 0:
+			difficultyFase2 -= 1
 	mistakes = 0
 
 func addMistakes():
 	mistakes = mistakes + 1
+
+#--------------------FASE 3-------------------------
+
+func increaseDif():
+	if difficultyFase3 < 5:
+		difficultyFase3 += 1
+	
+func decreaseDif():
+	if difficultyFase3 > 0:
+		difficultyFase3 -= 1

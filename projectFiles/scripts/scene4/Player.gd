@@ -1,38 +1,79 @@
 extends CharacterBody2D
 
+@onready var ap = $AnimationPlayer
+
+var root
 var map
-var playerPosIndex = Vector2(14, 2)
+var posIndex = Vector2(0, 0)
+
+var timer = 0
+var goal
+
+var stunned = false
+var speed = 0.2
 
 func _ready():
-	map = get_parent().map
-	updatePos(playerPosIndex.x, playerPosIndex.y)
+	root = get_parent().get_parent()
+	map = root.map
+	updatePos(posIndex.x, posIndex.y)
 
-func _physics_process(_delta):
-	if Input.is_action_just_pressed("up"):
-		if playerPosIndex.y > 0:
-			if !map.nodes[playerPosIndex.x][playerPosIndex.y-1].wall:
-				playerPosIndex.y -= 1
-				emitSignal()
-	if Input.is_action_just_pressed("down"):
-		if playerPosIndex.y < map.height - 1:
-			if !map.nodes[playerPosIndex.x][playerPosIndex.y+1].wall:
-				playerPosIndex.y += 1
-				emitSignal()
-	if Input.is_action_just_pressed("left"):
-		if playerPosIndex.x > 0:
-			if !map.nodes[playerPosIndex.x - 1][playerPosIndex.y].wall:
-				playerPosIndex.x -= 1
-				emitSignal()
-	if Input.is_action_just_pressed("right"):
-		if playerPosIndex.x < map.width - 1:
-			if !map.nodes[playerPosIndex.x + 1][playerPosIndex.y].wall:
-				playerPosIndex.x += 1
-				emitSignal()
-	updatePos(playerPosIndex.x, playerPosIndex.y)
-	#move_and_slide()
+func _physics_process(delta):
+	if timer <= 0:
+		move()
+		updatePos(posIndex.x, posIndex.y)
+		rotation = 0
+		stunned = false
+	else:
+		if stunned:
+			rotation += delta * 3
+		timer -= delta
+	checkItem()
 
-func updatePos(i, j):
-	position = Vector2(map.nodes[i][j].position) + Vector2(map.nodes[i][j].size/2, map.nodes[i][j].size/2)
+func stun(time):
+	timer = time
+	stunned = true
+
+func checkItem():
+	if map.nodes[posIndex.x][posIndex.y].item != null:
+		if map.nodes[posIndex.x][posIndex.y].item.itemName == goal:
+			root.instantiateItems()
+		else:
+			map.nodes[posIndex.x][posIndex.y].item.remove()
+			map.nodes[posIndex.x][posIndex.y].item = null
+
+func move():
+	if Input.is_action_pressed("up"):
+		if posIndex.y > 0:
+			if !map.nodes[posIndex.x][posIndex.y-1].wall and Vector2(posIndex.x, posIndex.y-1):# != root.enemy.posIndex:
+				posIndex.y -= 1
+				emitSignal()
+				timer = speed
+				
+	elif Input.is_action_pressed("down"):
+		if posIndex.y < map.height - 1:
+			if !map.nodes[posIndex.x][posIndex.y+1].wall and Vector2(posIndex.x, posIndex.y+1):# != root.enemy.posIndex:
+				posIndex.y += 1
+				emitSignal()
+				timer = speed
+				
+	elif Input.is_action_pressed("left"):
+		if posIndex.x > 0:
+			if !map.nodes[posIndex.x - 1][posIndex.y].wall and Vector2(posIndex.x-1, posIndex.y):# != root.enemy.posIndex:
+				posIndex.x -= 1
+				emitSignal()
+				timer = speed
+
+	elif Input.is_action_pressed("right"):
+		if posIndex.x < map.width - 1:
+			if !map.nodes[posIndex.x + 1][posIndex.y].wall and Vector2(posIndex.x+1, posIndex.y):# != root.enemy.posIndex:
+				posIndex.x += 1
+				emitSignal()
+				timer = speed
 
 func emitSignal():
-	get_parent().changePlayerPos(playerPosIndex)
+	root.changePlayerPos(posIndex)
+
+func updatePos(i, j):
+	var newPos = Vector2(map.nodes[i][j].position) + Vector2(map.nodes[i][j].size/2, map.nodes[i][j].size/2)
+	var tween = create_tween()
+	tween.tween_property(self, "position", newPos, speed)
