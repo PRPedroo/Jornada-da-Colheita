@@ -21,11 +21,10 @@ func _physics_process(delta):
 	if timer <= 0:
 		move()
 		updatePos(posIndex.x, posIndex.y)
-		rotation = 0
 		stunned = false
 	else:
 		if stunned:
-			rotation += delta * 3
+			print("stuned")
 		timer -= delta
 	checkItem()
 
@@ -48,6 +47,7 @@ func move():
 				posIndex.y -= 1
 				emitSignal()
 				timer = speed
+				rotation_degrees = 90
 				
 	elif Input.is_action_pressed("down"):
 		if posIndex.y < map.height - 1:
@@ -55,6 +55,7 @@ func move():
 				posIndex.y += 1
 				emitSignal()
 				timer = speed
+				rotation_degrees = 270
 				
 	elif Input.is_action_pressed("left"):
 		if posIndex.x > 0:
@@ -62,6 +63,7 @@ func move():
 				posIndex.x -= 1
 				emitSignal()
 				timer = speed
+				rotation_degrees = 0
 
 	elif Input.is_action_pressed("right"):
 		if posIndex.x < map.width - 1:
@@ -69,6 +71,7 @@ func move():
 				posIndex.x += 1
 				emitSignal()
 				timer = speed
+				rotation_degrees = 180
 
 func emitSignal():
 	root.changePlayerPos(posIndex)

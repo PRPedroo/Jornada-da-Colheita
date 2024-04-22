@@ -8,6 +8,11 @@ var enemyFollow
 var enemyRandom
 var enemyGoal
 
+var tiles = []
+@export var texture : Texture2D:
+	set(value):
+		texture = value
+
 var playerPos = Vector2(0, 0)
 
 var font
@@ -17,6 +22,12 @@ var map = Map.new(Vector2(-287, -80), 9, 17, Vector2(29, 26))
 var goal
 
 func _ready():
+	for i in range(texture.get_width()/300):
+		var atlas_texture := AtlasTexture.new()
+		atlas_texture.set_atlas(texture)
+		atlas_texture.set_region(Rect2(i*300, 0, 300, 300))
+		tiles.append(atlas_texture)
+	
 	font = FontFile.new()
 	font.font_data = load("res://fonts/Next Sunday.ttf")
 	
@@ -34,20 +45,24 @@ func _ready():
 	
 	instantiateItems()
 	
-	enemyRandom = spawnEnemy("res://objects/scene4/enemyRandom.tscn")
-	enemyFollow = spawnEnemy("res://objects/scene4/enemyFollow.tscn")
-	enemyGoal = spawnEnemy("res://objects/scene4/enemyGoal.tscn")
-	
 func _process(_delta):
+	if !enemyRandom and get_parent().difficultyFase4 >= 2:
+		enemyRandom = spawnEnemy("res://objects/scene4/enemyRandom.tscn")
+	elif !enemyFollow and get_parent().difficultyFase4 >= 4:
+		enemyFollow = spawnEnemy("res://objects/scene4/enemyFollow.tscn")
+	elif !enemyGoal and get_parent().difficultyFase4 >= 5:
+		enemyGoal = spawnEnemy("res://objects/scene4/enemyGoal.tscn")
+		
 	queue_redraw()
 	pass
 	
 func changePlayerPos(value):
 	playerPos = value
-	enemyFollow.pf.resetAll()
-	enemyFollow.pf.setStartGoal(enemyFollow.posIndex, playerPos)
-	enemyFollow.pf.setAllCosts()
-	enemyFollow.pf.search()
+	if enemyFollow:
+		enemyFollow.pf.resetAll()
+		enemyFollow.pf.setStartGoal(enemyFollow.posIndex, playerPos)
+		enemyFollow.pf.setAllCosts()
+		enemyFollow.pf.search()
 
 func updatePos(obj, i, j):
 	obj.position = Vector2(map.nodes[i][j].position) + Vector2(map.nodes[i][j].size/2, map.nodes[i][j].size/2)
@@ -62,7 +77,7 @@ func instantiateItems():
 	
 	var instances = []
 	
-	for i in range(5):
+	for i in range(floor(get_parent().difficultyFase4) + 1):
 		var load = load("res://objects/scene4/item.tscn")
 		var item = load.instantiate()
 		
@@ -87,6 +102,8 @@ func instantiateItems():
 	for i in get_node("Enemies").get_children():
 		if i.get_groups()[0] != "follow":
 			i.goToNextItem()
+	
+	get_parent().difficultyFase4 += 0.2
 
 func spawnEnemy(enemyPath):
 	var load = load(enemyPath)
@@ -102,9 +119,13 @@ func _draw():
 	for i in map.nodes:
 		for j in i:
 			if j.wall:
-				draw_rect(Rect2(Vector2(j.position),Vector2(j.size, j.size)),Color(0, 0, 0, 1))
+				draw_texture_rect(tiles[1], Rect2(j.position.x, j.position.y, 30, 30), true)
+				draw_texture(texture, Vector2(j.position), Color(0,0,0,0))
+				#draw_rect(Rect2(Vector2(j.position),Vector2(j.size, j.size)),Color(0, 0, 0, 1))
 			else:
-				draw_rect(Rect2(Vector2(j.position),Vector2(j.size, j.size)),Color(1, 1, 1, 1))
+				draw_texture_rect(tiles[0], Rect2(j.position.x, j.position.y, 30, 30), true)
+				#draw_rect(Rect2(Vector2(j.position),Vector2(j.size, j.size)),Color(1, 1, 1, 1))
+				pass
 	'''
 	for i in enemyRandom.pf.nodes:
 		for j in i:

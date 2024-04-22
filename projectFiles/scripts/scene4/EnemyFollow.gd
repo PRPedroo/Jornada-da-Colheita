@@ -37,15 +37,19 @@ func _process(delta):
 		
 		if posIndex.y > 0 and pf.nodes[posIndex.x][posIndex.y-1].path == true:
 				posIndex.y -= 1
+				rotation_degrees = 90
 		
 		elif posIndex.y < map.height - 1 and pf.nodes[posIndex.x][posIndex.y+1].path == true:
 				posIndex.y += 1
+				rotation_degrees = 270
 		
 		elif posIndex.x > 0 and pf.nodes[posIndex.x-1][posIndex.y].path == true:
 				posIndex.x -= 1
+				rotation_degrees = 0
 
 		elif posIndex.x < map.width - 1 and pf.nodes[posIndex.x+1][posIndex.y].path == true:
 				posIndex.x += 1
+				rotation_degrees = 180
 				
 		updatePos(posIndex.x, posIndex.y)
 		checkGoal()

@@ -19,9 +19,9 @@ func _ready():
 	
 func _process(delta):
 	if !get_parent().pause and !get_parent().end:
-		if dif > get_parent().get_parent().difficultyFase3 * 20 + 50: # x * 20 + 50
+		if dif > get_parent().get_parent().difficultyFase3 * 10 + 50: # x * 20 + 50
 			dif -= 0.2
-		if dif < get_parent().get_parent().difficultyFase3 * 20 + 50:
+		if dif < get_parent().get_parent().difficultyFase3 * 10 + 50:
 			dif += 0.4
 				
 			

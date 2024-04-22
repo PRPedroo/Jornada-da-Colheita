@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://baaqfnc1kwuno"]
+[gd_scene load_steps=11 format=3 uid="uid://baaqfnc1kwuno"]
 
 [ext_resource type="Script" path="res://scripts/scene4/fase4.gd" id="1_ruqgl"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="1_s04oa"]
+[ext_resource type="Texture2D" uid="uid://doc0bqlnjho2b" path="res://sprites/scene4/tilesFase4.png" id="2_5tntb"]
 [ext_resource type="Texture2D" uid="uid://bsj5p18njgwgk" path="res://sprites/scene2/appleSpriteSheet.png" id="2_s6nmy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yphn1"]
@@ -48,6 +49,7 @@ corner_radius_bottom_left = 3
 
 [node name="Fase4" type="Node2D"]
 script = ExtResource("1_ruqgl")
+texture = ExtResource("2_5tntb")
 
 [node name="screen" type="ColorRect" parent="."]
 visible = false

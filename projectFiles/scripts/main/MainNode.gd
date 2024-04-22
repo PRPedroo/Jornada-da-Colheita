@@ -31,6 +31,7 @@ var tick = 7 * 3
 var difficultyFase1 = 2
 var difficultyFase2 = 0
 var difficultyFase3 = 3
+var difficultyFase4 = 0
 
 var fullscreen = false
 var storyMode = false
@@ -182,3 +183,5 @@ func increaseDif():
 func decreaseDif():
 	if difficultyFase3 > 0:
 		difficultyFase3 -= 1
+
+#--------------------FASE 4-------------------------

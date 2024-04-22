@@ -1,5 +1,4 @@
 res://scenes/main.tscn
-res://scripts/main/MainNode.gd
 res://scenes/menu.tscn
 res://scenes/Scene1.tscn
 res://scenes/Scene2.tscn
@@ -10,8 +9,13 @@ res://objects/scene4/enemyFollow.tscn
 res://objects/scene4/enemyRandom.tscn
 res://objects/scene4/item.tscn
 res://objects/scene4/enemyGoal.tscn
-res://scripts/scene2/Farmer.gd
-res://scripts/scene3/test.gd
-res://scripts/scene2/Fase2.gd
+res://scripts/scene4/Player.gd
+res://scripts/scene4/EnemyRandom.gd
+res://scripts/scene4/EnemyGoal.gd
+res://scripts/main/MainNode.gd
+res://scripts/scene4/fase4.gd
 res://scripts/scene3/Fase3.gd
-res://scripts/scene3/player.gd
+res://scripts/scene3/test.gd
+res://scenes/CutScene3.tscn
+res://scenes/CutScene2.tscn
+res://scripts/cutscenes/Skip.gd

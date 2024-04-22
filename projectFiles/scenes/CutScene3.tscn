@@ -1,19 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://bavrhe7jlduha"]
+[gd_scene load_steps=8 format=3 uid="uid://bavrhe7jlduha"]
 
 [ext_resource type="Script" path="res://scripts/cutscenes/Skip.gd" id="1_oixfo"]
-[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_ovyuh"]
+[ext_resource type="Texture2D" uid="uid://bllnctvb2bnph" path="res://sprites/scene3/mercado.png" id="2_0jnr2"]
+[ext_resource type="Texture2D" uid="uid://qhwbr76qxi0o" path="res://sprites/scene3/roadsSpriteSheet.png" id="2_dgxnf"]
 [ext_resource type="Texture2D" uid="uid://cthuf2cua426d" path="res://sprites/scene1/balaoFala.png" id="3_tbptb"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="4_0i3sx"]
 [ext_resource type="Texture2D" uid="uid://bl0tradc87rnw" path="res://sprites/scene1/nomeFala.png" id="5_dgn6v"]
-[ext_resource type="Texture2D" uid="uid://gm60qyic0dc8" path="res://sprites/scene1/carlosSpriteSheet.png" id="6_jxc6g"]
+[ext_resource type="Texture2D" uid="uid://dpjdpngx1sgpp" path="res://sprites/scene3/juliaSpriteSheet.png" id="6_5yxdg"]
 
 [node name="CutScene3" type="Node2D"]
 script = ExtResource("1_oixfo")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(1.48925, 27.625)
-scale = Vector2(0.293019, 0.236561)
-texture = ExtResource("2_ovyuh")
+position = Vector2(189.489, 70.625)
+rotation = 1.5708
+scale = Vector2(-0.605, -0.605)
+texture = ExtResource("2_dgxnf")
+hframes = 8
+frame = 2
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(-203.511, 70.625)
+rotation = 1.5708
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("2_dgxnf")
+hframes = 8
+frame = 2
+
+[node name="Background3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-100.5, 63.6358)
+scale = Vector2(0.268182, 0.268182)
+texture = ExtResource("2_0jnr2")
+hframes = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, 70)
@@ -50,7 +69,7 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("4_0i3sx")
 theme_override_font_sizes/font_size = 330
-text = "OII! EU SOU A ISABELA!"
+text = "OII! EU SOU A JULIA!"
 autowrap_mode = 2
 
 [node name="NameBackgorund" type="Sprite2D" parent="Camera2D/dialog1"]
@@ -75,15 +94,15 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("4_0i3sx")
 theme_override_font_sizes/font_size = 330
-text = "ISABELA"
+text = "JULIA"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Character" type="Sprite2D" parent="Camera2D/dialog1"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_jxc6g")
-hframes = 2
+texture = ExtResource("6_5yxdg")
+hframes = 3
 frame = 1
 
 [node name="Click" type="Label" parent="Camera2D/dialog1"]
@@ -162,16 +181,15 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("4_0i3sx")
 theme_override_font_sizes/font_size = 330
-text = "ISABELA"
+text = "JULIA"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Character" type="Sprite2D" parent="Camera2D/dialog2"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_jxc6g")
-hframes = 2
-frame = 1
+texture = ExtResource("6_5yxdg")
+hframes = 3
 
 [node name="Click" type="Label" parent="Camera2D/dialog2"]
 layout_mode = 1
@@ -249,15 +267,15 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("4_0i3sx")
 theme_override_font_sizes/font_size = 330
-text = "ISABELA"
+text = "JULIA"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Character" type="Sprite2D" parent="Camera2D/dialog3"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_jxc6g")
-hframes = 2
+texture = ExtResource("6_5yxdg")
+hframes = 3
 frame = 1
 
 [node name="Click" type="Label" parent="Camera2D/dialog3"]
@@ -336,16 +354,16 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("4_0i3sx")
 theme_override_font_sizes/font_size = 330
-text = "ISABELA"
+text = "JULIA"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Character" type="Sprite2D" parent="Camera2D/dialog4"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_jxc6g")
-hframes = 2
-frame = 1
+texture = ExtResource("6_5yxdg")
+hframes = 3
+frame = 2
 
 [node name="Click" type="Label" parent="Camera2D/dialog4"]
 layout_mode = 1
@@ -423,16 +441,16 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("4_0i3sx")
 theme_override_font_sizes/font_size = 330
-text = "ISABELA"
+text = "JULIA
+"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Character" type="Sprite2D" parent="Camera2D/dialog5"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_jxc6g")
-hframes = 2
-frame = 1
+texture = ExtResource("6_5yxdg")
+hframes = 3
 
 [node name="Click" type="Label" parent="Camera2D/dialog5"]
 layout_mode = 1
