@@ -12,7 +12,9 @@ var timer = speed
 
 var stun = 0
 
+@onready var ap = $AnimationPlayer
 @onready var audio = $AudioStreamPlayer2D
+@onready var sprite = $Sprite2D2
 
 func _ready():
 	root = get_parent().get_parent()
@@ -33,7 +35,10 @@ func _process(delta):
 		
 		if stun > 0:
 			stun -= delta
-	
+			ap.stop()
+			sprite.frame = 2
+		else:
+			ap.play("moving")
 		move()
 
 func updatePos(i, j):

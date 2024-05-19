@@ -1,3 +1,4 @@
+AnimationPlayer
 Sprite2D
 Area2D
 AudioStreamPlayer2D
@@ -5,7 +6,6 @@ AudioListener2D
 AudioStreamPlayer
 HSlider
 TextureRect
-AnimationPlayer
 Node2D
 MultiplayerSpawner
 CollisionShape2D

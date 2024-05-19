@@ -5,7 +5,7 @@ enum color {purple, yellow, red, white, brown}
 enum shape {round, alongated, liquid, rectangular}
 
 var item = ["apple", "banana", "grapes", "bread", "milk", "egg"]
-var sprite = ["res://sprites/scene2/appleSpriteSheet.png", "res://sprites/scene2/bananaSpriteSheet.png", "res://sprites/scene2/grapesSpriteSheet.png", "res://sprites/scene4/paoSpriteSheet.png", "res://sprites/scene4/paoSpriteSheet.png", "res://sprites/scene4/paoSpriteSheet.png"]
+var sprite = ["res://sprites/scene2/appleSpriteSheet.png", "res://sprites/scene2/bananaSpriteSheet.png", "res://sprites/scene2/grapesSpriteSheet.png", "res://sprites/scene4/paoSpriteSheet.png", "res://sprites/scene4/leiteSpriteSheet.png", "res://sprites/scene4/ovoSpriteSheet.png"]
 var itemName
 
 # Called when the node enters the scene tree for the first time.

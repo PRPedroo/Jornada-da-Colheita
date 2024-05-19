@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cthuf2cua426d" path="res://sprites/scene1/balaoFala.png" id="4_fswf8"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="5_4u75i"]
 [ext_resource type="Texture2D" uid="uid://bl0tradc87rnw" path="res://sprites/scene1/nomeFala.png" id="6_d5bxc"]
-[ext_resource type="Texture2D" uid="uid://dpjdpngx1sgpp" path="res://sprites/scene3/juliaSpriteSheet.png" id="7_emrxs"]
+[ext_resource type="Texture2D" uid="uid://ffuwno21uw2c" path="res://sprites/scene4/carlos2SpriteSheet.png" id="7_3wxjf"]
 [ext_resource type="AudioStream" uid="uid://inkk42w2yk0q" path="res://audios/cutscenes/fase4-dialog2.mp3" id="8_swt63"]
 [ext_resource type="AudioStream" uid="uid://dlfqw4iqda6ke" path="res://audios/cutscenes/fase4-dialog3.mp3" id="9_t3y53"]
 [ext_resource type="AudioStream" uid="uid://blynm4ojrkshh" path="res://audios/cutscenes/fase4-dialog4.mp3" id="10_n4ybq"]
@@ -92,7 +92,7 @@ autowrap_mode = 2
 [node name="Character" type="Sprite2D" parent="Camera2D/dialog1"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_emrxs")
+texture = ExtResource("7_3wxjf")
 hframes = 3
 frame = 1
 
@@ -184,9 +184,9 @@ autowrap_mode = 2
 [node name="Character" type="Sprite2D" parent="Camera2D/dialog2"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_emrxs")
+texture = ExtResource("7_3wxjf")
 hframes = 3
-frame = 1
+frame = 2
 
 [node name="Click" type="Label" parent="Camera2D/dialog2"]
 layout_mode = 1
@@ -276,7 +276,7 @@ autowrap_mode = 2
 [node name="Character" type="Sprite2D" parent="Camera2D/dialog3"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_emrxs")
+texture = ExtResource("7_3wxjf")
 hframes = 3
 frame = 1
 
@@ -368,9 +368,8 @@ autowrap_mode = 2
 [node name="Character" type="Sprite2D" parent="Camera2D/dialog4"]
 position = Vector2(468, 241)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_emrxs")
+texture = ExtResource("7_3wxjf")
 hframes = 3
-frame = 1
 
 [node name="Click" type="Label" parent="Camera2D/dialog4"]
 layout_mode = 1

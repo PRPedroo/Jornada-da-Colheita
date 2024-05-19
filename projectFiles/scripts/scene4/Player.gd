@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var ap = $AnimationPlayer
 @onready var audio = $AudioStreamPlayer2D
+@onready var sprite = $Sprite2D
 
 var root
 var map
@@ -36,7 +37,10 @@ func _physics_process(delta):
 			stunned = false
 		else:
 			if stunned:
-				print("stuned")
+				ap.stop()
+				sprite.frame = 2
+			else:
+				ap.play("moving")
 			timer -= delta
 		checkItem()
 		

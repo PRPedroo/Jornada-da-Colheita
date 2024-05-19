@@ -1,10 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh4g3xsa4tsh1"]
+[gd_scene load_steps=8 format=3 uid="uid://bh4g3xsa4tsh1"]
 
 [ext_resource type="Script" path="res://scripts/scene4/Player.gd" id="1_8he8e"]
 [ext_resource type="Texture2D" uid="uid://digqm4pqe7vfg" path="res://sprites/scene4/playerFase4.png" id="2_kq3qn"]
 [ext_resource type="AudioStream" uid="uid://byxcb5bmldyti" path="res://audios/pop.mp3" id="3_vm2k0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h54ek"]
+
+[sub_resource type="Animation" id="Animation_vhug3"]
+resource_name = "moving"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_d62au"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4wb40"]
+_data = {
+"RESET": SubResource("Animation_d62au"),
+"moving": SubResource("Animation_vhug3")
+}
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, 30.353)
@@ -16,8 +54,13 @@ shape = SubResource("RectangleShape2D_h54ek")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("2_kq3qn")
+hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "moving"
+libraries = {
+"": SubResource("AnimationLibrary_4wb40")
+}
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_vm2k0")

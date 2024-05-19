@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dtfvll0aicpv4" path="res://sprites/scene1/appl2.png" id="5_pq58j"]
 [ext_resource type="Texture2D" uid="uid://byqbosn2fraoh" path="res://sprites/cursorDefaultFull.png" id="7_n4uta"]
 [ext_resource type="Texture2D" uid="uid://ccfo60s4n8qsx" path="res://sprites/scene3/truckPlayer.png" id="8_55ol2"]
-[ext_resource type="Texture2D" uid="uid://dakj0a3074s3i" path="res://sprites/icon.svg" id="8_w4unx"]
 [ext_resource type="Texture2D" uid="uid://e70m51o8se42" path="res://sprites/scene3/truckEnemy.png" id="9_o52fi"]
 [ext_resource type="Texture2D" uid="uid://i5tnksne7whc" path="res://sprites/scene4/enemyRandomFase4.png" id="10_67dx8"]
+[ext_resource type="Texture2D" uid="uid://dgyadq7poqhe" path="res://sprites/config.png" id="11_dueak"]
 [ext_resource type="AudioStream" uid="uid://cmrbgfiqcb2tr" path="res://audios/musica-menu.mp3" id="12_kapxq"]
 
 [node name="Menu" type="Node2D"]
@@ -235,19 +235,13 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_kjrcq")
 theme_override_font_sizes/font_size = 25
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonF4"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 61.0
-offset_top = 25.0
-offset_right = 65.0
-offset_bottom = 22.0
-rotation = 2.42426
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ButtonF4"]
+position = Vector2(25.1411, 25.7686)
+rotation = 2.44695
+scale = Vector2(0.124244, 0.124244)
 texture = ExtResource("10_67dx8")
-expand_mode = 1
-stretch_mode = 5
+hframes = 2
+frame = 1
 
 [node name="ButtonConfig" type="Button" parent="Camera2D"]
 anchors_preset = 8
@@ -266,11 +260,9 @@ theme_override_font_sizes/font_size = 25
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonConfig"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 14.0
-offset_bottom = 14.0
-texture = ExtResource("8_w4unx")
+offset_right = 18.0
+offset_bottom = 18.0
+texture = ExtResource("11_dueak")
 expand_mode = 1
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
