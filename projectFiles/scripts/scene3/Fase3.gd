@@ -16,6 +16,7 @@ extends Node2D
 @onready var loading_screen = $loadingScreen
 
 @onready var market = preload("res://objects/scene3/market.tscn")
+@onready var buzina = $AudioStreamPlayer2D2
 
 var pause = false
 var end = false
@@ -30,7 +31,6 @@ func _ready():
 	get_tree().set_pause(false) 
 	loading_screen.visible = false
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_pressed("esc"):
@@ -43,6 +43,7 @@ func _process(_delta):
 
 	if enemy_slider.value == 2000 or player_slider.value == 2000:
 		
+		buzina.play()
 		hud.visible = false
 		var instance = market.instantiate()
 		end = true
@@ -75,7 +76,7 @@ func _on_play_again_button_up():
 	get_parent().switchScenes(3) # BOTÃO PARA VOLTAR PARA REJOGAR A FASE
 
 func _on_continue_story_button_button_up():
-	get_parent().switchScenes(0) # IR PRA FASE 44 (CUTSCENE DA FASE 4)
+	get_parent().switchScenes(44) # IR PRA FASE 44 (CUTSCENE DA FASE 4)
 
 func _on_resume_pressed():
 	pause = false # BOTÃO PARA DESPAUSAR

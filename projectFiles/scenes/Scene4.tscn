@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://baaqfnc1kwuno"]
+[gd_scene load_steps=13 format=3 uid="uid://baaqfnc1kwuno"]
 
 [ext_resource type="Script" path="res://scripts/scene4/fase4.gd" id="1_ruqgl"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="1_s04oa"]
 [ext_resource type="Texture2D" uid="uid://doc0bqlnjho2b" path="res://sprites/scene4/tilesFase4.png" id="2_5tntb"]
 [ext_resource type="Texture2D" uid="uid://bsj5p18njgwgk" path="res://sprites/scene2/appleSpriteSheet.png" id="2_s6nmy"]
+[ext_resource type="FontFile" uid="uid://qjyfmqn3f27a" path="res://fonts/Next Sunday.ttf" id="5_jxjf7"]
+[ext_resource type="AudioStream" uid="uid://duo36lx8xfexc" path="res://audios/market.mp3" id="6_1y7ih"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yphn1"]
 bg_color = Color(0, 1, 0, 0.772549)
@@ -91,6 +93,120 @@ position = Vector2(288, 27)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_s6nmy")
 hframes = 2
+
+[node name="text1Label" type="Label" parent="Camera2D/HUD"]
+visible = false
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_top = 295.0
+offset_right = 7077.5
+offset_bottom = 979.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("1_s04oa")
+theme_override_font_sizes/font_size = 400
+text = "ITENS COLETADOS:"
+horizontal_alignment = 1
+
+[node name="pointsLabel" type="Label" parent="Camera2D/HUD"]
+visible = false
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 68.5
+offset_top = 297.0
+offset_right = 7168.5
+offset_bottom = 981.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("5_jxjf7")
+theme_override_font_sizes/font_size = 470
+text = "0"
+horizontal_alignment = 1
+
+[node name="totalLabel" type="Label" parent="Camera2D/HUD"]
+visible = false
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 87.5
+offset_top = 297.0
+offset_right = 7187.5
+offset_bottom = 981.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("5_jxjf7")
+theme_override_font_sizes/font_size = 470
+text = "/8
+"
+horizontal_alignment = 1
+
+[node name="timer" type="Label" parent="Camera2D/HUD"]
+visible = false
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -362.5
+offset_top = 11.0
+offset_right = 6737.5
+offset_bottom = 695.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("5_jxjf7")
+theme_override_font_sizes/font_size = 470
+text = "00
+"
+horizontal_alignment = 1
+
+[node name="dif" type="Label" parent="Camera2D/HUD"]
+visible = false
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -362.5
+offset_top = 40.0
+offset_right = 6737.5
+offset_bottom = 724.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("5_jxjf7")
+theme_override_font_sizes/font_size = 470
+text = "00
+"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Pause" type="Control" parent="Camera2D"]
 visible = false
@@ -270,8 +386,8 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("1_s04oa")
 theme_override_font_sizes/font_size = 545
-text = "AS FRUTAS FORAM
-ENTREGUES AO DESTINO"
+text = "CONSEGUIMOS FAZER
+AS COMPRAS"
 horizontal_alignment = 1
 
 [node name="PlayAgain" type="Button" parent="Camera2D/Final"]
@@ -407,8 +523,8 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("1_s04oa")
 theme_override_font_sizes/font_size = 545
-text = "AS FRUTAS FORAM
-ENTREGUES AO DESTINO"
+text = "CONSEGUIMOS FAZER
+AS COMPRAS"
 horizontal_alignment = 1
 
 [node name="ContinueStoryButton" type="Button" parent="Camera2D/FinalContinue"]
@@ -479,3 +595,16 @@ theme_override_fonts/font = ExtResource("1_s04oa")
 theme_override_font_sizes/font_size = 450
 text = "Sair"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_1y7ih")
+volume_db = -2.0
+autoplay = true
+bus = &"Music"
+
+[connection signal="button_up" from="Camera2D/Pause/Resume" to="." method="_on_resume_button_up"]
+[connection signal="button_up" from="Camera2D/Pause/Menu" to="." method="_on_menu_button_up"]
+[connection signal="button_up" from="Camera2D/Final/PlayAgain" to="." method="_on_play_again_button_up"]
+[connection signal="button_up" from="Camera2D/Final/Menu" to="." method="_on_menu_button_up"]
+[connection signal="button_up" from="Camera2D/FinalContinue/ContinueStoryButton" to="." method="_on_continue_story_button_button_up"]
+[connection signal="button_up" from="Camera2D/FinalContinue/Menu" to="." method="_on_menu_button_up"]

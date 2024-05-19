@@ -1,21 +1,24 @@
-[gd_scene load_steps=33 format=3 uid="uid://6dsagn6g274f"]
+[gd_scene load_steps=36 format=3 uid="uid://6dsagn6g274f"]
 
 [ext_resource type="Script" path="res://scripts/scene1/Fase1.gd" id="1_scl5s"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_c7epr"]
 [ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="3_leo3c"]
 [ext_resource type="Script" path="res://scripts/scene1/Player.gd" id="3_n8j0e"]
 [ext_resource type="Texture2D" uid="uid://c6d5iqmrwofme" path="res://sprites/scene1/playerSpriteSheet.png" id="4_1g5ie"]
+[ext_resource type="AudioStream" uid="uid://dleubymkvnaoj" path="res://audios/coletar.mp3" id="5_7qu4v"]
 [ext_resource type="Script" path="res://scripts/scene1/ControlSprites.gd" id="5_o4y0a"]
 [ext_resource type="Script" path="res://scripts/scene1/Target.gd" id="6_hejf2"]
 [ext_resource type="Texture2D" uid="uid://cd3llser74fln" path="res://sprites/scene1/appleSpriteSheet.png" id="6_imxdr"]
 [ext_resource type="Script" path="res://scripts/scene1/Enemy.gd" id="8_h43iy"]
 [ext_resource type="Texture2D" uid="uid://8fkf6p8jcw2b" path="res://sprites/scene1/enemySpriteSheet.png" id="8_we42d"]
 [ext_resource type="Texture2D" uid="uid://bp30m1y2mg5p0" path="res://sprites/scene1/frontground.png" id="11_kma5x"]
+[ext_resource type="AudioStream" uid="uid://byxcb5bmldyti" path="res://audios/pop.mp3" id="11_o1j0i"]
 [ext_resource type="Texture2D" uid="uid://dn0nju75j4xvd" path="res://sprites/scene2/bananaSpriteSheet.png" id="13_8oo3n"]
 [ext_resource type="FontFile" uid="uid://qjyfmqn3f27a" path="res://fonts/Next Sunday.ttf" id="13_i2dgr"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="14_43afu"]
 [ext_resource type="Texture2D" uid="uid://6s7jcyaw5doo" path="res://sprites/scene2/grapesSpriteSheet.png" id="14_w2qal"]
 [ext_resource type="Texture2D" uid="uid://bsj5p18njgwgk" path="res://sprites/scene2/appleSpriteSheet.png" id="15_vscmg"]
+[ext_resource type="AudioStream" uid="uid://ciq48rr7fhke6" path="res://audios/passarinhos.mp3" id="19_fm35j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elfmk"]
 size = Vector2(41, 16)
@@ -226,6 +229,12 @@ libraries = {
 "": SubResource("AnimationLibrary_olwu4")
 }
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("5_7qu4v")
+volume_db = 9.422
+pitch_scale = 1.66
+bus = &"SFX"
+
 [node name="Apples" type="Node2D" parent="."]
 script = ExtResource("5_o4y0a")
 
@@ -289,6 +298,12 @@ shape = SubResource("RectangleShape2D_elfmk")
 libraries = {
 "": SubResource("AnimationLibrary_dptbr")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemy"]
+stream = ExtResource("11_o1j0i")
+volume_db = -8.0
+pitch_scale = 2.73
+bus = &"SFX"
 
 [node name="front" type="Sprite2D" parent="."]
 position = Vector2(1.4895, 27.4999)
@@ -928,34 +943,12 @@ horizontal_alignment = 1
 
 [node name="Borders" type="Node2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Borders"]
-offset_left = -455.0
-offset_top = -240.0
-offset_right = 436.0
-offset_bottom = -93.0
-color = Color(0, 0, 0, 1)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_fm35j")
+autoplay = true
+bus = &"Music"
 
-[node name="ColorRect2" type="ColorRect" parent="Borders"]
-offset_left = -458.0
-offset_top = 232.555
-offset_right = 436.0
-offset_bottom = 385.555
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Borders"]
-offset_left = 289.0
-offset_top = -201.0
-offset_right = 437.0
-offset_bottom = 386.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Borders"]
-offset_left = -458.0
-offset_top = -241.0
-offset_right = -288.0
-offset_bottom = 386.0
-color = Color(0, 0, 0, 1)
-
+[connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Target" to="Enemy" method="_on_target_body_entered"]
 [connection signal="button_up" from="Camera2D/Final/PlayAgain" to="." method="_on_play_again_button_up"]
 [connection signal="button_up" from="Camera2D/Final/Menu" to="." method="_on_menu_button_up"]

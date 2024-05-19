@@ -1,6 +1,8 @@
 extends CollisionShape2D
 
+@onready var audio = $"../AudioStreamPlayer2D"
 @onready var anim = $"../AnimationPlayer"
+
 var fruit
 var vecFruits
 var fase2
@@ -32,9 +34,10 @@ func _process(_delta):
 						pass
 					fase2.addFruitStack(str(get_parent().get_groups()[0]), Vector2(get_parent().position))
 					added = true
+					audio.play()
 				fase2.grabbed = false
 				isDrag = false
-		checkOut() ## APRESENTA UM ERRO AO TENTAR COLOCAR A MAÇÃ FORA DO MAPA
+		checkOut()
 	
 func _input(event):
 	if !get_parent().get_parent().get_parent().pause: #problema pra batch

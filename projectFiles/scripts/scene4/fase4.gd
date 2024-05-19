@@ -3,6 +3,17 @@ extends Node2D
 @onready var screen = $screen
 @onready var goal_sprite = $Camera2D/HUD/Sprite2D
 
+@onready var pausehud = $Camera2D/Pause
+@onready var finalhud = $Camera2D/Final
+@onready var finalContinuehud = $Camera2D/FinalContinue
+@onready var hud = $Camera2D/HUD
+
+@onready var points_label = $Camera2D/HUD/pointsLabel
+@onready var timer_label = $Camera2D/HUD/timer
+@onready var dif_label = $Camera2D/HUD/dif
+
+var np = NumpyHandmade.new()
+
 var player
 var enemyFollow
 var enemyRandom
@@ -20,6 +31,9 @@ var font
 var map = Map.new(Vector2(-287, -80), 9, 17, Vector2(29, 26))
 
 var goal
+
+var pause = false
+var end = false
 
 func _ready():
 	for i in range(texture.get_width()/300):
@@ -46,12 +60,15 @@ func _ready():
 	instantiateItems()
 	
 func _process(_delta):
-	if !enemyRandom and get_parent().difficultyFase4 >= 2:
-		enemyRandom = spawnEnemy("res://objects/scene4/enemyRandom.tscn")
-	elif !enemyFollow and get_parent().difficultyFase4 >= 4:
-		enemyFollow = spawnEnemy("res://objects/scene4/enemyFollow.tscn")
-	elif !enemyGoal and get_parent().difficultyFase4 >= 5:
-		enemyGoal = spawnEnemy("res://objects/scene4/enemyGoal.tscn")
+	timer_label.text = str("tempo: ", ceil(player.timerDif))
+	dif_label.text = str("dif: ", ceil(get_parent().difficultyFase4))
+	
+	checkDificulty()
+		
+	if Input.is_action_just_pressed("esc"):
+		pause = !pause
+		pausehud.visible = !pausehud.visible
+	
 		
 	queue_redraw()
 	pass
@@ -76,7 +93,7 @@ func instantiateItems():
 				j.item = null
 	
 	var instances = []
-	
+	points_label.text = str(player.points)
 	for i in range(floor(get_parent().difficultyFase4) + 1):
 		var load = load("res://objects/scene4/item.tscn")
 		var item = load.instantiate()
@@ -88,22 +105,24 @@ func instantiateItems():
 		updatePos(item, newPosition.x, newPosition.y)
 		
 		if i == 0:
-			item.itemName = item.item[randi_range(0, 3)]
+			item.itemName = item.item[randi_range(0, 5)]
 			goal = item.itemName
 			goal_sprite.texture = load(item.sprite[item.item.find(item.itemName)])
 			get_node("Player/Player").goal = goal
+			player.timerDif = (float(np.abs(newPosition.x + newPosition.y - player.posIndex.x - player.posIndex.y))/24) * 16
+			if player.timerDif < 4:
+				player.timerDif = 4
 		else:
-			item.itemName = item.item[randi_range(0, 3)]
+			item.itemName = item.item[randi_range(0, 5)]
 			while item.itemName == goal:
-				item.itemName = item.item[randi_range(0, 3)]
+				item.itemName = item.item[randi_range(0, 5)]
 		map.nodes[newPosition.x][newPosition.y].item = item
 		get_node("Items").add_child(item)
 			
 	for i in get_node("Enemies").get_children():
+		i.stun = 2
 		if i.get_groups()[0] != "follow":
 			i.goToNextItem()
-	
-	get_parent().difficultyFase4 += 0.2
 
 func spawnEnemy(enemyPath):
 	var load = load(enemyPath)
@@ -114,7 +133,7 @@ func spawnEnemy(enemyPath):
 	enemy.posIndex = newPosition
 	get_node("Enemies").add_child(enemy)
 	return enemy
-	
+
 func _draw():
 	for i in map.nodes:
 		for j in i:
@@ -144,3 +163,41 @@ func _draw():
 			draw_string(font, Vector2(j.position.x, j.position.y+10), str("F: ", str(j.costF)), 0, -1, 10, Color(0, 0, 0, 1.0))
 			draw_string(font, Vector2(j.position.x, j.position.y+20), str("G: ", str(j.costG)), 0, -1, 10, Color(0, 0, 0, 1.0))
 	'''
+
+func endGame():
+	pause = true
+	hud.visible = false
+	if get_parent().storyMode == true:
+		finalContinuehud.visible = true
+	else:
+		finalhud.visible = true
+
+func checkDificulty():
+	if !enemyRandom and get_parent().difficultyFase4 >= 2:
+		enemyRandom = spawnEnemy("res://objects/scene4/enemyRandom.tscn")
+	elif enemyRandom and get_parent().difficultyFase4 < 2:
+		enemyRandom.queue_free()
+		enemyRandom = null
+	if !enemyFollow and get_parent().difficultyFase4 >= 3:
+		enemyFollow = spawnEnemy("res://objects/scene4/enemyFollow.tscn")
+	elif enemyFollow and get_parent().difficultyFase4 < 3:
+		enemyFollow.queue_free()
+		enemyFollow = null
+	if !enemyGoal and get_parent().difficultyFase4 >= 4:
+		enemyGoal = spawnEnemy("res://objects/scene4/enemyGoal.tscn")
+	elif enemyGoal and get_parent().difficultyFase4 < 4:
+		enemyGoal.queue_free()
+		enemyGoal = null
+
+func _on_menu_button_up():
+	get_parent().switchScenes(0) # BOTÃO PARA VOLTAR AO MENU
+
+func _on_play_again_button_up():
+	get_parent().switchScenes(4) # BOTÃO PARA VOLTAR PARA REJOGAR A FASE
+
+func _on_continue_story_button_button_up():
+	get_parent().switchScenes(5)
+
+func _on_resume_button_up():
+	pause = false # BOTÃO PARA DESPAUSAR
+	pausehud.visible = !pausehud.visible

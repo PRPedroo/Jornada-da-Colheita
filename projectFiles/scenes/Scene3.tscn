@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cbktrwily2q1k"]
+[gd_scene load_steps=36 format=3 uid="uid://cbktrwily2q1k"]
 
 [ext_resource type="Script" path="res://scripts/scene3/Fase3.gd" id="1_0bqeq"]
 [ext_resource type="Script" path="res://scripts/scene3/backgroundMovement.gd" id="2_ukt1l"]
@@ -9,10 +9,12 @@
 [ext_resource type="Script" path="res://scripts/scene3/Sensor.gd" id="6_dosai"]
 [ext_resource type="Script" path="res://scripts/scene3/player.gd" id="7_r6v3p"]
 [ext_resource type="Texture2D" uid="uid://ccfo60s4n8qsx" path="res://sprites/scene3/truckPlayer.png" id="9_rr58y"]
-[ext_resource type="Texture2D" uid="uid://cuo5h2qg8neqj" path="res://sprites/slider_enemy_1.png" id="10_xl5ca"]
-[ext_resource type="Texture2D" uid="uid://bjlf5f6p5c0nm" path="res://sprites/slider_player_1.png" id="11_8w3pl"]
-[ext_resource type="Texture2D" uid="uid://db0ept3c0ssrb" path="res://sprites/market.png" id="12_86kbp"]
+[ext_resource type="Texture2D" uid="uid://cuo5h2qg8neqj" path="res://sprites/scene3/slider_enemy_1.png" id="10_fq5yd"]
+[ext_resource type="Texture2D" uid="uid://bjlf5f6p5c0nm" path="res://sprites/scene3/slider_player_1.png" id="11_ru6kv"]
+[ext_resource type="Texture2D" uid="uid://db0ept3c0ssrb" path="res://sprites/scene3/market.png" id="12_qwln2"]
+[ext_resource type="AudioStream" uid="uid://b4juxt2glvxol" path="res://audios/musica-fase3.mp3" id="14_d5ayq"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="14_g21pj"]
+[ext_resource type="AudioStream" uid="uid://dauuaopsp8sqb" path="res://audios/buzina.mp3" id="15_hyyl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7foli"]
 size = Vector2(20, 330)
@@ -358,7 +360,7 @@ offset_top = 19.0
 offset_right = -289.0
 offset_bottom = -20.268
 theme_override_constants/center_grabber = 1
-theme_override_icons/grabber_disabled = ExtResource("10_xl5ca")
+theme_override_icons/grabber_disabled = ExtResource("10_fq5yd")
 theme_override_styles/slider = SubResource("StyleBoxFlat_4snl4")
 max_value = 2000.0
 step = 0.1
@@ -378,7 +380,7 @@ offset_top = 19.0
 offset_right = -265.0
 offset_bottom = -20.268
 theme_override_constants/center_grabber = 1
-theme_override_icons/grabber_disabled = ExtResource("11_8w3pl")
+theme_override_icons/grabber_disabled = ExtResource("11_ru6kv")
 theme_override_styles/slider = SubResource("StyleBoxFlat_mmxur")
 max_value = 2000.0
 step = 0.1
@@ -388,7 +390,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Market2" type="Sprite2D" parent="Camera2D/HUD"]
 position = Vector2(288, 14)
-texture = ExtResource("12_86kbp")
+texture = ExtResource("12_qwln2")
 
 [node name="Pause" type="Control" parent="Camera2D"]
 visible = false
@@ -840,33 +842,17 @@ frame = 2
 
 [node name="Borders" type="Node2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Borders"]
-offset_left = -455.0
-offset_top = -240.0
-offset_right = 436.0
-offset_bottom = -93.0
-color = Color(0, 0, 0, 1)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_d5ayq")
+volume_db = 10.0
+autoplay = true
+bus = &"Music"
 
-[node name="ColorRect2" type="ColorRect" parent="Borders"]
-offset_left = -458.0
-offset_top = 232.555
-offset_right = 436.0
-offset_bottom = 385.555
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Borders"]
-offset_left = 289.0
-offset_top = -201.0
-offset_right = 437.0
-offset_bottom = 386.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Borders"]
-offset_left = -458.0
-offset_top = -241.0
-offset_right = -288.0
-offset_bottom = 386.0
-color = Color(0, 0, 0, 1)
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_hyyl0")
+volume_db = 10.0
+pitch_scale = 1.5
+bus = &"SFX"
 
 [connection signal="area_entered" from="Enemy/LeftSensor" to="Enemy/LeftSensor" method="_on_area_entered"]
 [connection signal="area_exited" from="Enemy/LeftSensor" to="Enemy/LeftSensor" method="_on_area_exited"]

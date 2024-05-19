@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var fase_2 = $".."
 @onready var animation = $AnimationPlayer
+@onready var audio = $AudioStreamPlayer2D
+@onready var saco = $saco
 
 const SPEED = 100
 
@@ -58,25 +60,31 @@ func verifyPos():
 		
 func gotRight():
 	fase_2.numFruits -= 1
-	print("Pegou a fruta certa!")
+	#print("Pegou a fruta certa!")
 
 func gotWrong():
 	# mostra um aviso de erro
 	fase_2.get_parent().addMistakes()
-	print("Pegou a fruta errada!")
+	#print("Pegou a fruta errada!")
 
 func refreshFruit():
 	typeTarget = fase_2.typeStack[fase_2.typeStack.size()-1]
 	positionTarget = fase_2.positionStack[fase_2.positionStack.size()-1]
-	print("---------")
-	print(typeTarget)
-	print(positionTarget)
+	#print("---------")
+	#print(typeTarget)
+	#print(positionTarget)
 	if typeTarget != fruit and typeTarget != "nothing":
 		fase_2.removeFruitStack()
 		gotWrong()
 
 func _on_original_pos_body_entered(body):
+	audio.play()
 	if typeTarget == "nothing":
 		if fase_2.numFruits == 0:
 			fruit = fase_2.changePackage()
 		objective = false
+
+
+func _on_area_2d_area_entered(area):
+	if not "original" in area.get_groups():
+		saco.play()

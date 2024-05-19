@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://pmc8g0a87134"]
+[gd_scene load_steps=30 format=3 uid="uid://pmc8g0a87134"]
 
 [ext_resource type="Script" path="res://scripts/scene2/Fase2.gd" id="1_vthq7"]
 [ext_resource type="FontFile" uid="uid://c3jccn32q7das" path="res://fonts/Next Sunday.otf" id="2_ecvrk"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://scripts/scene2/Farmer.gd" id="6_ps3pj"]
 [ext_resource type="Texture2D" uid="uid://csuyse8oj4v4e" path="res://sprites/scene2/farmerSpriteSheet.png" id="7_286jr"]
 [ext_resource type="PackedScene" uid="uid://dciehptjiwe75" path="res://objects/scene2/banana.tscn" id="7_cjxav"]
+[ext_resource type="AudioStream" uid="uid://dleubymkvnaoj" path="res://audios/coletar.mp3" id="8_jdsr2"]
 [ext_resource type="PackedScene" uid="uid://3vnt6y28nk5x" path="res://objects/scene2/grapes.tscn" id="8_wg2br"]
+[ext_resource type="AudioStream" uid="uid://dtndt7mbs8i8g" path="res://audios/saco.mp3" id="9_pvup8"]
 [ext_resource type="Texture2D" uid="uid://bsj5p18njgwgk" path="res://sprites/scene2/appleSpriteSheet.png" id="9_twcfl"]
 [ext_resource type="Texture2D" uid="uid://bi34xgrmp87ap" path="res://sprites/scene2/packagesSpriteSheet.png" id="10_cyy28"]
 [ext_resource type="Texture2D" uid="uid://dn0nju75j4xvd" path="res://sprites/scene2/bananaSpriteSheet.png" id="11_4jdx6"]
@@ -15,6 +17,7 @@
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="13_mvupj"]
 [ext_resource type="Texture2D" uid="uid://c6fx2e8gkcg4u" path="res://sprites/scene2/frontground2.png" id="14_n06tk"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="15_wg7w2"]
+[ext_resource type="AudioStream" uid="uid://ciq48rr7fhke6" path="res://audios/passarinhos.mp3" id="17_hxy1q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1m5i"]
 size = Vector2(30, 32)
@@ -131,7 +134,7 @@ position = Vector2(44, 28)
 [node name="Apple2" parent="Fruits" instance=ExtResource("4_grp6f")]
 position = Vector2(132, 139)
 
-[node name="OriginalPos" type="Area2D" parent="."]
+[node name="OriginalPos" type="Area2D" parent="." groups=["original"]]
 position = Vector2(-118, 162)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OriginalPos"]
@@ -154,6 +157,23 @@ shape = SubResource("CircleShape2D_30jpq")
 libraries = {
 "": SubResource("AnimationLibrary_abpve")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Farmer"]
+stream = ExtResource("8_jdsr2")
+volume_db = 9.4
+pitch_scale = 0.8
+bus = &"SFX"
+
+[node name="Area2D" type="Area2D" parent="Farmer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Farmer/Area2D"]
+shape = SubResource("CircleShape2D_30jpq")
+
+[node name="saco" type="AudioStreamPlayer2D" parent="Farmer"]
+stream = ExtResource("9_pvup8")
+volume_db = 2.0
+pitch_scale = 1.5
+bus = &"SFX"
 
 [node name="PackagesSpriteSheet" type="Sprite2D" parent="."]
 position = Vector2(-61, 166)
@@ -708,7 +728,13 @@ text = "Carregando...
 "
 horizontal_alignment = 1
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_hxy1q")
+autoplay = true
+bus = &"Music"
+
 [connection signal="body_entered" from="OriginalPos" to="Farmer" method="_on_original_pos_body_entered"]
+[connection signal="area_entered" from="Farmer/Area2D" to="Farmer" method="_on_area_2d_area_entered"]
 [connection signal="button_up" from="Camera2D/Final/PlayAgain" to="." method="_on_play_again_button_up"]
 [connection signal="button_up" from="Camera2D/Final/Menu" to="." method="_on_menu_button_up"]
 [connection signal="button_up" from="Camera2D/FinalContinue/ContinueStoryButton" to="." method="_on_continue_story_button_button_up"]

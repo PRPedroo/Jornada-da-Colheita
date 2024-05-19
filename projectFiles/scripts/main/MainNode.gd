@@ -4,6 +4,7 @@ var arrow = load("res://sprites/cursorDefault.png")
 var arrowClick = load("res://sprites/cursorClick.png")
 
 var telaMenu = preload("res://scenes/menu.tscn")
+var telaConfig = preload("res://scenes/config.tscn")
 
 var telaFase1 = preload("res://scenes/Scene1.tscn")
 var telaFase1CutScene = preload("res://scenes/CutScene1.tscn")
@@ -15,7 +16,9 @@ var telaFase3 = preload("res://scenes/Scene3.tscn")
 var telaFase3CutScene = preload("res://scenes/CutScene3.tscn")
 
 var telaFase4 = preload("res://scenes/Scene4.tscn")
-#var telaFase4CutScene = preload("res://scenes/CutScene4.tscn")
+var telaFase4CutScene = preload("res://scenes/CutScene4.tscn")
+
+var telaCutSceneFINAL = preload("res://scenes/CutSceneFINAL.tscn")
 
 var instance
 
@@ -62,67 +65,53 @@ func _process(delta):
 		verifyTime()
 
 func switchScenes(scene):
-	if scene == 0: # MENU
+	for i in self.get_children():
+		if not i is AudioStreamPlayer2D:
+			i.queue_free()
+	
+	if scene == 0: # MENU2
 		cutscene = 0
 		storyMode = false
 		resetVec()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		for _i in self.get_children():
-			_i.queue_free()
 		instance = telaMenu.instantiate()
-		self.add_child(instance)
+	
+	if scene == -1: # CONFIG
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		instance = telaConfig.instantiate()
 
 	if scene == 1: # FASE 1
 		resetVec()
 		time = tick
-		for _i in self.get_children():
-			_i.queue_free()
 		instance = telaFase1.instantiate()
-		self.add_child(instance)
 	if scene == 11: # CUTSCENE 1
 		storyMode = true
 		for _i in self.get_children():
 			_i.queue_free()
 		instance = telaFase1CutScene.instantiate()
-		self.add_child(instance)
 	
 	if scene == 2: # FASE 2
 		resetVec()
-		#time = tick
-		for _i in self.get_children():
-			_i.queue_free()
 		instance = telaFase2.instantiate()
-		self.add_child(instance)
 	if scene == 22: # CUTSCENE 2
 		resetVec()
-		for _i in self.get_children():
-			_i.queue_free()
 		instance = telaFase2CutScene.instantiate()
-		self.add_child(instance)
 	
 	if scene == 3: # FASE 3
-		for _i in self.get_children():
-			_i.queue_free()
 		instance = telaFase3.instantiate()
-		self.add_child(instance)
 	if scene == 33: # CUTSCENE 3
-		for _i in self.get_children():
-			_i.queue_free()
 		instance = telaFase3CutScene.instantiate()
-		self.add_child(instance)
 	
 	if scene == 4: # FASE 4
-		for _i in self.get_children():
-			_i.queue_free()
 		instance = telaFase4.instantiate()
-		self.add_child(instance)
-	'''
 	if scene == 44: # CUTSCENE 4
-		for _i in self.get_children():
-			_i.queue_free()
 		instance = telaFase4CutScene.instantiate()
-		self.add_child(instance)
-	'''
+	
+	if scene == 5: # FASE5
+		instance = telaCutSceneFINAL.instantiate()
+	
+	self.add_child(instance)
+	
 #--------------------FASE 1-------------------------
 
 func verifyTime():

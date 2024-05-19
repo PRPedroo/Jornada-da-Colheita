@@ -35,7 +35,7 @@ func _process(delta):
 		else:
 			timerDif = timerDifValue
 		
-		print(timerDif," ", get_parent().get_parent().difficultyFase3," ", speed)
+		#print(timerDif," ", get_parent().get_parent().difficultyFase3," ", speed)
 		
 		if rotation_degrees <= maxDegrees and rotation_degrees >= -maxDegrees:
 			if Input.is_key_pressed(KEY_RIGHT):

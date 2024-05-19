@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
 @onready var ap = $AnimationPlayer
+@onready var audio = $AudioStreamPlayer2D
 
 var root
 var map
-var posIndex = Vector2(0, 0)
+var posIndex
+var points = 0
 
 var timer = 0
 var goal
@@ -12,21 +14,33 @@ var goal
 var stunned = false
 var speed = 0.2
 
+var nn = NeuralNetwork.new([3, 6], ["Linear", "Softmax"])
+var np = NumpyHandmade.new()
+var items = ["apple", "banana", "grapes", "bread", "milk", "egg"]
+
+var timerDif = 0
+
 func _ready():
 	root = get_parent().get_parent()
 	map = root.map
 	updatePos(posIndex.x, posIndex.y)
+	
+	nn.setWeightsBiases(1, [[-0.78465057186338, -1.25180528750293, 3.26778962805252], [3.0649940127872, -0.8305950798914, 2.39186422521121], [2.79296714108954, 1.03970982321916, -1.07043174742395]], [-1.7445925895947, 1.91484698938836, -0.91303756158317])
+	nn.setWeightsBiases(2, [[-0.04765651790414, -0.38188301647399, -2.92044591346496, 2.20961269490241, 2.55662316903759, -0.78614734714317], [0.5420325578497, 1.08132281432645, 0.48411371855893, -1.35657216230628, 0.38432320823619, -1.99930932780767], [1.14631518401544, -0.70314319897412, -2.19349844513572, 1.50006857947525, -1.72568894097505, 2.59417100046738]], [0.51200038738093, 0.94827164485346, 0.0755777908751, -1.79798785184366, -0.30503911405801, -0.42067961408139])
 
 func _physics_process(delta):
-	if timer <= 0:
-		move()
-		updatePos(posIndex.x, posIndex.y)
-		stunned = false
-	else:
-		if stunned:
-			print("stuned")
-		timer -= delta
-	checkItem()
+	if !root.pause:
+		if timer <= 0:
+			move()
+			updatePos(posIndex.x, posIndex.y)
+			stunned = false
+		else:
+			if stunned:
+				print("stuned")
+			timer -= delta
+		checkItem()
+		
+		timerDif -= delta
 
 func stun(time):
 	timer = time
@@ -34,7 +48,17 @@ func stun(time):
 
 func checkItem():
 	if map.nodes[posIndex.x][posIndex.y].item != null:
-		if map.nodes[posIndex.x][posIndex.y].item.itemName == goal:
+		audio.play()
+		var output = nn.feedForward([map.nodes[posIndex.x][posIndex.y].item.getTraits()])
+		var guess = items[np.argmax(output)[0]]
+		if guess == goal:
+			if timerDif > 0 and root.get_parent().difficultyFase4 < 5:
+				root.get_parent().difficultyFase4 += 1
+			elif timerDif < -2 and root.get_parent().difficultyFase4 > 0:
+				root.get_parent().difficultyFase4 -= 1
+			points += 1
+			if points == 8:
+				root.endGame()
 			root.instantiateItems()
 		else:
 			map.nodes[posIndex.x][posIndex.y].item.remove()
@@ -43,7 +67,7 @@ func checkItem():
 func move():
 	if Input.is_action_pressed("up"):
 		if posIndex.y > 0:
-			if !map.nodes[posIndex.x][posIndex.y-1].wall and Vector2(posIndex.x, posIndex.y-1):# != root.enemy.posIndex:
+			if !map.nodes[posIndex.x][posIndex.y-1].wall:# != root.enemy.posIndex:
 				posIndex.y -= 1
 				emitSignal()
 				timer = speed
@@ -51,7 +75,7 @@ func move():
 				
 	elif Input.is_action_pressed("down"):
 		if posIndex.y < map.height - 1:
-			if !map.nodes[posIndex.x][posIndex.y+1].wall and Vector2(posIndex.x, posIndex.y+1):# != root.enemy.posIndex:
+			if !map.nodes[posIndex.x][posIndex.y+1].wall:# != root.enemy.posIndex:
 				posIndex.y += 1
 				emitSignal()
 				timer = speed
@@ -59,7 +83,7 @@ func move():
 				
 	elif Input.is_action_pressed("left"):
 		if posIndex.x > 0:
-			if !map.nodes[posIndex.x - 1][posIndex.y].wall and Vector2(posIndex.x-1, posIndex.y):# != root.enemy.posIndex:
+			if !map.nodes[posIndex.x - 1][posIndex.y].wall:# != root.enemy.posIndex:
 				posIndex.x -= 1
 				emitSignal()
 				timer = speed
@@ -67,7 +91,7 @@ func move():
 
 	elif Input.is_action_pressed("right"):
 		if posIndex.x < map.width - 1:
-			if !map.nodes[posIndex.x + 1][posIndex.y].wall and Vector2(posIndex.x+1, posIndex.y):# != root.enemy.posIndex:
+			if !map.nodes[posIndex.x + 1][posIndex.y].wall:# != root.enemy.posIndex:
 				posIndex.x += 1
 				emitSignal()
 				timer = speed

@@ -1,12 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bavrhe7jlduha"]
+[gd_scene load_steps=13 format=3 uid="uid://bavrhe7jlduha"]
 
 [ext_resource type="Script" path="res://scripts/cutscenes/Skip.gd" id="1_oixfo"]
 [ext_resource type="Texture2D" uid="uid://bllnctvb2bnph" path="res://sprites/scene3/mercado.png" id="2_0jnr2"]
 [ext_resource type="Texture2D" uid="uid://qhwbr76qxi0o" path="res://sprites/scene3/roadsSpriteSheet.png" id="2_dgxnf"]
 [ext_resource type="Texture2D" uid="uid://cthuf2cua426d" path="res://sprites/scene1/balaoFala.png" id="3_tbptb"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="4_0i3sx"]
+[ext_resource type="AudioStream" uid="uid://cow7yccfanvk0" path="res://audios/cutscenes/fase3-dialog1.mp3" id="4_oxcfi"]
 [ext_resource type="Texture2D" uid="uid://bl0tradc87rnw" path="res://sprites/scene1/nomeFala.png" id="5_dgn6v"]
 [ext_resource type="Texture2D" uid="uid://dpjdpngx1sgpp" path="res://sprites/scene3/juliaSpriteSheet.png" id="6_5yxdg"]
+[ext_resource type="AudioStream" uid="uid://owt81kd0yx1h" path="res://audios/cutscenes/fase3-dialog2.mp3" id="9_gflks"]
+[ext_resource type="AudioStream" uid="uid://cbinc51j73l4w" path="res://audios/cutscenes/fase3-dialog3.mp3" id="10_yioul"]
+[ext_resource type="AudioStream" uid="uid://c56jrhx5in4b" path="res://audios/cutscenes/fase3-dialog4.mp3" id="11_pmns6"]
+[ext_resource type="AudioStream" uid="uid://bammqoxsggvje" path="res://audios/cutscenes/fase3-dialog5.mp3" id="12_bf4vp"]
 
 [node name="CutScene3" type="Node2D"]
 script = ExtResource("1_oixfo")
@@ -46,6 +51,11 @@ offset_left = -290.0
 offset_top = -174.0
 offset_right = 287.0
 offset_bottom = 230.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/dialog1"]
+stream = ExtResource("4_oxcfi")
+volume_db = 4.0
+bus = &"Dub"
 
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/dialog1"]
 position = Vector2(222, 349)
@@ -134,6 +144,11 @@ offset_top = -174.0
 offset_right = 287.0
 offset_bottom = 230.0
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/dialog2"]
+stream = ExtResource("9_gflks")
+volume_db = 4.0
+bus = &"Dub"
+
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/dialog2"]
 position = Vector2(222, 349)
 scale = Vector2(0.4, 0.21)
@@ -219,6 +234,11 @@ offset_left = -290.0
 offset_top = -174.0
 offset_right = 287.0
 offset_bottom = 230.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/dialog3"]
+stream = ExtResource("10_yioul")
+volume_db = 4.0
+bus = &"Dub"
 
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/dialog3"]
 position = Vector2(222, 349)
@@ -307,6 +327,11 @@ offset_top = -174.0
 offset_right = 287.0
 offset_bottom = 230.0
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/dialog4"]
+stream = ExtResource("11_pmns6")
+volume_db = 4.0
+bus = &"Dub"
+
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/dialog4"]
 position = Vector2(222, 349)
 scale = Vector2(0.4, 0.21)
@@ -393,6 +418,11 @@ offset_left = -290.0
 offset_top = -174.0
 offset_right = 287.0
 offset_bottom = 230.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/dialog5"]
+stream = ExtResource("12_bf4vp")
+volume_db = 4.0
+bus = &"Dub"
 
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/dialog5"]
 position = Vector2(222, 349)

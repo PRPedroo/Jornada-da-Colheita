@@ -107,7 +107,7 @@ func accuracyTest(X, y):
 	var true_labels = np.argmax(y) # OBTÉM O ÍNDICE DO VALOR MÁXIMO
 	var accuracy : float = 0.0
 	
-	print(predictions, "\n\n", true_labels)
+	#print(predictions, "\n\n", true_labels)
 	for i in range(len(true_labels)):
 		if predictions[i] == true_labels[i]:
 			accuracy += 1

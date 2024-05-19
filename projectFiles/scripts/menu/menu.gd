@@ -15,3 +15,6 @@ func _on_button_f_3_button_up():
 
 func _on_button_f_4_button_up():
 	get_parent().switchScenes(4)
+
+func _on_button_config_button_up():
+	get_parent().switchScenes(-1)

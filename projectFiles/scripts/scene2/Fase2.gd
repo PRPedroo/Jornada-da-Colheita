@@ -41,7 +41,7 @@ func _ready():
 	spawnFruits(numFruits, get_parent().difficultyFase2)
 
 func _process(_delta):
-	print(get_parent().difficultyFase2)
+	#print(get_parent().difficultyFase2)
 	if Input.is_action_just_pressed("esc"):
 		pause = !pause
 		pausehud.visible = !pausehud.visible

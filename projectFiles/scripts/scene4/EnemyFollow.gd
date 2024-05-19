@@ -12,6 +12,8 @@ var timer = speed
 
 var stun = 0
 
+@onready var audio = $AudioStreamPlayer2D
+
 func _ready():
 	root = get_parent().get_parent()
 	map = root.map
@@ -25,12 +27,30 @@ func _ready():
 	pf.setAllCosts()
 
 func _process(delta):
-	if timer > 0:
-		timer -= delta
+	if !root.pause:
+		if timer > 0:
+			timer -= delta
 		
-	if stun > 0:
-		stun -= delta
+		if stun > 0:
+			stun -= delta
 	
+		move()
+
+func updatePos(i, j):
+	var newPos = Vector2(map.nodes[i][j].position) + Vector2(map.nodes[i][j].size/2, map.nodes[i][j].size/2)
+	var tween = create_tween()
+	tween.tween_property(self, "position", newPos, speed)
+
+func setPos(i, j):
+	position = Vector2(pf.nodes[i][j].position) + Vector2(pf.nodes[i][j].size/2, pf.nodes[i][j].size/2)
+
+func checkGoal():
+	if pf.nodes[posIndex.x][posIndex.y] == pf.nodes[pf.goalIndex.x][pf.goalIndex.y]:
+		stun = 4
+		root.player.stun(2)
+		audio.play()
+
+func move():
 	if pf.goalReached and timer <= 0 and stun <= 0:
 		if pf.nodes[posIndex.x][posIndex.y].path == true:
 			pf.nodes[posIndex.x][posIndex.y].path = false
@@ -54,17 +74,3 @@ func _process(delta):
 		updatePos(posIndex.x, posIndex.y)
 		checkGoal()
 		timer = speed
-
-func updatePos(i, j):
-	var newPos = Vector2(map.nodes[i][j].position) + Vector2(map.nodes[i][j].size/2, map.nodes[i][j].size/2)
-	var tween = create_tween()
-	tween.tween_property(self, "position", newPos, speed)
-
-func setPos(i, j):
-	position = Vector2(pf.nodes[i][j].position) + Vector2(pf.nodes[i][j].size/2, pf.nodes[i][j].size/2)
-
-func checkGoal():
-	if pf.nodes[posIndex.x][posIndex.y] == pf.nodes[pf.goalIndex.x][pf.goalIndex.y]:
-		stun = 4
-		root.player.stun(2)
-

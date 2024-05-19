@@ -1,0 +1,243 @@
+[gd_scene load_steps=8 format=3 uid="uid://dluepxhpif2uk"]
+
+[ext_resource type="Script" path="res://scripts/menu/config.gd" id="1_l73wm"]
+[ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_dywhu"]
+[ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="3_c83iw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3fwt"]
+bg_color = Color(0.00784314, 0, 0.0392157, 0.921569)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 0.517
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3uf6"]
+bg_color = Color(0, 0.968627, 0.172549, 0.921569)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 0.517
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1w84a"]
+bg_color = Color(0.4123, 1, 0.418115, 0.921569)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing_size = 0.517
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65slk"]
+bg_color = Color(1, 0, 0, 0.796078)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Config" type="Node2D"]
+script = ExtResource("1_l73wm")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(9, 265)
+scale = Vector2(0.531431, 0.531431)
+texture = ExtResource("2_dywhu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, 70)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Pause" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -290.0
+offset_top = -92.0
+offset_right = 288.0
+offset_bottom = 232.0
+
+[node name="ColorRect2" type="ColorRect" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 33.0
+offset_right = 458.0
+offset_bottom = 286.0
+color = Color(0, 0, 0, 0.219608)
+
+[node name="PauseLabel" type="Label" parent="Camera2D/Pause"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 69.0
+offset_right = 6924.0
+offset_bottom = 696.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_c83iw")
+theme_override_font_sizes/font_size = 500
+text = "VOLUME"
+horizontal_alignment = 1
+
+[node name="MusicLabel" type="Label" parent="Camera2D/Pause"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 109.0
+offset_right = 6924.0
+offset_bottom = 629.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_c83iw")
+theme_override_font_sizes/font_size = 400
+text = "MÚSICA"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 138.0
+offset_right = 383.0
+offset_bottom = 154.0
+theme_override_constants/center_grabber = 1
+theme_override_constants/grabber_offset = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_w3fwt")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_i3uf6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_1w84a")
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="DubLabel" type="Label" parent="Camera2D/Pause"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 157.0
+offset_right = 6924.0
+offset_bottom = 677.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_c83iw")
+theme_override_font_sizes/font_size = 400
+text = "DUBLAGEM"
+horizontal_alignment = 1
+
+[node name="DubSlider" type="HSlider" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 186.0
+offset_right = 383.0
+offset_bottom = 202.0
+theme_override_constants/center_grabber = 1
+theme_override_constants/grabber_offset = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_w3fwt")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_i3uf6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_1w84a")
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="SFXLabel" type="Label" parent="Camera2D/Pause"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 207.0
+offset_right = 6924.0
+offset_bottom = 727.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_c83iw")
+theme_override_font_sizes/font_size = 400
+text = "EFEITOS SONOROS"
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="Camera2D/Pause"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 237.0
+offset_right = 383.0
+offset_bottom = 253.0
+theme_override_constants/center_grabber = 1
+theme_override_constants/grabber_offset = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_w3fwt")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_i3uf6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_1w84a")
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Menu" type="Button" parent="Camera2D/Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 246.0
+offset_top = 24.0
+offset_right = -244.0
+offset_bottom = -263.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_65slk")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MenuLabel" type="Label" parent="Camera2D/Pause/Menu"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = 3.0
+offset_right = 1716.0
+offset_bottom = 687.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("3_c83iw")
+theme_override_font_sizes/font_size = 450
+text = "Sair"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="value_changed" from="Camera2D/Pause/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Camera2D/Pause/DubSlider" to="." method="_on_dub_slider_value_changed"]
+[connection signal="value_changed" from="Camera2D/Pause/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="button_up" from="Camera2D/Pause/Menu" to="." method="_on_menu_button_up"]

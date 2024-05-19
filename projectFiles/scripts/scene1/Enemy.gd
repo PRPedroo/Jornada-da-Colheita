@@ -13,6 +13,7 @@ var time = 0
 
 @onready var target = $"../Target"
 @onready var anim = $AnimationPlayer
+@onready var audio = $AudioStreamPlayer2D
 
 var neural_network = NeuralNetwork.new([2, 2], ["Linear", "Softmax"])# 2 entrada 2 escondidas 2
 var np = NumpyHandmade.new()
@@ -75,6 +76,7 @@ func moveL():
 		velocity.x = -vel
 
 func _on_target_body_entered(_body):
+	audio.play()
 	instantiateApple()
 	target.randomizePosX()
 	move = neural_network.feedForward([[(position.x+0.001)/287.5, (target.position.x+0.001)/287.5]])

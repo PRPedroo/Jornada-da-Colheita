@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsu7ffngm01r"]
+[gd_scene load_steps=13 format=3 uid="uid://dsu7ffngm01r"]
 
 [ext_resource type="Script" path="res://scripts/menu/menu.gd" id="1_gfudd"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_2naj2"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://ccfo60s4n8qsx" path="res://sprites/scene3/truckPlayer.png" id="8_55ol2"]
 [ext_resource type="Texture2D" uid="uid://dakj0a3074s3i" path="res://sprites/icon.svg" id="8_w4unx"]
 [ext_resource type="Texture2D" uid="uid://e70m51o8se42" path="res://sprites/scene3/truckEnemy.png" id="9_o52fi"]
+[ext_resource type="Texture2D" uid="uid://i5tnksne7whc" path="res://sprites/scene4/enemyRandomFase4.png" id="10_67dx8"]
+[ext_resource type="AudioStream" uid="uid://cmrbgfiqcb2tr" path="res://audios/musica-menu.mp3" id="12_kapxq"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_gfudd")
@@ -234,16 +236,52 @@ theme_override_fonts/font = ExtResource("2_kjrcq")
 theme_override_font_sizes/font_size = 25
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonF4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = 25.0
+offset_right = 65.0
+offset_bottom = 22.0
+rotation = 2.42426
+texture = ExtResource("10_67dx8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ButtonConfig" type="Button" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 260.0
+offset_top = 207.0
+offset_right = 278.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_kjrcq")
+theme_override_font_sizes/font_size = 25
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ButtonConfig"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 46.0
-offset_bottom = 46.0
+offset_right = 14.0
+offset_bottom = 14.0
 texture = ExtResource("8_w4unx")
 expand_mode = 1
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_kapxq")
+volume_db = 10.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="button_up" from="Camera2D/ButtonPLAY" to="." method="_on_button_play_button_up"]
 [connection signal="button_up" from="Camera2D/ButtonF1" to="." method="_on_button_f_1_button_up"]
 [connection signal="button_up" from="Camera2D/ButtonF2" to="." method="_on_button_f_2_button_up"]
 [connection signal="button_up" from="Camera2D/ButtonF3" to="." method="_on_button_f_3_button_up"]
 [connection signal="button_up" from="Camera2D/ButtonF4" to="." method="_on_button_f_4_button_up"]
+[connection signal="button_up" from="Camera2D/ButtonConfig" to="." method="_on_button_config_button_up"]

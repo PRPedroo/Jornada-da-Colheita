@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2jbsdksb6hgc"]
+
+[ext_resource type="Script" path="res://scenes/trains/Scene4Training.gd" id="1_q1i4c"]
+
+[node name="Scene4Training" type="Node2D"]
+script = ExtResource("1_q1i4c")

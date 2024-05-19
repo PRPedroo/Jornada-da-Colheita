@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://duqe4vtb7mtna"]
+[gd_scene load_steps=11 format=3 uid="uid://duqe4vtb7mtna"]
 
 [ext_resource type="Script" path="res://scripts/cutscenes/Skip.gd" id="1_nt5gc"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="1_vq36w"]
 [ext_resource type="Texture2D" uid="uid://cthuf2cua426d" path="res://sprites/scene1/balaoFala.png" id="3_1nela"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="3_626de"]
+[ext_resource type="AudioStream" uid="uid://cividrgbukspe" path="res://audios/cutscenes/fase1-dialog1.mp3" id="3_us5ci"]
 [ext_resource type="Texture2D" uid="uid://bl0tradc87rnw" path="res://sprites/scene1/nomeFala.png" id="5_awx0v"]
 [ext_resource type="Texture2D" uid="uid://gm60qyic0dc8" path="res://sprites/scene1/carlosSpriteSheet.png" id="6_rmpv8"]
+[ext_resource type="AudioStream" uid="uid://cheapys5hdsr0" path="res://audios/cutscenes/fase1-dialog2.mp3" id="8_dsosl"]
+[ext_resource type="AudioStream" uid="uid://joiqkyarvclj" path="res://audios/cutscenes/fase1-dialog3.mp3" id="9_fjk0e"]
+[ext_resource type="AudioStream" uid="uid://dsto5pp8f6uhc" path="res://audios/cutscenes/fase1-dialog4.mp3" id="10_0xcry"]
 
 [node name="CutScene1" type="Node2D"]
 script = ExtResource("1_nt5gc")
@@ -27,6 +31,11 @@ offset_left = -290.0
 offset_top = -174.0
 offset_right = 287.0
 offset_bottom = 230.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/first"]
+stream = ExtResource("3_us5ci")
+volume_db = 5.0
+bus = &"Dub"
 
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/first"]
 position = Vector2(222, 349)
@@ -114,6 +123,11 @@ offset_top = -174.0
 offset_right = 287.0
 offset_bottom = 230.0
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/second"]
+stream = ExtResource("8_dsosl")
+volume_db = 10.0
+bus = &"Dub"
+
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/second"]
 position = Vector2(222, 349)
 scale = Vector2(0.4, 0.21)
@@ -136,7 +150,7 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("3_626de")
 theme_override_font_sizes/font_size = 330
-text = "O PRIMEIRO PASSO PARA O CICLO DA PRODUÇÃO DOS ALIMENTOS É A COLETA."
+text = "O PRIMEIRO PASSO DA CADEIA PRODUTIVA DE ALIMENTOS É A COLETA."
 autowrap_mode = 2
 
 [node name="NameBackgorund" type="Sprite2D" parent="Camera2D/second"]
@@ -199,6 +213,10 @@ offset_top = -174.0
 offset_right = 287.0
 offset_bottom = 230.0
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/third"]
+stream = ExtResource("9_fjk0e")
+bus = &"Dub"
+
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/third"]
 position = Vector2(222, 349)
 scale = Vector2(0.4, 0.21)
@@ -221,7 +239,7 @@ theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961
 theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("3_626de")
 theme_override_font_sizes/font_size = 330
-text = "E VOCÊ VAI ME AJUDAR A PEGAR AS FRUTAS, CERTO?"
+text = "E VOCÊ VAI ME AJUDAR A COLETAR AS FRUTAS, CERTO?"
 autowrap_mode = 2
 
 [node name="NameBackgorund" type="Sprite2D" parent="Camera2D/third"]
@@ -284,6 +302,11 @@ offset_left = -290.0
 offset_top = -174.0
 offset_right = 287.0
 offset_bottom = 230.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/fourth"]
+stream = ExtResource("10_0xcry")
+volume_db = 5.0
+bus = &"Dub"
 
 [node name="MessageBackground" type="Sprite2D" parent="Camera2D/fourth"]
 position = Vector2(222, 349)

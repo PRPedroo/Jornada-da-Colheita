@@ -7,6 +7,7 @@ var points = 0
 @onready var fase_1 = $".."
 @onready var labelFinal = $"../Camera2D/Final/PointsLabel"
 @onready var labelFinalContinue = $"../Camera2D/FinalContinue/PointsLabel"
+@onready var audio = $AudioStreamPlayer2D
 
 func _ready():
 	anim.play("player")
@@ -30,3 +31,10 @@ func trackPlayerPos(event):
 			position.x = 288
 		else:
 			position.x = remap(event.position.x, 0, 1150, -288, 288)
+
+
+func _on_area_2d_area_entered(area):
+	if "apple" in area.get_groups():
+		area.queue_free()
+		points += 1
+		audio.play()
