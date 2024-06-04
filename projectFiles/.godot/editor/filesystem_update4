@@ -1,12 +1,1 @@
 res://scenes/menu.tscn
-res://objects/scene4/player.tscn
-res://objects/scene4/enemyRandom.tscn
-res://objects/scene4/enemyFollow.tscn
-res://scenes/CutScene4.tscn
-res://scenes/main.tscn
-res://scenes/Scene4.tscn
-res://objects/scene4/enemyGoal.tscn
-res://objects/scene4/item.tscn
-res://scripts/scene4/Item.gd
-res://scripts/scene4/EnemyFollow.gd
-res://scripts/scene4/Player.gd

@@ -196,7 +196,7 @@ func _on_play_again_button_up():
 	get_parent().switchScenes(4) # BOTÃO PARA VOLTAR PARA REJOGAR A FASE
 
 func _on_continue_story_button_button_up():
-	get_parent().switchScenes(5)
+	get_parent().switchScenes(55)
 
 func _on_resume_button_up():
 	pause = false # BOTÃO PARA DESPAUSAR

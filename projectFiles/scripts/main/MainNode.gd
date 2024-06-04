@@ -6,6 +6,8 @@ var arrowClick = load("res://sprites/cursorClick.png")
 var telaMenu = preload("res://scenes/menu.tscn")
 var telaConfig = preload("res://scenes/config.tscn")
 
+var telaCutSceneINTRO = preload("res://scenes/CutSceneBEGINNING.tscn")
+
 var telaFase1 = preload("res://scenes/Scene1.tscn")
 var telaFase1CutScene = preload("res://scenes/CutScene1.tscn")
 
@@ -43,8 +45,7 @@ var cutscene = 0
 
 func _ready():
 	Input.set_custom_mouse_cursor(arrow)
-	instance = telaMenu.instantiate()
-	add_child(instance)
+	switchScenes(-2)
 
 func _process(delta):
 	if Input.is_action_just_pressed("click"):
@@ -79,6 +80,10 @@ func switchScenes(scene):
 	if scene == -1: # CONFIG
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		instance = telaConfig.instantiate()
+		
+	if scene == -2: # INTRO
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		instance = telaCutSceneINTRO.instantiate()
 
 	if scene == 1: # FASE 1
 		resetVec()
@@ -107,7 +112,7 @@ func switchScenes(scene):
 	if scene == 44: # CUTSCENE 4
 		instance = telaFase4CutScene.instantiate()
 	
-	if scene == 5: # FASE5
+	if scene == 55: # CUTSCENE FINAL
 		instance = telaCutSceneFINAL.instantiate()
 	
 	self.add_child(instance)

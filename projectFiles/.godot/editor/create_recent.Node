@@ -1,3 +1,5 @@
+Node2D
+ColorRect
 AnimationPlayer
 Sprite2D
 Area2D
@@ -6,11 +8,9 @@ AudioListener2D
 AudioStreamPlayer
 HSlider
 TextureRect
-Node2D
 MultiplayerSpawner
 CollisionShape2D
 CharacterBody2D
-ColorRect
 CollisionPolygon2D
 NinePatchRect
 StaticBody2D

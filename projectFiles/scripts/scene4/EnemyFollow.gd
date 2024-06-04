@@ -53,6 +53,8 @@ func checkGoal():
 	if pf.nodes[posIndex.x][posIndex.y] == pf.nodes[pf.goalIndex.x][pf.goalIndex.y]:
 		stun = 4
 		root.player.stun(2)
+		#var tween = create_tween()
+		#tween.tween_property(self, "position", root.player.posIndex, speed)
 		audio.play()
 
 func move():

@@ -10,7 +10,7 @@ extends Node2D
 
 @onready var player = $Player
 
-var timer = 60
+var timer = 60 # ARRUMAR PRA 60
 var pause = false
 
 func _ready():

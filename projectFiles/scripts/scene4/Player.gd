@@ -35,13 +35,13 @@ func _physics_process(delta):
 			move()
 			updatePos(posIndex.x, posIndex.y)
 			stunned = false
+		
+		if stunned:
+			ap.stop()
+			sprite.frame = 2
 		else:
-			if stunned:
-				ap.stop()
-				sprite.frame = 2
-			else:
-				ap.play("moving")
-			timer -= delta
+			ap.play("moving")
+		timer -= delta
 		checkItem()
 		
 		timerDif -= delta

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b82e0xo8npgbf"]
+[gd_scene load_steps=9 format=3 uid="uid://b82e0xo8npgbf"]
 
 [ext_resource type="Script" path="res://scripts/cutscenes/Skip.gd" id="1_obnxe"]
 [ext_resource type="Texture2D" uid="uid://uycaxdn5qib5" path="res://sprites/scene1/background.png" id="2_562cv"]
 [ext_resource type="Texture2D" uid="uid://gm60qyic0dc8" path="res://sprites/scene1/carlosSpriteSheet.png" id="3_jhwpr"]
+[ext_resource type="AudioStream" uid="uid://dleubymkvnaoj" path="res://audios/coletar.mp3" id="3_ru8mk"]
 [ext_resource type="Texture2D" uid="uid://cthuf2cua426d" path="res://sprites/scene1/balaoFala.png" id="4_g0fd4"]
 [ext_resource type="Texture2D" uid="uid://d2gp7y3pbojco" path="res://sprites/scene2/bobSpriteSheet.png" id="4_houve"]
 [ext_resource type="FontFile" uid="uid://csgqd3brms0ua" path="res://fonts/Super Disco Personal Use.ttf" id="5_j6gdg"]
@@ -28,6 +29,11 @@ offset_left = -290.0
 offset_top = -174.0
 offset_right = 287.0
 offset_bottom = 230.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/dialog1"]
+stream = ExtResource("3_ru8mk")
+volume_db = 2.667
+bus = &"Dub"
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/dialog1"]
 position = Vector2(432.75, 247.25)
@@ -98,6 +104,83 @@ theme_override_constants/outline_size = 100
 theme_override_fonts/font = ExtResource("5_j6gdg")
 theme_override_font_sizes/font_size = 330
 text = "CLIQUE NA TELA PARA CONTINUAR..."
+autowrap_mode = 2
+
+[node name="dialog2" type="Control" parent="Camera2D"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -290.0
+offset_top = -174.0
+offset_right = 287.0
+offset_bottom = 230.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/dialog2"]
+position = Vector2(432.75, 247.25)
+scale = Vector2(0.291364, 0.291364)
+texture = ExtResource("3_jhwpr")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Camera2D/dialog2"]
+position = Vector2(159.75, 247.25)
+rotation = 3.14159
+scale = Vector2(0.291, -0.291)
+texture = ExtResource("4_houve")
+hframes = 4
+frame = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="Camera2D/dialog2"]
+position = Vector2(292.75, 247.25)
+rotation = 3.14159
+scale = Vector2(-0.291, -0.291)
+texture = ExtResource("7_snvd4")
+hframes = 3
+frame = 1
+
+[node name="Node2D" type="Node2D" parent="Camera2D/dialog2"]
+position = Vector2(288, 673)
+
+[node name="MessageBackground" type="Sprite2D" parent="Camera2D/dialog2/Node2D"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.435455, 1.06545)
+texture = ExtResource("4_g0fd4")
+
+[node name="Message" type="Label" parent="Camera2D/dialog2/Node2D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -246.0
+offset_top = -219.0
+offset_right = 9714.0
+offset_bottom = 15877.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0509804, 0.0392157, 0.0901961, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("5_j6gdg")
+theme_override_font_sizes/font_size = 400
+text = "DIRETORES:
+HELYANE B. BORGES
+PEDRO R. PEREIRA
+
+PROGRAMAÇÃO:
+PEDRO R. PEREIRA
+
+GRÁFICOS:
+PEDRO R. PEREIRA
+
+MÚSICAS:
+LUCAS TAGATA
+
+DUBLAGLEM:
+PEDRO R. PEREIRA
+PAULO A. LUPEPSA
+ISABEL C. KAVALCO
+"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="."]
