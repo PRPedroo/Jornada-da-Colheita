@@ -2,12 +2,10 @@
 Trabalho de extensão orientado pela professora Helyane, UTFPR campus Ponta Grossa. O projeto consiste em um jogo educacional envolvendo Inteligência Artificial para a instituição Assarte (Associação Artesanal do Excepcional de Ponta Grossa).
 
 #Instalação
-Para testar o jogo basta instalar utilizando o link e seguindo os passos abaixo:
-<a href="drive.google.com/u/0/uc?id=1lArvmOkTGCm6MYHi7OsEez5qAbalWWLk&export=download">Windows (46,3 MB)</a>
-<a href="drive.google.com/u/0/uc?id=1rgg3KBYocWZmHdX3Iz2RqJLWidFYFNju&export=download">Linux (43,4 MB)</a>
+Para testar o jogo basta instalar na aba de lançamentos (releases) ao lado e seguir os passos abaixo:
 
 1. Possuindo o arquivo .zip, clique com o botão direito, e vá na opção extrair aqui.
-2. Após o passo 1, basta clicar no arquivo .exe que o jogo irá começar!
+2. Após o passo 1, basta clicar no arquivo executável que o jogo irá começar!
 
 # Sobre
 O jogo possui 4 fases, e o tema abrange os níveis da cadeia produtiva de alimentos, sendo eles, coleta, empacotamento, transporte e consumo.
